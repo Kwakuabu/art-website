@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="10" fill="#0c1220"/>
-  <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle"
-        font-family="Georgia, serif" font-weight="700" font-size="20"
-        letter-spacing="1" fill="#d4a017">ART</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="18" fill="#1B3A6B"/>
+  <rect x="6" y="6" width="88" height="88" rx="13" fill="none" stroke="#C9922A" stroke-width="2"/>
+  <text x="50" y="62" font-family="Georgia,serif" font-size="30" font-weight="700"
+        text-anchor="middle" fill="#C9922A" letter-spacing="1">ART</text>
+  <line x1="22" y1="70" x2="78" y2="70" stroke="#C9922A" stroke-width="1.5" opacity="0.45"/>
 </svg>
