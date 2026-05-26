@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ART Ghana — Ghana's Research Engine</title>
+  <title>ART Ghana: Ghana's Research Engine</title>
   <meta name="description" content="ART Ghana is Ghana's premier research platform. Connecting organisations and individuals with academically supervised, peer-reviewed research consultants across every domain." />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -434,7 +434,97 @@
     @media (max-width: 540px) { .svc-grid { grid-template-columns: 1fr; } }
 
     /* ══════════════════════════════════════════════════
-       §5  QUALITY ASSURANCE (dark)
+       §5  RESEARCH DEFENCE
+    ══════════════════════════════════════════════════ */
+    .defence { background: #fff; }
+    .defence-header { text-align: center; max-width: 720px; margin: 0 auto 72px; }
+
+    .bundle-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
+      margin-bottom: 52px; align-items: start;
+    }
+    .bundle-card {
+      border: 1px solid var(--card-border); border-radius: 4px;
+      padding: clamp(32px,3.5vw,48px) clamp(24px,3vw,40px);
+      position: relative; overflow: hidden;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s var(--ease);
+    }
+    .bundle-card--light { background: #fff; }
+    .bundle-card--dark {
+      background: var(--navy-deeper);
+      border-color: var(--gold-border);
+    }
+    .bundle-card--light:hover {
+      border-color: var(--gold-border);
+      box-shadow: 0 16px 48px rgba(27,58,107,0.1);
+      transform: translateY(-4px);
+    }
+    .bundle-card--dark:hover { transform: translateY(-4px); }
+    .bundle-popular {
+      position: absolute; top: -1px; right: 28px;
+      background: var(--gold); color: var(--navy-dark);
+      font-size: 9px; font-weight: 800; letter-spacing: 0.12em;
+      text-transform: uppercase; padding: 5px 14px;
+      border-radius: 0 0 8px 8px;
+    }
+    .bundle-tier {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .bundle-card--light .bundle-tier { color: var(--gold); }
+    .bundle-card--dark .bundle-tier { color: rgba(201,146,42,0.75); }
+    .bundle-title {
+      font-family: var(--playfair); font-size: clamp(22px,2.5vw,30px);
+      font-weight: 800; line-height: 1.15; margin-bottom: 14px;
+    }
+    .bundle-card--light .bundle-title { color: var(--dark-text); }
+    .bundle-card--dark .bundle-title { color: #fff; }
+    .bundle-panel-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 14px; border-radius: 100px; margin-bottom: 20px;
+    }
+    .bundle-card--light .bundle-panel-tag {
+      background: var(--gold-pale); border: 1px solid var(--gold-border); color: var(--gold);
+    }
+    .bundle-card--dark .bundle-panel-tag {
+      background: rgba(201,146,42,0.15); border: 1px solid var(--gold-border); color: var(--gold-light);
+    }
+    .bundle-desc {
+      font-size: 14px; line-height: 1.72; margin-bottom: 24px;
+      padding-bottom: 24px;
+    }
+    .bundle-card--light .bundle-desc { color: var(--body-text); border-bottom: 1px solid rgba(27,58,107,0.09); }
+    .bundle-card--dark .bundle-desc { color: var(--light-muted); border-bottom: 1px solid rgba(255,255,255,0.09); }
+    .bundle-features { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .bundle-feature {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; line-height: 1.5;
+    }
+    .bundle-card--light .bundle-feature { color: var(--body-text); }
+    .bundle-card--dark .bundle-feature { color: rgba(255,255,255,0.8); }
+    .bf-check {
+      flex-shrink: 0; color: var(--gold);
+      font-size: 12px; font-weight: 700; margin-top: 2px;
+    }
+
+    .defence-ethics {
+      background: var(--gold-pale); border: 1px solid var(--gold-border);
+      border-radius: 4px; padding: clamp(24px,3vw,36px) clamp(24px,3vw,44px);
+      display: flex; align-items: flex-start; gap: 20px;
+    }
+    .defence-ethics-icon { font-size: 30px; flex-shrink: 0; margin-top: 2px; }
+    .defence-ethics-body {}
+    .defence-ethics-title {
+      font-family: var(--playfair); font-size: 18px; font-weight: 700;
+      color: var(--dark-text); margin-bottom: 8px;
+    }
+    .defence-ethics-text { font-size: 15px; color: var(--body-text); line-height: 1.72; }
+    @media (max-width: 860px) { .bundle-grid { grid-template-columns: 1fr; } }
+
+    /* ══════════════════════════════════════════════════
+       §6  QUALITY ASSURANCE (dark)
     ══════════════════════════════════════════════════ */
     .quality { background: var(--navy); position: relative; overflow: hidden; }
     .quality::before {
@@ -744,7 +834,7 @@
   </a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
-    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#defence">Defence</a></li>
     <li><a href="#academy">ART Academy</a></li>
     <li><a href="#consultants">Consultants</a></li>
     <li>
@@ -761,7 +851,7 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#services" onclick="closeMobileMenu()">Services</a>
-  <a href="#how-it-works" onclick="closeMobileMenu()">How It Works</a>
+  <a href="#defence" onclick="closeMobileMenu()">Defence Service</a>
   <a href="#academy" onclick="closeMobileMenu()">ART Academy</a>
   <a href="#consultants" onclick="closeMobileMenu()">Consultants</a>
   <a href="https://web-production-2ebb7.up.railway.app" target="_blank">Login</a>
@@ -781,14 +871,14 @@
   <div class="hero-content">
     <div class="hero-eyebrow">
       <span class="hero-eyebrow-dot"></span>
-      Academy for Research &amp; Technology
+      Academy of Research &amp; Technology
     </div>
     <h1 class="hero-h1">
       <em>Ghana's</em>
       <span class="hero-h1-line2">Research Engine.</span>
     </h1>
     <p class="hero-sub">
-      The trusted platform connecting organisations and individuals with Ghana's most qualified research consultants — academically supervised, peer-reviewed, and delivered on time.
+      The trusted platform connecting organisations and individuals with Ghana's most qualified research consultants. Academically supervised, peer-reviewed, and delivered on time.
     </p>
     <div class="hero-ctas">
       <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html"
@@ -817,7 +907,7 @@
     <div class="eyebrow eyebrow--gold">Why ART Ghana</div>
     <h2 class="sh sh--dark">Grounded in<br>Academic Excellence</h2>
     <p class="sb sb--dark">
-      Every project on ART Ghana is backed by a framework built in partnership with leading Ghanaian academic institutions — ensuring your research meets the highest scholarly and professional standards.
+      Every project on ART Ghana is backed by a framework built with leading Ghanaian academic institutions. Your research is held to the highest scholarly and professional standards.
     </p>
   </div>
   <div class="cred-grid">
@@ -829,12 +919,12 @@
     <div class="cred-card reveal d2">
       <div class="cred-icon">⚙️</div>
       <div class="cred-title">Industry-Informed Methodology</div>
-      <p class="cred-desc">Research designs are calibrated to real-world requirements — bridging the gap between academic rigour and practical utility for businesses, NGOs, and government agencies.</p>
+      <p class="cred-desc">Research designs are grounded in real-world requirements, connecting academic standards with practical utility for businesses, NGOs, and government agencies.</p>
     </div>
     <div class="cred-card reveal d4">
       <div class="cred-icon">📋</div>
       <div class="cred-title">Peer-Reviewed Standards</div>
-      <p class="cred-desc">Deliverables are reviewed against international publication standards before handover — so you receive research you can present, publish, or act on with full confidence.</p>
+      <p class="cred-desc">Deliverables are reviewed against international publication standards before handover. You receive research you can present, publish, or act on with confidence.</p>
     </div>
   </div>
 </section>
@@ -858,7 +948,7 @@
     <div class="proj-card reveal">
       <span class="proj-tag">Market Research</span>
       <div class="proj-title">Impact of Mobile Money Adoption on SME Growth in Greater Accra</div>
-      <p class="proj-desc">A comprehensive study examining how mobile payment platforms have transformed operations across 220 small enterprises in Accra, La Dade Kotopon, and Tema — with actionable insights for fintech providers and policymakers.</p>
+      <p class="proj-desc">A study examining how mobile payment platforms transformed operations across 220 small enterprises in Accra, La Dade Kotopon, and Tema. Findings were adopted by fintech providers and used to inform policy at the district level.</p>
       <div class="proj-meta">
         <span class="proj-meta-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -931,7 +1021,7 @@
     <div class="eyebrow eyebrow--gold">Research Domains</div>
     <h2 class="sh sh--dark">Expertise Across<br>Every Domain</h2>
     <p class="sb sb--dark">
-      Whether you need a thesis, a market analysis, a policy brief, or a scientific study — ART Ghana connects you with the right expert, every time.
+      Whether you need a thesis, a market analysis, a policy brief, or a scientific study, ART Ghana connects you with the right expert.
     </p>
   </div>
   <div class="svc-grid">
@@ -940,7 +1030,7 @@
       <div class="svc-num">01</div>
       <div class="svc-icon">📚</div>
       <div class="svc-name">Academic Research</div>
-      <p class="svc-text">Thesis supervision, literature reviews, dissertations, and journal-ready papers across all disciplines — aligned with university standards.</p>
+      <p class="svc-text">Thesis supervision, literature reviews, dissertations, and journal-ready papers across all disciplines, aligned with university standards.</p>
     </div>
 
     <div class="svc-card reveal d1">
@@ -983,7 +1073,86 @@
 
 
 <!-- ══════════════════════════════════════════════════
-     §5  QUALITY ASSURANCE (dark)
+     §5  RESEARCH DEFENCE
+══════════════════════════════════════════════════ -->
+<section class="defence" id="defence">
+  <div class="defence-header reveal">
+    <div class="eyebrow eyebrow--gold">Premium Service</div>
+    <h2 class="sh sh--dark">Academic Research<br>Defence Service</h2>
+    <p class="sb sb--dark">
+      For research that demands formal academic validation, ART Ghana empanels vetted professors and senior industry practitioners to review, challenge, and certify your work. The process mirrors a formal thesis defence. Panel composition scales with your chosen bundle.
+    </p>
+  </div>
+
+  <div class="bundle-grid">
+
+    <!-- Starter -->
+    <div class="bundle-card bundle-card--light reveal">
+      <div class="bundle-tier">Starter Bundle</div>
+      <div class="bundle-title">Individual<br>Review</div>
+      <span class="bundle-panel-tag">
+        🎓 1 Academic Reviewer
+      </span>
+      <p class="bundle-desc">A single qualified academic provides a structured written review of your completed research, with a formal quality score and improvement recommendations.</p>
+      <ul class="bundle-features">
+        <li class="bundle-feature"><span class="bf-check">✓</span> 1 vetted academic reviewer</li>
+        <li class="bundle-feature"><span class="bf-check">✓</span> Written feedback report</li>
+        <li class="bundle-feature"><span class="bf-check">✓</span> Quality score certificate</li>
+        <li class="bundle-feature"><span class="bf-check">✓</span> One revision round included</li>
+      </ul>
+    </div>
+
+    <!-- Standard (featured) -->
+    <div class="bundle-card bundle-card--dark reveal d2">
+      <span class="bundle-popular">Most Popular</span>
+      <div class="bundle-tier">Standard Bundle</div>
+      <div class="bundle-title">Panel<br>Defence</div>
+      <span class="bundle-panel-tag">
+        🎓 2 Academics + 1 Industry Expert
+      </span>
+      <p class="bundle-desc">A structured defence session with a mixed academic and industry panel. Scholarly standards meet real-world relevance. Formal certificate issued on completion.</p>
+      <ul class="bundle-features">
+        <li class="bundle-feature"><span class="bf-check">✓</span> 2 academic reviewers</li>
+        <li class="bundle-feature"><span class="bf-check">✓</span> 1 senior industry practitioner</li>
+        <li class="bundle-feature"><span class="bf-check">✓</span> Live or virtual defence session</li>
+        <li class="bundle-feature"><span class="bf-check">✓</span> Structured examiner feedback</li>
+        <li class="bundle-feature"><span class="bf-check">✓</span> Formal defence certificate</li>
+        <li class="bundle-feature"><span class="bf-check">✓</span> Two revision rounds</li>
+      </ul>
+    </div>
+
+    <!-- Premium -->
+    <div class="bundle-card bundle-card--light reveal d4">
+      <div class="bundle-tier">Premium Bundle</div>
+      <div class="bundle-title">Full<br>Empanelment</div>
+      <span class="bundle-panel-tag">
+        🎓 3 Professors + 2 Industry Leaders
+      </span>
+      <p class="bundle-desc">The complete formal empanelment. Senior professors and industry leaders conduct a full viva-style defence, with an examiner-grade report and a publication-readiness assessment.</p>
+      <ul class="bundle-features">
+        <li class="bundle-feature"><span class="bf-check">✓</span> 3 senior professors</li>
+        <li class="bundle-feature"><span class="bf-check">✓</span> 2 industry leaders</li>
+        <li class="bundle-feature"><span class="bf-check">✓</span> Full viva-style defence session</li>
+        <li class="bundle-feature"><span class="bf-check">✓</span> Examiner-grade written report</li>
+        <li class="bundle-feature"><span class="bf-check">✓</span> Publication-readiness assessment</li>
+        <li class="bundle-feature"><span class="bf-check">✓</span> ART Ghana Seal of Excellence</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="defence-ethics reveal d1">
+    <div class="defence-ethics-icon">⚖️</div>
+    <div class="defence-ethics-body">
+      <div class="defence-ethics-title">Governed by the ART Ghana Academic Ethics Framework</div>
+      <p class="defence-ethics-text">All defence panels operate under strict ethical guidelines. Panel members declare conflicts of interest, sign confidentiality agreements, and evaluate work in line with ART Ghana's professional conduct standards. Every student receives a fair, independent assessment.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     §6  QUALITY ASSURANCE (dark)
 ══════════════════════════════════════════════════ -->
 <section class="quality" id="quality">
   <div class="quality-header reveal">
@@ -998,21 +1167,21 @@
     <div class="pillar reveal">
       <div class="pillar-icon">🔍</div>
       <div class="pillar-name">Plagiarism Detection</div>
-      <p class="pillar-desc">All written deliverables are scanned using Copyleaks — one of the world's leading plagiarism detection platforms — to guarantee originality before submission.</p>
+      <p class="pillar-desc">All written deliverables are scanned using Copyleaks, one of the world's leading plagiarism detection platforms, to confirm originality before submission.</p>
       <span class="pillar-badge">Powered by Copyleaks</span>
     </div>
 
     <div class="pillar reveal d2">
       <div class="pillar-icon">🤖</div>
       <div class="pillar-name">AI Content Detection</div>
-      <p class="pillar-desc">We screen every document for AI-generated content to ensure your research reflects genuine human expertise and intellectual rigour throughout.</p>
+      <p class="pillar-desc">We screen every document for AI-generated content to confirm your research reflects genuine human expertise throughout.</p>
       <span class="pillar-badge">Human-First Standard</span>
     </div>
 
     <div class="pillar reveal d4">
       <div class="pillar-icon">⭐</div>
       <div class="pillar-name">Quality Score Review</div>
-      <p class="pillar-desc">A senior ART reviewer scores each submission against our structured quality rubric — assessing clarity, methodology, evidence, and presentation before handover.</p>
+      <p class="pillar-desc">A senior ART reviewer scores each submission against our quality rubric, covering clarity, methodology, evidence, and presentation before handover.</p>
       <span class="pillar-badge">ART Quality Rubric</span>
     </div>
 
@@ -1028,7 +1197,7 @@
     <div class="eyebrow eyebrow--gold reveal">Process</div>
     <h2 class="sh sh--dark reveal d1">From Need to Result<br>in Four Steps</h2>
     <p class="sb sb--dark reveal d2">
-      A streamlined process so you spend less time coordinating and more time on what matters.
+      A simple process so you spend less time coordinating and more time on what matters.
     </p>
   </div>
   <div class="steps-row">
@@ -1038,7 +1207,7 @@
         <span class="step-num">01</span>
       </div>
       <div class="step-title">Post Your Need</div>
-      <p class="step-text">Describe your research project — topic, scope, deadline, and any specific requirements. It takes under five minutes to submit.</p>
+      <p class="step-text">Describe your research project: topic, scope, deadline, and any specific requirements. Takes under five minutes to submit.</p>
     </div>
 
     <div class="step reveal d1">
@@ -1054,7 +1223,7 @@
         <span class="step-num">03</span>
       </div>
       <div class="step-title">Collaborate</div>
-      <p class="step-text">Work directly with your consultant — share documents, provide feedback, and track progress in real time through our platform.</p>
+      <p class="step-text">Work directly with your consultant. Share documents, give feedback, and track progress in real time through our platform.</p>
     </div>
 
     <div class="step reveal d3">
@@ -1062,7 +1231,7 @@
         <span class="step-num">04</span>
       </div>
       <div class="step-title">Receive Deliverables</div>
-      <p class="step-text">Get quality-checked research you can present with full confidence — on time, within budget, and ready for action.</p>
+      <p class="step-text">Get quality-checked research you can present with confidence. On time, within budget, ready to use.</p>
     </div>
 
   </div>
@@ -1125,7 +1294,7 @@
         </span>
       </div>
       <div class="course-title">Statistical Analysis with SPSS &amp; Excel</div>
-      <p class="course-desc">Hands-on training in quantitative data analysis, hypothesis testing, and result interpretation tailored for social science researchers.</p>
+      <p class="course-desc">Practical training in quantitative data analysis, hypothesis testing, and result interpretation for social science researchers.</p>
       <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="course-link">
         Enrol Now
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1141,7 +1310,7 @@
         </span>
       </div>
       <div class="course-title">Qualitative Research Methods</div>
-      <p class="course-desc">Master in-depth interviews, focus group design, thematic analysis, and ethnographic methods for comprehensive social and community inquiry.</p>
+      <p class="course-desc">Master in-depth interviews, focus group design, thematic analysis, and ethnographic methods for social and community research.</p>
       <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="course-link">
         Enrol Now
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1157,7 +1326,7 @@
         </span>
       </div>
       <div class="course-title">Data Analysis with Python for Researchers</div>
-      <p class="course-desc">Apply Python to clean, analyse, and visualise complex research datasets using pandas, matplotlib, and scipy — no prior coding experience required.</p>
+      <p class="course-desc">Apply Python to clean, analyse, and visualise research datasets using pandas, matplotlib, and scipy. No prior coding experience needed.</p>
       <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="course-link">
         Enrol Now
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1198,7 +1367,7 @@
       <div class="eyebrow eyebrow--gold-light reveal">Consultant Programme</div>
       <h2 class="sh sh--light reveal d1">Turn Your Expertise<br>Into Income</h2>
       <p class="sb sb--light reveal d2">
-        Ghanaian students and academics hold knowledge that organisations urgently need. ART Ghana gives you the platform, the training, and the clients — you bring the expertise.
+        Ghanaian students and academics hold knowledge that organisations urgently need. ART Ghana gives you the platform, the training, and the clients. You bring the expertise.
       </p>
       <div class="cons-req-label reveal d3">Requirements</div>
       <ul class="req-list reveal d3">
@@ -1232,7 +1401,7 @@
           <span class="perk-ico">💰</span>
           <div class="perk-text">
             <strong>Competitive Project-Based Earnings</strong>
-            Set your availability and earn on your own terms — no fixed hours, no salary cap.
+            Set your availability and earn on your own terms. No fixed hours, no salary cap.
           </div>
         </li>
         <li class="perk">
@@ -1260,7 +1429,7 @@
           <span class="perk-ico">🔒</span>
           <div class="perk-text">
             <strong>Secure &amp; Guaranteed Payment</strong>
-            All payments are processed through the platform — protected, reliable, and on time.
+            All payments are processed through the platform. Protected, reliable, and on time.
           </div>
         </li>
       </ul>
@@ -1281,12 +1450,12 @@
 <section class="ceo-section" id="vision">
   <span class="big-quote reveal">"</span>
   <blockquote class="quote-body reveal d1">
-    Every student who graduates from a Ghanaian university carries research capability that the world needs. ART Ghana was built to give that capability a market — and to ensure that organisations seeking research excellence find it right here at home.
+    Every student who graduates from a Ghanaian university carries research capability that the world needs. ART Ghana was built to give that capability a market, so organisations seeking research excellence can find it right here at home.
   </blockquote>
   <div class="quote-rule reveal d2"></div>
   <div class="reveal d3">
     <div class="quote-name">Silas Asani Abudu</div>
-    <div class="quote-role">Founder &amp; CEO, Academy for Research &amp; Technology Ghana</div>
+    <div class="quote-role">Founder &amp; CEO, Academy of Research &amp; Technology Ghana</div>
   </div>
 </section>
 
@@ -1328,7 +1497,7 @@
   <div class="footer-top">
     <div>
       <div class="footer-brand-name">
-        Academy for Research<br>and Technology <span>Ghana</span>
+        Academy of Research<br>and Technology <span>Ghana</span>
       </div>
       <p class="footer-brand-desc">
         Connecting organisations and individuals with Ghana's best research talent. Quality research, made accessible to all.
@@ -1346,16 +1515,16 @@
       <div class="footer-col-title">Explore</div>
       <ul>
         <li><a href="#services">Our Services</a></li>
+        <li><a href="#defence">Research Defence</a></li>
         <li><a href="#how-it-works">How It Works</a></li>
         <li><a href="#academy">ART Academy</a></li>
         <li><a href="#consultants">Consultant Programme</a></li>
-        <li><a href="#vision">Our Vision</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <div class="footer-copy">
-      &copy; 2026 Academy for Research and Technology Ghana. All rights reserved.
+      &copy; 2026 Academy of Research and Technology Ghana. All rights reserved.
     </div>
     <div class="footer-ceo">
       Founded by <span>Silas Asani Abudu</span>, CEO &amp; Founder
