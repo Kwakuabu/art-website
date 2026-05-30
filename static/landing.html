@@ -103,7 +103,10 @@ tailwind.config = {
 <!-- NAV -->
 <nav id="main-nav" class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-slate-gray/10 h-20 transition-all duration-300">
   <div class="flex justify-between items-center max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop h-full">
-    <a href="/" class="font-headline-lg text-[18px] font-bold text-on-background no-underline">ART <span class="text-secondary">Ghana</span></a>
+    <a href="/" class="flex items-center gap-3 no-underline">
+      <img src="/static/logo.jpg" alt="ART Ghana logo" class="h-10 w-10 rounded-lg object-cover flex-shrink-0"/>
+      <span class="font-headline-lg text-[18px] font-bold text-on-background">ART <span class="text-secondary">Ghana</span></span>
+    </a>
     <div class="hidden md:flex gap-8 items-center">
       <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors no-underline" href="#services">Services</a>
       <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors no-underline" href="#academic">Students</a>
@@ -751,7 +754,10 @@ tailwind.config = {
 <footer class="bg-on-background text-paper-white py-20 border-t border-slate-gray/20">
   <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
     <div class="col-span-1 md:col-span-2">
-      <h2 class="font-headline-xl text-[22px] mb-6">ART Ghana</h2>
+      <div class="flex items-center gap-3 mb-6">
+        <img src="/static/logo.jpg" alt="ART Ghana logo" class="h-12 w-12 rounded-xl object-cover flex-shrink-0"/>
+        <h2 class="font-headline-xl text-[22px]">ART Ghana</h2>
+      </div>
       <p class="text-surface-variant max-w-sm mb-6 leading-relaxed text-[15px]">Connecting organisations and individuals with Ghana's best research talent. Quality research, made accessible to all.</p>
       <p class="text-surface-variant text-[15px]">Get in touch: <a href="mailto:acarestech@gmail.com" class="text-secondary-fixed hover:text-secondary transition-colors no-underline">acarestech@gmail.com</a></p>
     </div>
