@@ -15,7 +15,7 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "background":               "#fcf9f3",
+        "on-background":            "#1c1c18",
         "surface":                  "#fcf9f3",
         "surface-bright":           "#fcf9f3",
         "surface-dim":              "#dcdad4",
@@ -25,57 +25,59 @@ tailwind.config = {
         "surface-container-highest":"#e5e2dc",
         "surface-container-lowest": "#ffffff",
         "surface-variant":          "#e5e2dc",
-        "on-background":            "#1c1c18",
         "on-surface":               "#1c1c18",
         "on-surface-variant":       "#44474d",
         "outline":                  "#75777e",
         "outline-variant":          "#c5c6ce",
-        "primary":                  "#091830",
+        "background":               "#fcf9f3",
+        "primary":                  "#000000",
         "on-primary":               "#ffffff",
         "primary-container":        "#0d1b33",
         "secondary":                "#C9922A",
         "on-secondary":             "#ffffff",
         "secondary-container":      "#ffc256",
-        "secondary-fixed":          "#f9bc51",
-        "secondary-fixed-dim":      "#C9922A",
+        "secondary-fixed":          "#ffdeac",
+        "secondary-fixed-dim":      "#f9bc51",
+        "on-secondary-fixed":       "#281900",
         "on-secondary-container":   "#744f00",
-        "tertiary":                 "#1b3a6b",
+        "tertiary":                 "#000000",
         "tertiary-container":       "#001a40",
-        "paper-white":              "#ffffff",
+        "paper-white":              "#FFFFFF",
         "slate-gray":               "#475569",
         "ink-black":                "#020617",
       },
       borderRadius: {
-        "DEFAULT": "0.5rem",
-        "lg":      "0.75rem",
-        "xl":      "1rem",
-        "2xl":     "1.5rem",
-        "full":    "9999px",
+        "DEFAULT": "0.25rem",
+        "lg":  "0.5rem",
+        "xl":  "0.75rem",
+        "2xl": "1rem",
+        "full":"9999px",
       },
       spacing: {
         "margin-desktop": "64px",
-        "margin-mobile":  "20px",
+        "margin-mobile":  "16px",
         "gutter":         "24px",
         "section-gap":    "120px",
       },
       fontFamily: {
-        "display-lg":   ["Playfair Display", "Georgia", "serif"],
-        "headline-xl":  ["Playfair Display", "Georgia", "serif"],
-        "headline-lg":  ["Playfair Display", "Georgia", "serif"],
-        "body-lg":      ["Inter", "system-ui", "sans-serif"],
-        "body-md":      ["Inter", "system-ui", "sans-serif"],
-        "label-md":     ["Inter", "system-ui", "sans-serif"],
-        "label-sm":     ["Inter", "system-ui", "sans-serif"],
+        "label-md":          ["Inter"],
+        "body-md":           ["Inter"],
+        "headline-lg":       ["Playfair Display"],
+        "display-lg-mobile": ["Playfair Display"],
+        "headline-xl":       ["Playfair Display"],
+        "display-lg":        ["Playfair Display"],
+        "body-lg":           ["Inter"],
+        "label-sm":          ["Inter"],
       },
       fontSize: {
-        "display-lg":        ["56px",  {lineHeight:"1.1",  letterSpacing:"-0.02em", fontWeight:"700"}],
-        "display-lg-mobile": ["38px",  {lineHeight:"1.15", fontWeight:"700"}],
-        "headline-xl":       ["40px",  {lineHeight:"1.2",  fontWeight:"700"}],
-        "headline-lg":       ["32px",  {lineHeight:"1.3",  fontWeight:"600"}],
-        "body-lg":           ["18px",  {lineHeight:"1.6",  fontWeight:"400"}],
-        "body-md":           ["16px",  {lineHeight:"1.5",  fontWeight:"400"}],
-        "label-md":          ["14px",  {lineHeight:"1.2",  letterSpacing:"0.05em", fontWeight:"600"}],
-        "label-sm":          ["12px",  {lineHeight:"1.2",  fontWeight:"500"}],
+        "label-md":          ["14px", {lineHeight:"1.2", letterSpacing:"0.05em", fontWeight:"600"}],
+        "body-md":           ["16px", {lineHeight:"1.5", fontWeight:"400"}],
+        "headline-lg":       ["32px", {lineHeight:"1.3", fontWeight:"600"}],
+        "display-lg-mobile": ["36px", {lineHeight:"1.2", fontWeight:"700"}],
+        "headline-xl":       ["40px", {lineHeight:"1.2", fontWeight:"700"}],
+        "display-lg":        ["56px", {lineHeight:"1.1", letterSpacing:"-0.02em", fontWeight:"700"}],
+        "body-lg":           ["18px", {lineHeight:"1.6", fontWeight:"400"}],
+        "label-sm":          ["12px", {lineHeight:"1.2", fontWeight:"500"}],
       }
     }
   }
@@ -86,47 +88,31 @@ tailwind.config = {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
   }
   .hero-pattern {
-    background-color: #091830;
+    background-color: #1c1c18;
     background-image: radial-gradient(rgba(215,226,255,0.05) 1px, transparent 1px);
     background-size: 32px 32px;
   }
-  .glass-card {
-    background: rgba(255,255,255,0.06);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.08);
-  }
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .d1 { transition-delay: 0.08s; }
-  .d2 { transition-delay: 0.16s; }
-  .d3 { transition-delay: 0.24s; }
-  .d4 { transition-delay: 0.32s; }
+  .bimodal-card:hover .path-icon { transform: scale(1.1); }
+  .reveal { opacity:0; transform:translateY(20px); transition:opacity .65s ease, transform .65s ease; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s}
 </style>
 </head>
 <body class="bg-background text-on-surface font-body-md overflow-x-hidden">
 
 <!-- NAV -->
-<nav id="main-nav" class="fixed top-0 w-full z-50 bg-surface/95 backdrop-blur-md border-b border-slate-gray/10 h-20 transition-all duration-300 shadow-sm">
+<nav id="main-nav" class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-slate-gray/10 h-20 transition-all duration-300">
   <div class="flex justify-between items-center max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop h-full">
-    <a href="/" class="flex items-center gap-3 no-underline">
-      <div class="w-9 h-9 bg-on-background rounded-lg flex items-center justify-center flex-shrink-0">
-        <span class="font-label-md text-[11px] font-bold text-surface tracking-wider">ART</span>
-      </div>
-      <span class="font-headline-lg text-[17px] font-bold text-on-background tracking-tight">ART <span class="text-secondary">Ghana</span></span>
-    </a>
+    <a href="/" class="font-headline-lg text-[18px] font-bold text-on-background no-underline">ART <span class="text-secondary">Ghana</span></a>
     <div class="hidden md:flex gap-8 items-center">
-      <a class="font-label-md text-label-md text-on-surface-variant hover:text-on-background transition-colors no-underline" href="#services">Services</a>
-      <a class="font-label-md text-label-md text-on-surface-variant hover:text-on-background transition-colors no-underline" href="#academic">For Students</a>
-      <a class="font-label-md text-label-md text-on-surface-variant hover:text-on-background transition-colors no-underline" href="#defence">Defence</a>
-      <a class="font-label-md text-label-md text-on-surface-variant hover:text-on-background transition-colors no-underline" href="#academy">Academy</a>
-      <a class="font-label-md text-label-md text-on-surface-variant hover:text-on-background transition-colors no-underline" href="#consultants">Consultants</a>
-      <div class="flex gap-3 ml-4">
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors no-underline" href="#services">Services</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors no-underline" href="#academic">Students</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors no-underline" href="#defence">Defence</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors no-underline" href="#academy">Academy</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors no-underline" href="#consultants">Consultants</a>
+      <div class="flex gap-4 ml-4">
         <a href="https://web-production-2ebb7.up.railway.app" target="_blank"
-           class="font-label-md text-label-md text-on-background px-4 py-2 hover:text-secondary transition-colors no-underline">Login</a>
+           class="font-label-md text-label-md text-primary cursor-pointer px-4 py-2 hover:opacity-70 transition-opacity no-underline">Login</a>
         <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
            class="font-label-md text-label-md bg-on-background text-surface px-6 py-2.5 rounded-lg hover:opacity-90 transition-all shadow-sm no-underline">Get Started</a>
       </div>
@@ -139,382 +125,470 @@ tailwind.config = {
 
 <!-- MOBILE MENU -->
 <div id="mobileMenu" class="hidden fixed top-20 left-0 right-0 z-40 bg-surface/99 backdrop-blur-lg border-b border-slate-gray/10 shadow-lg">
-  <div class="flex flex-col px-margin-mobile py-6 gap-0 max-w-[1200px] mx-auto">
-    <a href="#services" class="font-label-md text-label-md text-on-surface-variant py-3.5 border-b border-outline-variant/30 no-underline hover:text-on-background transition-colors" onclick="closeMobileMenu()">Services</a>
-    <a href="#academic" class="font-label-md text-label-md text-on-surface-variant py-3.5 border-b border-outline-variant/30 no-underline hover:text-on-background transition-colors" onclick="closeMobileMenu()">For Students</a>
-    <a href="#defence" class="font-label-md text-label-md text-on-surface-variant py-3.5 border-b border-outline-variant/30 no-underline hover:text-on-background transition-colors" onclick="closeMobileMenu()">Defence Service</a>
-    <a href="#academy" class="font-label-md text-label-md text-on-surface-variant py-3.5 border-b border-outline-variant/30 no-underline hover:text-on-background transition-colors" onclick="closeMobileMenu()">ART Academy</a>
-    <a href="#consultants" class="font-label-md text-label-md text-on-surface-variant py-3.5 border-b border-outline-variant/30 no-underline hover:text-on-background transition-colors" onclick="closeMobileMenu()">Consultants</a>
+  <div class="flex flex-col px-margin-mobile py-6 gap-0">
+    <a href="#services" class="font-label-md text-label-md text-on-surface-variant py-3.5 border-b border-outline-variant/30 no-underline" onclick="closeMobileMenu()">Services</a>
+    <a href="#academic" class="font-label-md text-label-md text-on-surface-variant py-3.5 border-b border-outline-variant/30 no-underline" onclick="closeMobileMenu()">For Students</a>
+    <a href="#defence" class="font-label-md text-label-md text-on-surface-variant py-3.5 border-b border-outline-variant/30 no-underline" onclick="closeMobileMenu()">Defence</a>
+    <a href="#academy" class="font-label-md text-label-md text-on-surface-variant py-3.5 border-b border-outline-variant/30 no-underline" onclick="closeMobileMenu()">ART Academy</a>
+    <a href="#consultants" class="font-label-md text-label-md text-on-surface-variant py-3.5 border-b border-outline-variant/30 no-underline" onclick="closeMobileMenu()">Consultants</a>
     <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="font-label-md text-label-md text-on-surface-variant py-3.5 border-b border-outline-variant/30 no-underline">Login</a>
     <div class="flex flex-col gap-3 mt-5">
       <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
          class="font-label-md text-label-md bg-on-background text-surface px-6 py-3 rounded-lg text-center no-underline">Commission Research</a>
       <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
-         class="font-label-md text-label-md border-2 border-secondary text-secondary px-6 py-3 rounded-lg text-center no-underline">Get Research Support</a>
+         class="font-label-md text-label-md border border-secondary text-secondary px-6 py-3 rounded-lg text-center no-underline">Get Research Support</a>
     </div>
   </div>
 </div>
 
-<!-- HERO -->
-<section class="hero-pattern min-h-screen flex flex-col justify-center pt-32 pb-24 px-margin-mobile md:px-margin-desktop relative overflow-hidden" id="home">
-  <div class="max-w-[1200px] mx-auto relative z-10 text-center w-full">
-    <p class="font-label-md text-label-md text-secondary-fixed tracking-[0.2em] uppercase mb-8 reveal">Academy of Research and Technology Ghana</p>
-    <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-paper-white mx-auto leading-tight reveal">
-      <em class="italic text-secondary-fixed">Ghana's</em>
-      <span class="block not-italic">Research Partner.</span>
-    </h1>
-    <p class="font-body-lg text-body-lg text-surface-variant max-w-2xl mx-auto mt-6 mb-10 reveal d1">
-      We deliver credible, independently verified research for organisations that need answers and expert guidance for students who need support.
-    </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center reveal d2">
-      <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
-         class="font-label-md text-label-md bg-secondary text-on-secondary px-10 py-4 rounded-xl hover:opacity-90 transition-all shadow-lg flex items-center gap-2 no-underline">
-        Commission Research <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+<!-- HERO (Dual-Path) -->
+<header class="hero-pattern pt-40 pb-20 px-margin-mobile md:px-margin-desktop relative overflow-hidden" id="home">
+  <div class="max-w-[1200px] mx-auto relative z-10">
+    <div class="text-center mb-16">
+      <p class="font-label-md text-label-md text-secondary-fixed mb-4 tracking-[0.2em] uppercase reveal">Academy of Research and Technology Ghana</p>
+      <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-paper-white mb-6 max-w-4xl mx-auto leading-tight italic reveal">
+        <em class="text-secondary-fixed">Ghana's</em> Research Partner.
+      </h1>
+      <p class="font-body-lg text-body-lg text-surface-variant max-w-2xl mx-auto mb-4 reveal d1">
+        We deliver credible, independently verified research for organisations that need answers and expert guidance for students who need support.
+      </p>
+    </div>
+    <!-- Bimodal path cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter max-w-5xl mx-auto reveal d2">
+      <a class="bimodal-card group bg-white/5 backdrop-blur-sm border border-white/10 p-10 rounded-2xl transition-all hover:bg-white/10 hover:border-secondary-fixed/30 flex flex-col items-center text-center no-underline" href="#services">
+        <div class="path-icon w-20 h-20 bg-secondary/20 rounded-full flex items-center justify-center mb-8 transition-transform duration-500">
+          <span class="material-symbols-outlined text-secondary-fixed text-4xl">rocket_launch</span>
+        </div>
+        <h2 class="font-headline-xl text-paper-white mb-4">For Organisations</h2>
+        <p class="text-surface-variant font-body-md mb-8">Market research, impact evaluations, and strategic studies for businesses, NGOs, and government agencies.</p>
+        <span class="mt-auto text-secondary-fixed font-label-md uppercase tracking-wider flex items-center gap-2 group-hover:gap-4 transition-all">
+          Commission Research <span class="material-symbols-outlined">arrow_forward</span>
+        </span>
       </a>
-      <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
-         class="font-label-md text-label-md border border-paper-white/25 text-paper-white px-10 py-4 rounded-xl hover:bg-paper-white/10 transition-all no-underline">
-        Get Research Support
+      <a class="bimodal-card group bg-secondary/10 backdrop-blur-sm border border-secondary/20 p-10 rounded-2xl transition-all hover:bg-secondary/20 hover:border-secondary/40 flex flex-col items-center text-center no-underline" href="#academic">
+        <div class="path-icon w-20 h-20 bg-paper-white/10 rounded-full flex items-center justify-center mb-8 transition-transform duration-500">
+          <span class="material-symbols-outlined text-secondary-fixed text-4xl">auto_stories</span>
+        </div>
+        <h2 class="font-headline-xl text-paper-white mb-4">For Students</h2>
+        <p class="text-surface-variant font-body-md mb-8">Expert support for dissertations, data analysis, proposals, and every stage of your academic research journey.</p>
+        <span class="mt-auto text-secondary-fixed font-label-md uppercase tracking-wider flex items-center gap-2 group-hover:gap-4 transition-all">
+          Get Research Support <span class="material-symbols-outlined">arrow_forward</span>
+        </span>
       </a>
     </div>
   </div>
-  <div class="absolute bottom-8 left-8 md:left-margin-desktop text-paper-white/30 flex items-center gap-3 reveal">
-    <span class="w-10 h-px bg-paper-white/30 inline-block"></span>
-    <span class="font-label-sm text-label-sm tracking-widest uppercase">Scroll to explore</span>
-  </div>
-  <div class="absolute -top-20 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-[120px] pointer-events-none"></div>
-  <div class="absolute bottom-0 -left-20 w-96 h-96 bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
-</section>
+  <div class="absolute -top-20 -left-20 w-96 h-96 bg-secondary/10 rounded-full blur-[100px]"></div>
+  <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-primary/20 rounded-full blur-[100px]"></div>
+</header>
 
 <!-- FOR ORGANISATIONS -->
 <section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface" id="services">
   <div class="max-w-[1200px] mx-auto">
-    <div class="mb-16">
-      <p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-3 reveal">For Organisations</p>
-      <div class="flex flex-col md:flex-row justify-between items-end gap-8">
-        <h2 class="font-headline-xl text-headline-xl text-on-background max-w-lg reveal">Research that drives decisions.</h2>
-        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md reveal d1">
-          From market entry studies to impact evaluations, ART Ghana delivers research that organisations across Ghana rely on to make informed, confident decisions.
-        </p>
+    <!-- Left-border section header with stats -->
+    <div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-16 border-l-4 border-secondary pl-8 reveal">
+      <div class="max-w-2xl">
+        <p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-2">For Organisations</p>
+        <h2 class="font-headline-xl text-on-background mb-4">Research that drives decisions.</h2>
+        <p class="font-body-lg text-on-surface-variant">From market entry studies to impact evaluations, ART Ghana delivers research that organisations across Ghana rely on to make informed, confident decisions.</p>
+      </div>
+      <div class="hidden md:flex gap-4 flex-shrink-0">
+        <div class="text-center px-6 py-4 bg-surface-container rounded-lg">
+          <p class="text-2xl font-bold text-on-background">98%</p>
+          <p class="text-[10px] uppercase tracking-tighter text-on-surface-variant">Data Accuracy</p>
+        </div>
+        <div class="text-center px-6 py-4 bg-surface-container rounded-lg">
+          <p class="text-2xl font-bold text-on-background">3-Layer</p>
+          <p class="text-[10px] uppercase tracking-tighter text-on-surface-variant">QA Process</p>
+        </div>
       </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
-      <div class="p-8 bg-surface-container-lowest border border-slate-gray/10 rounded-xl hover:shadow-lg transition-all group reveal">
-        <div class="w-12 h-12 bg-surface-container-low rounded-xl flex items-center justify-center mb-6 text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">
-          <span class="material-symbols-outlined">analytics</span>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+      <div class="bg-paper-white p-8 border border-slate-gray/10 rounded-xl hover:shadow-xl transition-all group reveal">
+        <div class="flex justify-between items-start mb-6">
+          <span class="p-3 bg-on-background text-paper-white rounded-lg material-symbols-outlined">analytics</span>
+          <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-1 rounded uppercase">SMEs &amp; Startups</span>
         </div>
-        <p class="font-label-sm text-label-sm text-secondary mb-2">Business Research</p>
-        <h3 class="font-body-md text-[18px] font-semibold text-on-background mb-3 leading-snug">Market &amp; Feasibility Research</h3>
-        <p class="font-body-md text-on-surface-variant text-[15px]">Consumer surveys, competitor analysis, market sizing, and feasibility studies for SMEs, startups, and established businesses.</p>
+        <h3 class="font-headline-lg text-[22px] mb-4">Market &amp; Feasibility Research</h3>
+        <p class="text-on-surface-variant mb-6">Consumer surveys, competitor analysis, market sizing, and feasibility studies for SMEs, startups, and established businesses. Before you launch, expand, or invest — know the market.</p>
+        <div class="grid grid-cols-2 gap-4 border-t border-slate-gray/5 pt-6">
+          <div><p class="text-[10px] text-slate-gray uppercase">Key Output</p><p class="font-bold text-[15px]">Market Sizing</p></div>
+          <div><p class="text-[10px] text-slate-gray uppercase">Focus</p><p class="font-bold text-[15px]">Risk Mitigation</p></div>
+        </div>
       </div>
-      <div class="p-8 bg-surface-container-lowest border border-slate-gray/10 rounded-xl hover:shadow-lg transition-all group reveal d1">
-        <div class="w-12 h-12 bg-surface-container-low rounded-xl flex items-center justify-center mb-6 text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">
-          <span class="material-symbols-outlined">policy</span>
+      <div class="bg-paper-white p-8 border border-slate-gray/10 rounded-xl hover:shadow-xl transition-all group reveal d1">
+        <div class="flex justify-between items-start mb-6">
+          <span class="p-3 bg-on-background text-paper-white rounded-lg material-symbols-outlined">monitoring</span>
+          <span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-1 rounded uppercase">NGOs &amp; Govt</span>
         </div>
-        <p class="font-label-sm text-label-sm text-secondary mb-2">Development &amp; Policy</p>
-        <h3 class="font-body-md text-[18px] font-semibold text-on-background mb-3 leading-snug">Impact Evaluation &amp; Development Research</h3>
-        <p class="font-body-md text-on-surface-variant text-[15px]">Programme evaluations, needs assessments, and policy research for NGOs, development organisations, and government agencies.</p>
+        <h3 class="font-headline-lg text-[22px] mb-4">Impact Evaluation &amp; Development Research</h3>
+        <p class="text-on-surface-variant mb-6">Programme evaluations, needs assessments, and policy research for NGOs, development organisations, and government agencies. Measure what matters.</p>
+        <div class="grid grid-cols-2 gap-4 border-t border-slate-gray/5 pt-6">
+          <div><p class="text-[10px] text-slate-gray uppercase">Framework</p><p class="font-bold text-[15px]">Theory of Change</p></div>
+          <div><p class="text-[10px] text-slate-gray uppercase">Output</p><p class="font-bold text-[15px]">Donor-Ready Report</p></div>
+        </div>
       </div>
-      <div class="p-8 bg-surface-container-lowest border border-slate-gray/10 rounded-xl hover:shadow-lg transition-all group reveal d2">
-        <div class="w-12 h-12 bg-surface-container-low rounded-xl flex items-center justify-center mb-6 text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">
-          <span class="material-symbols-outlined">health_metrics</span>
+      <div class="bg-paper-white p-8 border border-slate-gray/10 rounded-xl hover:shadow-xl transition-all group reveal">
+        <div class="flex justify-between items-start mb-6">
+          <span class="p-3 bg-on-background text-paper-white rounded-lg material-symbols-outlined">health_metrics</span>
+          <span class="bg-purple-100 text-purple-800 text-[10px] font-bold px-2 py-1 rounded uppercase">Health &amp; Community</span>
         </div>
-        <p class="font-label-sm text-label-sm text-secondary mb-2">Health &amp; Social Sciences</p>
-        <h3 class="font-body-md text-[18px] font-semibold text-on-background mb-3 leading-snug">Health &amp; Community Research</h3>
-        <p class="font-body-md text-on-surface-variant text-[15px]">Research for health interventions, community programmes, and public health assessments designed to meet donor and publication standards.</p>
+        <h3 class="font-headline-lg text-[22px] mb-4">Health &amp; Community Research</h3>
+        <p class="text-on-surface-variant mb-6">Research for health interventions, community programmes, and public health assessments. Designed to meet donor reporting and publication standards.</p>
+        <div class="grid grid-cols-2 gap-4 border-t border-slate-gray/5 pt-6">
+          <div><p class="text-[10px] text-slate-gray uppercase">Standard</p><p class="font-bold text-[15px]">Publication-Ready</p></div>
+          <div><p class="text-[10px] text-slate-gray uppercase">Approach</p><p class="font-bold text-[15px]">Community-Led</p></div>
+        </div>
       </div>
-      <div class="p-8 bg-surface-container-lowest border border-slate-gray/10 rounded-xl hover:shadow-lg transition-all group reveal d3">
-        <div class="w-12 h-12 bg-surface-container-low rounded-xl flex items-center justify-center mb-6 text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">
-          <span class="material-symbols-outlined">corporate_fare</span>
+      <div class="bg-paper-white p-8 border border-slate-gray/10 rounded-xl hover:shadow-xl transition-all group reveal d1">
+        <div class="flex justify-between items-start mb-6">
+          <span class="p-3 bg-on-background text-paper-white rounded-lg material-symbols-outlined">corporate_fare</span>
+          <span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-1 rounded uppercase">Strategic</span>
         </div>
-        <p class="font-label-sm text-label-sm text-secondary mb-2">Business &amp; Management</p>
-        <h3 class="font-body-md text-[18px] font-semibold text-on-background mb-3 leading-snug">Corporate &amp; Strategic Research</h3>
-        <p class="font-body-md text-on-surface-variant text-[15px]">Organisational studies, HR research, financial analyses, and strategic assessments for leadership teams.</p>
+        <h3 class="font-headline-lg text-[22px] mb-4">Corporate &amp; Strategic Research</h3>
+        <p class="text-on-surface-variant mb-6">Organisational studies, HR research, financial analyses, and strategic assessments that give leadership teams the evidence base for their next move.</p>
+        <div class="grid grid-cols-2 gap-4 border-t border-slate-gray/5 pt-6">
+          <div><p class="text-[10px] text-slate-gray uppercase">Audience</p><p class="font-bold text-[15px]">C-Suite &amp; Boards</p></div>
+          <div><p class="text-[10px] text-slate-gray uppercase">Output</p><p class="font-bold text-[15px]">Strategy Report</p></div>
+        </div>
       </div>
     </div>
-    <div class="mt-16 bg-on-background p-10 md:p-12 rounded-xl text-paper-white flex flex-col md:flex-row items-center justify-between gap-8 reveal">
-      <div>
-        <h4 class="font-body-md text-[20px] font-semibold mb-2">Ready to commission a project?</h4>
-        <p class="text-surface-variant font-body-md">Every project is assigned a dedicated consultant team, supervised by a senior researcher, and delivered through ART Ghana's three-layer quality assurance process.</p>
-      </div>
+    <div class="mt-12 text-center reveal">
       <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
-         class="whitespace-nowrap font-label-md text-label-md bg-secondary text-on-secondary px-8 py-4 rounded-xl hover:opacity-90 transition-all flex items-center gap-2 no-underline flex-shrink-0">
+         class="inline-flex items-center gap-2 bg-on-background text-paper-white px-10 py-4 rounded-lg font-label-md hover:opacity-90 transition-all no-underline">
         Commission a Research Project <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- RESEARCH DEFENCE -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low" id="defence">
+<!-- FOR STUDENTS (Timeline) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low" id="academic">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-16 border-l-4 border-secondary pl-8 reveal">
+      <div class="max-w-2xl">
+        <p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-2">For Students &amp; Researchers</p>
+        <h2 class="font-headline-xl text-on-background mb-4">Expert support for every stage of your research.</h2>
+        <p class="font-body-lg text-on-surface-variant">Research can be overwhelming. ART Ghana's consultants provide the guidance, analysis, and writing support you need — from your first proposal to your final defence.</p>
+      </div>
+    </div>
+    <!-- Timeline milestones -->
+    <div class="relative space-y-12">
+      <div class="hidden lg:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px border-l-2 border-dashed border-secondary/30"></div>
+      <!-- Milestone 1 -->
+      <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 reveal">
+        <div class="flex-1 text-center lg:text-right">
+          <h3 class="font-headline-lg text-[22px] text-on-background mb-2">Proposal &amp; Research Design</h3>
+          <p class="text-on-surface-variant max-w-sm ml-auto">Full proposal writing, research question validation, methodology design, and ethical approval preparation. A strong proposal is the foundation of good research.</p>
+        </div>
+        <div class="relative z-10 w-16 h-16 bg-secondary text-on-secondary rounded-full flex items-center justify-center font-bold text-xl shadow-lg ring-8 ring-surface-container-low flex-shrink-0">01</div>
+        <div class="flex-1 hidden lg:block">
+          <div class="p-6 bg-paper-white rounded-xl border border-slate-gray/10 shadow-sm">
+            <p class="font-label-sm text-[11px] text-secondary uppercase mb-2">Service Highlight</p>
+            <p class="font-bold">Research Proposal Development</p>
+          </div>
+        </div>
+      </div>
+      <!-- Milestone 2 -->
+      <div class="flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-16 reveal">
+        <div class="flex-1 text-center lg:text-left">
+          <h3 class="font-headline-lg text-[22px] text-on-background mb-2">Literature &amp; Data Collection</h3>
+          <p class="text-on-surface-variant max-w-sm mr-auto">Systematic literature reviews that map the academic landscape, identify gaps, and position your research. Paired with structured data collection design.</p>
+        </div>
+        <div class="relative z-10 w-16 h-16 bg-secondary text-on-secondary rounded-full flex items-center justify-center font-bold text-xl shadow-lg ring-8 ring-surface-container-low flex-shrink-0">02</div>
+        <div class="flex-1 hidden lg:block">
+          <div class="p-6 bg-paper-white rounded-xl border border-slate-gray/10 shadow-sm">
+            <p class="font-label-sm text-[11px] text-secondary uppercase mb-2">Service Highlight</p>
+            <p class="font-bold">Literature Review Writing</p>
+          </div>
+        </div>
+      </div>
+      <!-- Milestone 3 -->
+      <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 reveal">
+        <div class="flex-1 text-center lg:text-right">
+          <h3 class="font-headline-lg text-[22px] text-on-background mb-2">Analysis &amp; Writing</h3>
+          <p class="text-on-surface-variant max-w-sm ml-auto">Advanced data analytics using SPSS, R, and Python — our analysts work with you to clean, analyse, and interpret your dataset. Followed by academic writing and editing support.</p>
+        </div>
+        <div class="relative z-10 w-16 h-16 bg-secondary text-on-secondary rounded-full flex items-center justify-center font-bold text-xl shadow-lg ring-8 ring-surface-container-low flex-shrink-0">03</div>
+        <div class="flex-1 hidden lg:block">
+          <div class="p-6 bg-paper-white rounded-xl border border-slate-gray/10 shadow-sm">
+            <p class="font-label-sm text-[11px] text-secondary uppercase mb-2">Service Highlight</p>
+            <p class="font-bold">Data Analysis (SPSS, R, Python)</p>
+          </div>
+        </div>
+      </div>
+      <!-- Milestone 4 -->
+      <div class="flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-16 reveal">
+        <div class="flex-1 text-center lg:text-left">
+          <h3 class="font-headline-lg text-[22px] text-on-background mb-2">Ethics &amp; Defence Preparation</h3>
+          <p class="text-on-surface-variant max-w-sm mr-auto">Navigate IRB applications and informed consent forms. Then prepare for your final defence with ART Ghana's academic panel programme — vetted professors ready to certify your work.</p>
+        </div>
+        <div class="relative z-10 w-16 h-16 bg-secondary text-on-secondary rounded-full flex items-center justify-center font-bold text-xl shadow-lg ring-8 ring-surface-container-low flex-shrink-0">04</div>
+        <div class="flex-1 hidden lg:block">
+          <div class="p-6 bg-paper-white rounded-xl border border-slate-gray/10 shadow-sm">
+            <p class="font-label-sm text-[11px] text-secondary uppercase mb-2">Service Highlight</p>
+            <p class="font-bold">Research Ethics &amp; Defence Service</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-20 p-10 bg-on-background rounded-2xl text-paper-white text-center flex flex-col items-center reveal">
+      <h3 class="font-headline-lg text-[24px] mb-4">Ready to get started?</h3>
+      <p class="text-surface-variant mb-8 max-w-xl">Commission your research support today and get matched with a consultant whose expertise fits your project.</p>
+      <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
+         class="inline-flex items-center gap-2 bg-secondary text-on-secondary px-10 py-4 rounded-lg font-label-md hover:opacity-90 transition-all no-underline">
+        Get Research Support <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH DEFENCE (Table format) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface" id="defence">
   <div class="max-w-[1200px] mx-auto">
     <div class="text-center mb-16 reveal">
-      <p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-3">Premium Service</p>
-      <h2 class="font-display-lg text-display-lg-mobile md:text-[44px] font-bold text-on-background mb-6 leading-tight">Academic Research<br>Defence Service</h2>
-      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
-        For organisations and researchers who need formal academic validation of their work, ART Ghana empanels vetted professors and senior industry practitioners to review, challenge, and certify findings. The panel composition scales with your chosen bundle.
-      </p>
+      <p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-2">Prestige &amp; Validation</p>
+      <h2 class="font-headline-xl text-on-background mb-4">Academic Research Defence Service</h2>
+      <p class="text-on-surface-variant max-w-2xl mx-auto">For organisations and researchers who need formal academic validation of their work, ART Ghana empanels vetted professors and senior industry practitioners to review, challenge, and certify findings.</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-      <!-- Starter -->
-      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-10 flex flex-col reveal">
-        <div class="mb-8">
-          <p class="font-label-md text-label-md text-on-surface-variant mb-2">Starter Bundle</p>
-          <h3 class="font-body-md text-[26px] font-semibold text-on-background leading-snug mb-3">Individual<br>Review</h3>
-          <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 border border-secondary/15 px-3 py-1.5 rounded-full inline-block">🎓 1 Academic Reviewer</span>
-        </div>
-        <p class="font-body-md text-[15px] text-on-surface-variant mb-6 pb-6 border-b border-slate-gray/10">A single qualified academic provides a structured written review of your completed research, with a formal quality score and improvement recommendations.</p>
-        <ul class="space-y-3 mb-auto font-body-md text-[15px] text-on-surface-variant">
-          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>1 vetted academic reviewer</li>
-          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>Written feedback report</li>
-          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>Quality score certificate</li>
-          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>One revision round included</li>
-        </ul>
-        <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
-           class="mt-10 w-full border-2 border-secondary text-secondary py-3 rounded-xl font-label-md text-label-md hover:bg-secondary hover:text-on-secondary transition-all text-center block no-underline">Select Starter</a>
-      </div>
-      <!-- Standard (featured) -->
-      <div class="bg-on-background text-paper-white rounded-xl p-10 flex flex-col relative md:-my-4 shadow-2xl z-10 reveal d1">
-        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-secondary text-on-secondary px-5 py-1.5 rounded-full font-label-sm text-[11px] font-bold uppercase tracking-wider whitespace-nowrap">Most Popular</div>
-        <div class="mb-8">
-          <p class="font-label-md text-label-md text-surface-variant mb-2">Standard Bundle</p>
-          <h3 class="font-body-md text-[26px] font-semibold text-paper-white leading-snug mb-3">Panel<br>Defence</h3>
-          <span class="font-label-sm text-label-sm text-secondary-fixed bg-secondary/15 border border-secondary/25 px-3 py-1.5 rounded-full inline-block">🎓 2 Academics + 1 Industry Expert</span>
-        </div>
-        <p class="font-body-md text-[15px] text-surface-variant mb-6 pb-6 border-b border-paper-white/10">A structured defence session with a mixed academic and industry panel. Scholarly standards meet real-world relevance. Formal certificate issued on completion.</p>
-        <ul class="space-y-3 mb-auto font-body-md text-[15px] text-surface-variant">
-          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary-fixed text-[18px] mt-0.5">check_circle</span>2 academic reviewers</li>
-          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary-fixed text-[18px] mt-0.5">check_circle</span>1 senior industry practitioner</li>
-          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary-fixed text-[18px] mt-0.5">check_circle</span>Live or virtual defence session</li>
-          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary-fixed text-[18px] mt-0.5">check_circle</span>Structured examiner feedback</li>
-          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary-fixed text-[18px] mt-0.5">check_circle</span>Formal defence certificate</li>
-          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary-fixed text-[18px] mt-0.5">check_circle</span>Two revision rounds</li>
-        </ul>
-        <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
-           class="mt-10 w-full bg-secondary text-on-secondary py-3 rounded-xl font-label-md text-label-md hover:opacity-90 transition-all text-center block no-underline">Select Standard</a>
-      </div>
-      <!-- Premium -->
-      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-10 flex flex-col reveal d2">
-        <div class="mb-8">
-          <p class="font-label-md text-label-md text-on-surface-variant mb-2">Premium Bundle</p>
-          <h3 class="font-body-md text-[26px] font-semibold text-on-background leading-snug mb-3">Full<br>Empanelment</h3>
-          <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 border border-secondary/15 px-3 py-1.5 rounded-full inline-block">🎓 3 Professors + 2 Industry Leaders</span>
-        </div>
-        <p class="font-body-md text-[15px] text-on-surface-variant mb-6 pb-6 border-b border-slate-gray/10">The complete formal empanelment. Senior professors and industry leaders conduct a full viva-style defence, with an examiner-grade report and a publication-readiness assessment.</p>
-        <ul class="space-y-3 mb-auto font-body-md text-[15px] text-on-surface-variant">
-          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>3 senior professors</li>
-          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>2 industry leaders</li>
-          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>Full viva-style defence session</li>
-          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>Examiner-grade written report</li>
-          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>Publication-readiness assessment</li>
-          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>ART Ghana Seal of Excellence</li>
-        </ul>
-        <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
-           class="mt-10 w-full border-2 border-secondary text-secondary py-3 rounded-xl font-label-md text-label-md hover:bg-secondary hover:text-on-secondary transition-all text-center block no-underline">Select Premium</a>
-      </div>
+    <div class="overflow-x-auto reveal">
+      <table class="w-full border-collapse bg-paper-white rounded-xl overflow-hidden shadow-lg border border-slate-gray/10">
+        <thead>
+          <tr class="bg-on-background text-paper-white">
+            <th class="p-6 md:p-8 text-left font-headline-lg text-[20px]">Features</th>
+            <th class="p-6 md:p-8 text-center font-headline-lg text-[20px]">Starter</th>
+            <th class="p-6 md:p-8 text-center font-headline-lg text-[20px] bg-on-background/90">Standard</th>
+            <th class="p-6 md:p-8 text-center font-headline-lg text-[20px] bg-secondary text-on-secondary">Premium</th>
+          </tr>
+        </thead>
+        <tbody class="text-on-surface-variant text-[15px]">
+          <tr class="border-b border-slate-gray/5">
+            <td class="p-5 md:p-6 font-semibold text-on-background">Panel Composition</td>
+            <td class="p-5 md:p-6 text-center">1 Academic Reviewer</td>
+            <td class="p-5 md:p-6 text-center">2 Academics + 1 Expert</td>
+            <td class="p-5 md:p-6 text-center font-bold">3 Professors + 2 Leaders</td>
+          </tr>
+          <tr class="border-b border-slate-gray/5 bg-surface-container-low/30">
+            <td class="p-5 md:p-6 font-semibold text-on-background">Format</td>
+            <td class="p-5 md:p-6 text-center">Written Review</td>
+            <td class="p-5 md:p-6 text-center">Live or Virtual Session</td>
+            <td class="p-5 md:p-6 text-center font-bold">Full Viva-Style Defence</td>
+          </tr>
+          <tr class="border-b border-slate-gray/5">
+            <td class="p-5 md:p-6 font-semibold text-on-background">Written Output</td>
+            <td class="p-5 md:p-6 text-center">Feedback + Quality Score</td>
+            <td class="p-5 md:p-6 text-center">Structured Examiner Feedback</td>
+            <td class="p-5 md:p-6 text-center font-bold">Examiner-Grade Report</td>
+          </tr>
+          <tr class="border-b border-slate-gray/5 bg-surface-container-low/30">
+            <td class="p-5 md:p-6 font-semibold text-on-background">Publication Assessment</td>
+            <td class="p-5 md:p-6 text-center">—</td>
+            <td class="p-5 md:p-6 text-center">—</td>
+            <td class="p-5 md:p-6 text-center font-bold">Publication-Readiness Report</td>
+          </tr>
+          <tr class="border-b border-slate-gray/5">
+            <td class="p-5 md:p-6 font-semibold text-on-background">Revision Rounds</td>
+            <td class="p-5 md:p-6 text-center">1 Round</td>
+            <td class="p-5 md:p-6 text-center">2 Rounds</td>
+            <td class="p-5 md:p-6 text-center font-bold">ART Ghana Seal of Excellence</td>
+          </tr>
+          <tr>
+            <td class="p-6 md:p-8"></td>
+            <td class="p-6 md:p-8 text-center">
+              <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
+                 class="w-full border border-on-background text-on-background py-3 px-4 rounded-lg font-label-md hover:bg-on-background hover:text-paper-white transition-all no-underline inline-block">Select Starter</a>
+            </td>
+            <td class="p-6 md:p-8 text-center">
+              <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
+                 class="w-full border border-on-background text-on-background py-3 px-4 rounded-lg font-label-md hover:bg-on-background hover:text-paper-white transition-all no-underline inline-block">Select Standard</a>
+            </td>
+            <td class="p-6 md:p-8 text-center">
+              <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
+                 class="w-full bg-secondary text-on-secondary py-3 px-4 rounded-lg font-label-md hover:opacity-90 transition-all shadow-lg no-underline inline-block">Go Premium</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="mt-12 p-8 border border-secondary/20 rounded-xl bg-secondary/5 flex items-start gap-6 reveal">
+    <div class="mt-10 p-8 border border-secondary/20 rounded-xl bg-secondary/5 flex items-start gap-6 reveal">
       <span class="material-symbols-outlined text-secondary text-4xl flex-shrink-0 mt-1">gavel</span>
       <div>
-        <p class="font-body-md text-[17px] font-semibold text-on-background mb-2">Governed by the ART Ghana Academic Ethics Framework</p>
-        <p class="font-body-md text-[15px] text-on-surface-variant">All defence panels operate under strict ethical guidelines. Panel members declare conflicts of interest, sign confidentiality agreements, and evaluate work in line with ART Ghana's professional conduct standards. Every student receives a fair, independent assessment.</p>
+        <p class="font-bold text-[17px] text-on-background mb-1">Governed by the ART Ghana Academic Ethics Framework</p>
+        <p class="text-on-surface-variant text-[15px]">All defence panels operate under strict ethical guidelines. Panel members declare conflicts of interest, sign confidentiality agreements, and evaluate work in line with ART Ghana's professional conduct standards.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- QUALITY STANDARDS (dark) -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-on-background relative overflow-hidden" id="quality">
-  <div class="max-w-[1200px] mx-auto relative z-10">
-    <div class="text-center mb-16 reveal">
-      <p class="font-label-md text-label-md text-secondary-fixed uppercase tracking-widest mb-3">Quality Standards</p>
-      <h2 class="font-headline-xl text-headline-xl text-paper-white mb-6">Research you can stand behind.</h2>
-      <p class="font-body-lg text-body-lg text-surface-variant max-w-2xl mx-auto">
-        Every deliverable, whether for a multinational NGO or a final-year student, goes through the same three-layer quality process before it leaves our platform.
-      </p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-      <div class="glass-card p-10 rounded-2xl text-center reveal">
-        <span class="material-symbols-outlined text-secondary-fixed mb-6 block" style="font-size:48px">pageview</span>
-        <h3 class="font-body-md text-[21px] font-semibold text-paper-white mb-4">Plagiarism Detection</h3>
-        <p class="font-body-md text-[15px] text-surface-variant mb-6">All written deliverables are scanned using Copyleaks, one of the world's leading plagiarism detection platforms, to confirm originality before submission.</p>
-        <span class="font-label-sm text-label-sm text-secondary-fixed bg-secondary/10 border border-secondary/20 px-4 py-1.5 rounded-full uppercase tracking-wider inline-block">Powered by Copyleaks</span>
-      </div>
-      <div class="glass-card p-10 rounded-2xl text-center reveal d1">
-        <span class="material-symbols-outlined text-secondary-fixed mb-6 block" style="font-size:48px">smart_toy</span>
-        <h3 class="font-body-md text-[21px] font-semibold text-paper-white mb-4">AI Content Detection</h3>
-        <p class="font-body-md text-[15px] text-surface-variant mb-6">We screen every document for AI-generated content to confirm your research reflects genuine human expertise throughout.</p>
-        <span class="font-label-sm text-label-sm text-secondary-fixed bg-secondary/10 border border-secondary/20 px-4 py-1.5 rounded-full uppercase tracking-wider inline-block">Human-First Standard</span>
-      </div>
-      <div class="glass-card p-10 rounded-2xl text-center reveal d2">
-        <span class="material-symbols-outlined text-secondary-fixed mb-6 block" style="font-size:48px">verified</span>
-        <h3 class="font-body-md text-[21px] font-semibold text-paper-white mb-4">Quality Score Review</h3>
-        <p class="font-body-md text-[15px] text-surface-variant mb-6">A senior ART reviewer scores each submission against our quality rubric, covering clarity, methodology, evidence, and presentation before handover.</p>
-        <span class="font-label-sm text-label-sm text-secondary-fixed bg-secondary/10 border border-secondary/20 px-4 py-1.5 rounded-full uppercase tracking-wider inline-block">ART Quality Rubric</span>
-      </div>
-    </div>
-  </div>
-  <div class="absolute top-0 right-0 w-64 h-64 bg-secondary opacity-5 blur-[120px] pointer-events-none"></div>
-  <div class="absolute bottom-0 left-0 w-96 h-96 bg-primary opacity-10 blur-[120px] pointer-events-none"></div>
-</section>
-
-<!-- FOR STUDENTS -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface" id="academic">
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-on-background text-paper-white" id="quality">
   <div class="max-w-[1200px] mx-auto">
-    <div class="mb-16 reveal">
-      <p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-3">For Students &amp; Researchers</p>
-      <div class="flex flex-col lg:flex-row justify-between items-end gap-8">
-        <h2 class="font-headline-xl text-headline-xl text-on-background max-w-lg">Expert support for every stage of your research.</h2>
-        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">From your first research proposal to your final defence, ART Ghana's consultants provide the guidance, analysis, and writing support you need to produce work you're proud of.</p>
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8 reveal">
+      <div>
+        <p class="font-label-md text-label-md text-secondary-fixed mb-4">Quality Assurance</p>
+        <h2 class="font-headline-xl italic mb-4">Research you can stand behind.</h2>
       </div>
+      <p class="text-surface-variant max-w-md">Every deliverable, whether for a multinational NGO or a final-year student, goes through the same three-layer quality process before it leaves our platform.</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
-      <div class="p-8 bg-surface-container-lowest border border-slate-gray/10 rounded-xl hover:-translate-y-1 transition-all reveal">
-        <span class="material-symbols-outlined text-secondary mb-4 block" style="font-size:30px">edit_note</span>
-        <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 inline-block px-3 py-1 rounded-full mb-4">Undergraduate to Doctoral</span>
-        <h3 class="font-body-md text-[19px] font-semibold text-on-background mb-3">Dissertation &amp; Thesis Support</h3>
-        <p class="font-body-md text-[15px] text-on-surface-variant">End-to-end support for undergraduate and postgraduate research: topic selection, proposal writing, methodology, data collection, analysis, and writeup.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-0">
+      <div class="relative group pb-12 md:pb-0 reveal">
+        <div class="absolute top-10 left-0 right-0 h-0.5 bg-slate-gray/30 hidden md:block"></div>
+        <div class="relative z-10 mb-8 w-20 h-20 bg-secondary rounded-xl flex items-center justify-center transition-transform group-hover:-translate-y-2">
+          <span class="material-symbols-outlined text-4xl">pageview</span>
+        </div>
+        <div class="pr-8">
+          <p class="text-secondary-fixed font-bold mb-2">01. Originality</p>
+          <h4 class="font-headline-lg text-[22px] mb-4">Plagiarism Detection</h4>
+          <p class="text-surface-variant text-[15px]">All written deliverables are scanned using Copyleaks, one of the world's leading plagiarism detection platforms, to confirm originality before submission.</p>
+          <span class="inline-block mt-4 font-label-sm text-[11px] text-secondary-fixed bg-secondary/10 border border-secondary/20 px-4 py-1.5 rounded-full uppercase tracking-wider">Powered by Copyleaks</span>
+        </div>
       </div>
-      <div class="p-8 bg-surface-container-lowest border border-slate-gray/10 rounded-xl hover:-translate-y-1 transition-all reveal d1">
-        <span class="material-symbols-outlined text-secondary mb-4 block" style="font-size:30px">biotech</span>
-        <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 inline-block px-3 py-1 rounded-full mb-4">All Levels</span>
-        <h3 class="font-body-md text-[19px] font-semibold text-on-background mb-3">Research Proposal Development</h3>
-        <p class="font-body-md text-[15px] text-on-surface-variant">A strong proposal is the foundation of good research. We help you define your research questions, justify your methodology, and build a compelling case for your supervisor or ethics board.</p>
+      <div class="relative group pb-12 md:pb-0 reveal d1">
+        <div class="absolute top-10 left-0 right-0 h-0.5 bg-slate-gray/30 hidden md:block"></div>
+        <div class="relative z-10 mb-8 w-20 h-20 bg-paper-white text-on-background rounded-xl flex items-center justify-center transition-transform group-hover:-translate-y-2">
+          <span class="material-symbols-outlined text-4xl">smart_toy</span>
+        </div>
+        <div class="pr-8">
+          <p class="text-secondary-fixed font-bold mb-2">02. Authenticity</p>
+          <h4 class="font-headline-lg text-[22px] mb-4">AI Content Detection</h4>
+          <p class="text-surface-variant text-[15px]">We screen every document for AI-generated content to confirm your research reflects genuine human expertise throughout.</p>
+          <span class="inline-block mt-4 font-label-sm text-[11px] text-secondary-fixed bg-secondary/10 border border-secondary/20 px-4 py-1.5 rounded-full uppercase tracking-wider">Human-First Standard</span>
+        </div>
       </div>
-      <div class="p-8 bg-surface-container-lowest border border-slate-gray/10 rounded-xl hover:-translate-y-1 transition-all reveal d2">
-        <span class="material-symbols-outlined text-secondary mb-4 block" style="font-size:30px">calculate</span>
-        <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 inline-block px-3 py-1 rounded-full mb-4">Undergraduate to Doctoral</span>
-        <h3 class="font-body-md text-[19px] font-semibold text-on-background mb-3">Data Analysis (SPSS, R, Python)</h3>
-        <p class="font-body-md text-[15px] text-on-surface-variant">Stuck on your numbers? Our analysts work with you to clean, analyse, and interpret your dataset and explain every step so you understand your own findings.</p>
-      </div>
-      <div class="p-8 bg-surface-container-lowest border border-slate-gray/10 rounded-xl hover:-translate-y-1 transition-all reveal">
-        <span class="material-symbols-outlined text-secondary mb-4 block" style="font-size:30px">menu_book</span>
-        <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 inline-block px-3 py-1 rounded-full mb-4">All Levels</span>
-        <h3 class="font-body-md text-[19px] font-semibold text-on-background mb-3">Literature Review Writing</h3>
-        <p class="font-body-md text-[15px] text-on-surface-variant">A thorough, well-structured literature review that maps the academic landscape of your topic, identifies gaps, and positions your research within the existing body of knowledge.</p>
-      </div>
-      <div class="p-8 bg-surface-container-lowest border border-slate-gray/10 rounded-xl hover:-translate-y-1 transition-all reveal d1">
-        <span class="material-symbols-outlined text-secondary mb-4 block" style="font-size:30px">history_edu</span>
-        <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 inline-block px-3 py-1 rounded-full mb-4">All Levels</span>
-        <h3 class="font-body-md text-[19px] font-semibold text-on-background mb-3">Academic Writing &amp; Editing</h3>
-        <p class="font-body-md text-[15px] text-on-surface-variant">From sentence structure to argument flow, we review and improve your academic writing while keeping your voice and ensuring your work meets journal and university standards.</p>
-      </div>
-      <div class="p-8 bg-surface-container-lowest border border-slate-gray/10 rounded-xl hover:-translate-y-1 transition-all reveal d2">
-        <span class="material-symbols-outlined text-secondary mb-4 block" style="font-size:30px">balance</span>
-        <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 inline-block px-3 py-1 rounded-full mb-4">Postgraduate &amp; Professional</span>
-        <h3 class="font-body-md text-[19px] font-semibold text-on-background mb-3">Research Ethics &amp; Compliance</h3>
-        <p class="font-body-md text-[15px] text-on-surface-variant">Navigate IRB applications, informed consent forms, and ethical review processes with confidence. We help you design research that is ethical, compliant, and defensible.</p>
+      <div class="relative group reveal d2">
+        <div class="relative z-10 mb-8 w-20 h-20 bg-paper-white text-on-background rounded-xl flex items-center justify-center transition-transform group-hover:-translate-y-2">
+          <span class="material-symbols-outlined text-4xl">verified</span>
+        </div>
+        <div class="pr-8">
+          <p class="text-secondary-fixed font-bold mb-2">03. Excellence</p>
+          <h4 class="font-headline-lg text-[22px] mb-4">Quality Score Review</h4>
+          <p class="text-surface-variant text-[15px]">A senior ART reviewer scores each submission against our quality rubric, covering clarity, methodology, evidence, and presentation before handover.</p>
+          <span class="inline-block mt-4 font-label-sm text-[11px] text-secondary-fixed bg-secondary/10 border border-secondary/20 px-4 py-1.5 rounded-full uppercase tracking-wider">ART Quality Rubric</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS (dark) -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-on-background" id="how-it-works">
+<!-- HOW IT WORKS (dark, rounded-square steps) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface" id="how-it-works">
   <div class="max-w-[1200px] mx-auto">
-    <div class="mb-16 max-w-xl reveal">
-      <p class="font-label-md text-label-md text-secondary-fixed uppercase tracking-widest mb-3">The Process</p>
-      <h2 class="font-headline-xl text-headline-xl text-paper-white mb-4">Simple from start to finish.</h2>
-      <p class="font-body-lg text-body-lg text-surface-variant">Whether you are an NGO commissioning a programme evaluation or a student completing your dissertation, the process is the same. Clear, trackable, and built around your deadline.</p>
+    <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 reveal">
+      <div>
+        <p class="font-label-md text-label-md text-secondary mb-4">The Process</p>
+        <h2 class="font-headline-xl italic text-on-background mb-4">Simple from start to finish.</h2>
+      </div>
+      <p class="text-on-surface-variant max-w-md">Whether you are an NGO commissioning a programme evaluation or a student completing your dissertation, the process is the same. Clear, trackable, and built around your deadline.</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter relative">
-      <div class="hidden md:block absolute top-10 left-0 w-full h-px bg-slate-gray/25 z-0"></div>
-      <div class="relative z-10 reveal">
-        <div class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mb-8 shadow-lg shadow-secondary/20">
-          <span class="font-display-lg text-[22px] font-bold text-on-secondary">01</span>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-0">
+      <div class="relative group pb-12 md:pb-0 reveal">
+        <div class="absolute top-10 left-0 right-0 h-0.5 bg-slate-gray/30 hidden md:block group-last:hidden"></div>
+        <div class="relative z-10 mb-8 w-20 h-20 bg-secondary rounded-xl flex items-center justify-center transition-transform group-hover:-translate-y-2">
+          <span class="material-symbols-outlined text-4xl">contact_support</span>
         </div>
-        <h4 class="font-body-md text-[18px] font-semibold text-paper-white mb-3">Tell us what you need</h4>
-        <p class="font-body-md text-[15px] text-surface-variant">Describe your research project: topic, scope, deadline, and any specific requirements. Takes under five minutes to submit.</p>
+        <div class="pr-8">
+          <p class="text-secondary font-bold mb-2">01. Brief</p>
+          <h4 class="font-headline-lg text-[20px] mb-4">Tell us what you need</h4>
+          <p class="text-on-surface-variant text-[15px]">Describe your research project: topic, scope, deadline, and any specific requirements. Takes under five minutes to submit.</p>
+        </div>
       </div>
-      <div class="relative z-10 reveal d1">
-        <div class="w-20 h-20 bg-paper-white text-on-background rounded-full flex items-center justify-center mb-8">
-          <span class="font-display-lg text-[22px] font-bold">02</span>
+      <div class="relative group pb-12 md:pb-0 reveal d1">
+        <div class="absolute top-10 left-0 right-0 h-0.5 bg-slate-gray/30 hidden md:block group-last:hidden"></div>
+        <div class="relative z-10 mb-8 w-20 h-20 bg-on-background text-paper-white rounded-xl flex items-center justify-center transition-transform group-hover:-translate-y-2">
+          <span class="material-symbols-outlined text-4xl">diversity_3</span>
         </div>
-        <h4 class="font-body-md text-[18px] font-semibold text-paper-white mb-3">We match you with the right team</h4>
-        <p class="font-body-md text-[15px] text-surface-variant">We surface consultants whose academic background and domain expertise fit your project. You choose who you work with.</p>
+        <div class="pr-8">
+          <p class="text-secondary font-bold mb-2">02. Match</p>
+          <h4 class="font-headline-lg text-[20px] mb-4">We match you with the right team</h4>
+          <p class="text-on-surface-variant text-[15px]">We surface consultants whose academic background and domain expertise fit your project. You choose who you work with.</p>
+        </div>
       </div>
-      <div class="relative z-10 reveal d2">
-        <div class="w-20 h-20 bg-paper-white text-on-background rounded-full flex items-center justify-center mb-8">
-          <span class="font-display-lg text-[22px] font-bold">03</span>
+      <div class="relative group pb-12 md:pb-0 reveal d2">
+        <div class="absolute top-10 left-0 right-0 h-0.5 bg-slate-gray/30 hidden md:block group-last:hidden"></div>
+        <div class="relative z-10 mb-8 w-20 h-20 bg-on-background text-paper-white rounded-xl flex items-center justify-center transition-transform group-hover:-translate-y-2">
+          <span class="material-symbols-outlined text-4xl">track_changes</span>
         </div>
-        <h4 class="font-body-md text-[18px] font-semibold text-paper-white mb-3">Track progress in real time</h4>
-        <p class="font-body-md text-[15px] text-surface-variant">Work directly with your consultant. Share documents, give feedback, and track progress in real time through our platform.</p>
+        <div class="pr-8">
+          <p class="text-secondary font-bold mb-2">03. Execute</p>
+          <h4 class="font-headline-lg text-[20px] mb-4">Track progress in real time</h4>
+          <p class="text-on-surface-variant text-[15px]">Work directly with your consultant. Share documents, give feedback, and track progress in real time through our platform.</p>
+        </div>
       </div>
-      <div class="relative z-10 reveal d3">
-        <div class="w-20 h-20 bg-paper-white text-on-background rounded-full flex items-center justify-center mb-8">
-          <span class="font-display-lg text-[22px] font-bold">04</span>
+      <div class="relative group reveal d3">
+        <div class="relative z-10 mb-8 w-20 h-20 bg-on-background text-paper-white rounded-xl flex items-center justify-center transition-transform group-hover:-translate-y-2">
+          <span class="material-symbols-outlined text-4xl">verified</span>
         </div>
-        <h4 class="font-body-md text-[18px] font-semibold text-paper-white mb-3">Receive and approve your research</h4>
-        <p class="font-body-md text-[15px] text-surface-variant">Get quality-checked research you can present with confidence. On time, within budget, ready to use.</p>
+        <div class="pr-8">
+          <p class="text-secondary font-bold mb-2">04. Deliver</p>
+          <h4 class="font-headline-lg text-[20px] mb-4">Receive and approve your research</h4>
+          <p class="text-on-surface-variant text-[15px]">Get quality-checked research you can present with confidence. On time, within budget, ready to use.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- OUR WORK -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface" id="portfolio">
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low" id="portfolio">
   <div class="max-w-[1200px] mx-auto">
-    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-      <div class="reveal">
-        <p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-3">Our Work</p>
-        <h2 class="font-headline-xl text-headline-xl text-on-background">A sample of what<br>we have delivered.</h2>
-      </div>
-      <p class="max-w-md font-body-md text-on-surface-variant reveal d1">Across academic institutions, development organisations, and private businesses, a snapshot of the research ART Ghana has produced.</p>
+    <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-8 reveal">
+      <h2 class="font-display-lg text-display-lg-mobile text-on-background italic">Proven <span class="text-secondary">Excellence</span>.</h2>
+      <p class="text-on-surface-variant max-w-md">Across academic institutions, development organisations, and private businesses, a snapshot of the research ART Ghana has produced.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-      <div class="bg-surface-container-lowest p-10 border border-slate-gray/10 rounded-xl flex flex-col gap-5 reveal">
-        <div class="flex justify-between items-start flex-wrap gap-3">
-          <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 px-3 py-1 rounded-full uppercase">Organisational Research</span>
-          <div class="flex gap-4 text-on-surface-variant font-label-sm text-[13px]">
-            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">schedule</span>5 weeks</span>
-            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">bar_chart</span>Quantitative</span>
+      <div class="bg-paper-white p-10 border border-slate-gray/10 rounded-2xl flex flex-col hover:border-on-background transition-colors reveal">
+        <div class="flex justify-between items-start mb-8">
+          <span class="font-label-sm text-on-primary bg-on-background px-4 py-1.5 rounded-full uppercase tracking-widest text-[10px]">Organisational Research</span>
+          <div class="flex gap-2 text-on-surface-variant">
+            <span class="text-[13px]">5 weeks · Quantitative</span>
           </div>
         </div>
-        <h3 class="font-body-md text-[20px] font-semibold text-on-background">Mobile Money Adoption and SME Growth in Greater Accra</h3>
-        <p class="font-body-md text-[15px] text-on-surface-variant flex-1">A quantitative study examining how mobile payment platforms changed operations across 220 small enterprises in Accra, La Dade Kotopon, and Tema. Findings were shared with fintech providers and used in district-level policy discussions.</p>
-        <div class="pt-5 border-t border-slate-gray/10">
-          <span class="text-secondary font-label-md flex items-center gap-2 cursor-default">View Case Details <span class="material-symbols-outlined text-[18px]">chevron_right</span></span>
+        <h3 class="font-headline-lg text-[22px] mb-4 leading-snug">Mobile Money Adoption and SME Growth in Greater Accra</h3>
+        <p class="text-on-surface-variant mb-8 flex-1 text-[15px]">A quantitative study examining how mobile payment platforms changed operations across 220 small enterprises in Accra, La Dade Kotopon, and Tema. Findings were shared with fintech providers and used in district-level policy discussions.</p>
+        <div class="mt-auto flex items-center justify-between pt-6 border-t border-slate-gray/5">
+          <span class="text-[14px] font-bold">5-Week Delivery</span>
+          <span class="text-secondary font-label-md flex items-center gap-2 cursor-default">Full Case <span class="material-symbols-outlined text-[18px]">chevron_right</span></span>
         </div>
       </div>
-      <div class="bg-surface-container-lowest p-10 border border-slate-gray/10 rounded-xl flex flex-col gap-5 reveal d1">
-        <div class="flex justify-between items-start flex-wrap gap-3">
-          <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 px-3 py-1 rounded-full uppercase">Academic Research</span>
-          <div class="flex gap-4 text-on-surface-variant font-label-sm text-[13px]">
-            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">schedule</span>8 weeks</span>
-            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">layers</span>Mixed Methods</span>
+      <div class="bg-paper-white p-10 border border-slate-gray/10 rounded-2xl flex flex-col hover:border-secondary transition-colors reveal d1">
+        <div class="flex justify-between items-start mb-8">
+          <span class="font-label-sm text-on-secondary bg-secondary px-4 py-1.5 rounded-full uppercase tracking-widest text-[10px]">Academic Research</span>
+          <div class="flex gap-2 text-on-surface-variant">
+            <span class="text-[13px]">8 weeks · Mixed Methods</span>
           </div>
         </div>
-        <h3 class="font-body-md text-[20px] font-semibold text-on-background">Digital Financial Inclusion in Rural Volta Region</h3>
-        <p class="font-body-md text-[15px] text-on-surface-variant flex-1">A mixed-methods undergraduate dissertation exploring barriers to digital banking adoption among rural communities. The study combined household surveys with in-depth interviews across four districts.</p>
-        <div class="pt-5 border-t border-slate-gray/10">
-          <span class="text-secondary font-label-md flex items-center gap-2 cursor-default">View Case Details <span class="material-symbols-outlined text-[18px]">chevron_right</span></span>
+        <h3 class="font-headline-lg text-[22px] mb-4 leading-snug">Digital Financial Inclusion in Rural Volta Region</h3>
+        <p class="text-on-surface-variant mb-8 flex-1 text-[15px]">A mixed-methods undergraduate dissertation exploring barriers to digital banking adoption among rural communities. The study combined household surveys with in-depth interviews across four districts.</p>
+        <div class="mt-auto flex items-center justify-between pt-6 border-t border-slate-gray/5">
+          <span class="text-[14px] font-bold">Nurtured Excellence</span>
+          <span class="text-secondary font-label-md flex items-center gap-2 cursor-default">Full Case <span class="material-symbols-outlined text-[18px]">chevron_right</span></span>
         </div>
       </div>
-      <div class="bg-surface-container-lowest p-10 border border-slate-gray/10 rounded-xl flex flex-col gap-5 reveal">
-        <div class="flex justify-between items-start flex-wrap gap-3">
-          <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 px-3 py-1 rounded-full uppercase">Development Research</span>
-          <div class="flex gap-4 text-on-surface-variant font-label-sm text-[13px]">
-            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">schedule</span>6 weeks</span>
-            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">science</span>Pre-Post Design</span>
+      <div class="bg-paper-white p-10 border border-slate-gray/10 rounded-2xl flex flex-col hover:border-on-background transition-colors reveal">
+        <div class="flex justify-between items-start mb-8">
+          <span class="font-label-sm text-on-primary bg-on-background px-4 py-1.5 rounded-full uppercase tracking-widest text-[10px]">Development Research</span>
+          <div class="flex gap-2 text-on-surface-variant">
+            <span class="text-[13px]">6 weeks · Pre-Post Design</span>
           </div>
         </div>
-        <h3 class="font-body-md text-[20px] font-semibold text-on-background">Nutrition Intervention Impact Assessment, Northern Region</h3>
-        <p class="font-body-md text-[15px] text-on-surface-variant flex-1">An impact evaluation conducted for an NGO running a community nutrition programme. Measured outcomes across 12 communities using pre and post intervention data collection.</p>
-        <div class="pt-5 border-t border-slate-gray/10">
-          <span class="text-secondary font-label-md flex items-center gap-2 cursor-default">View Case Details <span class="material-symbols-outlined text-[18px]">chevron_right</span></span>
+        <h3 class="font-headline-lg text-[22px] mb-4 leading-snug">Nutrition Intervention Impact Assessment, Northern Region</h3>
+        <p class="text-on-surface-variant mb-8 flex-1 text-[15px]">An impact evaluation conducted for an NGO running a community nutrition programme. Measured outcomes across 12 communities using pre and post intervention data collection.</p>
+        <div class="mt-auto flex items-center justify-between pt-6 border-t border-slate-gray/5">
+          <span class="text-[14px] font-bold">NGO Impact</span>
+          <span class="text-secondary font-label-md flex items-center gap-2 cursor-default">Full Case <span class="material-symbols-outlined text-[18px]">chevron_right</span></span>
         </div>
       </div>
-      <div class="bg-surface-container-lowest p-10 border border-slate-gray/10 rounded-xl flex flex-col gap-5 reveal d1">
-        <div class="flex justify-between items-start flex-wrap gap-3">
-          <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 px-3 py-1 rounded-full uppercase">Business Research</span>
-          <div class="flex gap-4 text-on-surface-variant font-label-sm text-[13px]">
-            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">schedule</span>3 weeks</span>
-            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">search</span>Survey · Desk Research</span>
+      <div class="bg-paper-white p-10 border border-slate-gray/10 rounded-2xl flex flex-col hover:border-secondary transition-colors reveal d1">
+        <div class="flex justify-between items-start mb-8">
+          <span class="font-label-sm text-on-secondary bg-secondary px-4 py-1.5 rounded-full uppercase tracking-widest text-[10px]">Business Research</span>
+          <div class="flex gap-2 text-on-surface-variant">
+            <span class="text-[13px]">3 weeks · Survey &amp; Desk</span>
           </div>
         </div>
-        <h3 class="font-body-md text-[20px] font-semibold text-on-background">Agri-Tech Market Sizing for Smallholder Farmer Platform</h3>
-        <p class="font-body-md text-[15px] text-on-surface-variant flex-1">A feasibility and market sizing study for a proposed digital platform targeting smallholder farmers in three regions. Included competitor mapping, willingness-to-pay analysis, and demand projections.</p>
-        <div class="pt-5 border-t border-slate-gray/10">
-          <span class="text-secondary font-label-md flex items-center gap-2 cursor-default">View Case Details <span class="material-symbols-outlined text-[18px]">chevron_right</span></span>
+        <h3 class="font-headline-lg text-[22px] mb-4 leading-snug">Agri-Tech Market Sizing for Smallholder Farmer Platform</h3>
+        <p class="text-on-surface-variant mb-8 flex-1 text-[15px]">A feasibility and market sizing study for a proposed digital platform targeting smallholder farmers in three regions. Included competitor mapping, willingness-to-pay analysis, and demand projections.</p>
+        <div class="mt-auto flex items-center justify-between pt-6 border-t border-slate-gray/5">
+          <span class="text-[14px] font-bold">3-Week Velocity</span>
+          <span class="text-secondary font-label-md flex items-center gap-2 cursor-default">Full Case <span class="material-symbols-outlined text-[18px]">chevron_right</span></span>
         </div>
       </div>
     </div>
@@ -522,186 +596,126 @@ tailwind.config = {
 </section>
 
 <!-- ART ACADEMY -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low" id="academy">
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface" id="academy">
   <div class="max-w-[1200px] mx-auto">
-    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-      <div class="reveal">
-        <p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-3">ART Academy</p>
-        <h2 class="font-headline-xl text-headline-xl text-on-background">Build the skills.<br>Do the work.</h2>
+    <div class="flex flex-col md:flex-row justify-between items-end gap-8 mb-16 border-l-4 border-secondary pl-8 reveal">
+      <div class="max-w-xl">
+        <p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-2">ART Academy</p>
+        <h2 class="font-headline-xl text-on-background mb-4">Build the skills. Do the work.</h2>
+        <p class="font-body-lg text-on-surface-variant">Short, practical training programmes open to students, working professionals, and anyone who wants to conduct better research. Built around Ghanaian research contexts.</p>
       </div>
-      <p class="max-w-md font-body-lg text-body-lg text-on-surface-variant reveal d1">Our training programmes are open to students, working professionals, and anyone who wants to conduct better research. Short, practical, and built around Ghanaian research contexts.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
-      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-8 flex flex-col hover:shadow-md transition-all reveal">
+      <div class="bg-paper-white border border-slate-gray/10 rounded-xl p-8 flex flex-col hover:shadow-xl transition-all reveal">
         <div class="flex items-center gap-3 mb-5">
-          <span class="font-label-sm text-label-sm text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-3 py-1 rounded-full uppercase">Beginner</span>
-          <span class="font-label-sm text-[12px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>4 Weeks</span>
+          <span class="font-label-sm text-[11px] text-emerald-700 bg-emerald-100 px-3 py-1 rounded uppercase font-bold">Beginner</span>
+          <span class="text-[12px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>4 Weeks</span>
         </div>
-        <h3 class="font-body-md text-[18px] font-semibold text-on-background mb-3">Research Methods Fundamentals</h3>
-        <p class="font-body-md text-[15px] text-on-surface-variant flex-1 mb-6">Master the building blocks of rigorous research design, literature review strategies, and data collection methods across academic disciplines.</p>
+        <h3 class="font-headline-lg text-[20px] text-on-background mb-3 leading-snug">Research Methods Fundamentals</h3>
+        <p class="text-on-surface-variant text-[15px] flex-1 mb-6">Master the building blocks of rigorous research design, literature review strategies, and data collection methods across academic disciplines.</p>
         <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="font-label-md text-label-md text-secondary flex items-center gap-2 no-underline hover:gap-4 transition-all">Enrol Now <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
       </div>
-      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-8 flex flex-col hover:shadow-md transition-all reveal d1">
+      <div class="bg-paper-white border border-slate-gray/10 rounded-xl p-8 flex flex-col hover:shadow-xl transition-all reveal d1">
         <div class="flex items-center gap-3 mb-5">
-          <span class="font-label-sm text-label-sm text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-3 py-1 rounded-full uppercase">Beginner</span>
-          <span class="font-label-sm text-[12px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>3 Weeks</span>
+          <span class="font-label-sm text-[11px] text-emerald-700 bg-emerald-100 px-3 py-1 rounded uppercase font-bold">Beginner</span>
+          <span class="text-[12px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>3 Weeks</span>
         </div>
-        <h3 class="font-body-md text-[18px] font-semibold text-on-background mb-3">Academic Writing for Publication</h3>
-        <p class="font-body-md text-[15px] text-on-surface-variant flex-1 mb-6">Learn to write compelling research papers, structured abstracts, and literature reviews aligned with international journal publication standards.</p>
+        <h3 class="font-headline-lg text-[20px] text-on-background mb-3 leading-snug">Academic Writing for Publication</h3>
+        <p class="text-on-surface-variant text-[15px] flex-1 mb-6">Learn to write compelling research papers, structured abstracts, and literature reviews aligned with international journal publication standards.</p>
         <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="font-label-md text-label-md text-secondary flex items-center gap-2 no-underline hover:gap-4 transition-all">Enrol Now <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
       </div>
-      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-8 flex flex-col hover:shadow-md transition-all reveal d2">
+      <div class="bg-paper-white border border-slate-gray/10 rounded-xl p-8 flex flex-col hover:shadow-xl transition-all reveal d2">
         <div class="flex items-center gap-3 mb-5">
-          <span class="font-label-sm text-label-sm text-blue-700 bg-blue-50 border border-blue-200/80 px-3 py-1 rounded-full uppercase">Intermediate</span>
-          <span class="font-label-sm text-[12px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>6 Weeks</span>
+          <span class="font-label-sm text-[11px] text-blue-700 bg-blue-100 px-3 py-1 rounded uppercase font-bold">Intermediate</span>
+          <span class="text-[12px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>6 Weeks</span>
         </div>
-        <h3 class="font-body-md text-[18px] font-semibold text-on-background mb-3">Statistical Analysis with SPSS &amp; Excel</h3>
-        <p class="font-body-md text-[15px] text-on-surface-variant flex-1 mb-6">Practical training in quantitative data analysis, hypothesis testing, and result interpretation for social science researchers.</p>
+        <h3 class="font-headline-lg text-[20px] text-on-background mb-3 leading-snug">Statistical Analysis with SPSS &amp; Excel</h3>
+        <p class="text-on-surface-variant text-[15px] flex-1 mb-6">Practical training in quantitative data analysis, hypothesis testing, and result interpretation for social science researchers.</p>
         <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="font-label-md text-label-md text-secondary flex items-center gap-2 no-underline hover:gap-4 transition-all">Enrol Now <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
       </div>
-      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-8 flex flex-col hover:shadow-md transition-all reveal">
+      <div class="bg-paper-white border border-slate-gray/10 rounded-xl p-8 flex flex-col hover:shadow-xl transition-all reveal">
         <div class="flex items-center gap-3 mb-5">
-          <span class="font-label-sm text-label-sm text-blue-700 bg-blue-50 border border-blue-200/80 px-3 py-1 rounded-full uppercase">Intermediate</span>
-          <span class="font-label-sm text-[12px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>5 Weeks</span>
+          <span class="font-label-sm text-[11px] text-blue-700 bg-blue-100 px-3 py-1 rounded uppercase font-bold">Intermediate</span>
+          <span class="text-[12px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>5 Weeks</span>
         </div>
-        <h3 class="font-body-md text-[18px] font-semibold text-on-background mb-3">Qualitative Research Methods</h3>
-        <p class="font-body-md text-[15px] text-on-surface-variant flex-1 mb-6">Master in-depth interviews, focus group design, thematic analysis, and ethnographic methods for social and community research.</p>
+        <h3 class="font-headline-lg text-[20px] text-on-background mb-3 leading-snug">Qualitative Research Methods</h3>
+        <p class="text-on-surface-variant text-[15px] flex-1 mb-6">Master in-depth interviews, focus group design, thematic analysis, and ethnographic methods for social and community research.</p>
         <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="font-label-md text-label-md text-secondary flex items-center gap-2 no-underline hover:gap-4 transition-all">Enrol Now <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
       </div>
-      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-8 flex flex-col hover:shadow-md transition-all reveal d1">
+      <div class="bg-paper-white border border-slate-gray/10 rounded-xl p-8 flex flex-col hover:shadow-xl transition-all reveal d1">
         <div class="flex items-center gap-3 mb-5">
-          <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 border border-secondary/20 px-3 py-1 rounded-full uppercase">Advanced</span>
-          <span class="font-label-sm text-[12px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>8 Weeks</span>
+          <span class="font-label-sm text-[11px] text-amber-700 bg-amber-100 px-3 py-1 rounded uppercase font-bold">Advanced</span>
+          <span class="text-[12px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>8 Weeks</span>
         </div>
-        <h3 class="font-body-md text-[18px] font-semibold text-on-background mb-3">Data Analysis with Python for Researchers</h3>
-        <p class="font-body-md text-[15px] text-on-surface-variant flex-1 mb-6">Apply Python to clean, analyse, and visualise research datasets using pandas, matplotlib, and scipy. No prior coding experience needed.</p>
+        <h3 class="font-headline-lg text-[20px] text-on-background mb-3 leading-snug">Data Analysis with Python for Researchers</h3>
+        <p class="text-on-surface-variant text-[15px] flex-1 mb-6">Apply Python to clean, analyse, and visualise research datasets using pandas, matplotlib, and scipy. No prior coding experience needed.</p>
         <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="font-label-md text-label-md text-secondary flex items-center gap-2 no-underline hover:gap-4 transition-all">Enrol Now <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
       </div>
-      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-8 flex flex-col hover:shadow-md transition-all reveal d2">
+      <div class="bg-paper-white border border-slate-gray/10 rounded-xl p-8 flex flex-col hover:shadow-xl transition-all reveal d2">
         <div class="flex items-center gap-3 mb-5">
-          <span class="font-label-sm text-label-sm text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-3 py-1 rounded-full uppercase">Beginner</span>
-          <span class="font-label-sm text-[12px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>2 Weeks</span>
+          <span class="font-label-sm text-[11px] text-emerald-700 bg-emerald-100 px-3 py-1 rounded uppercase font-bold">Beginner</span>
+          <span class="text-[12px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>2 Weeks</span>
         </div>
-        <h3 class="font-body-md text-[18px] font-semibold text-on-background mb-3">Research Ethics &amp; Academic Integrity</h3>
-        <p class="font-body-md text-[15px] text-on-surface-variant flex-1 mb-6">Essential training on research ethics, plagiarism prevention, informed consent protocols, and the responsible conduct of research in Ghana.</p>
+        <h3 class="font-headline-lg text-[20px] text-on-background mb-3 leading-snug">Research Ethics &amp; Academic Integrity</h3>
+        <p class="text-on-surface-variant text-[15px] flex-1 mb-6">Essential training on research ethics, plagiarism prevention, informed consent protocols, and the responsible conduct of research in Ghana.</p>
         <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="font-label-md text-label-md text-secondary flex items-center gap-2 no-underline hover:gap-4 transition-all">Enrol Now <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONSULTANT PROGRAMME -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface" id="consultants">
-  <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-    <div>
-      <div class="inline-flex items-center gap-2 bg-secondary/8 border border-secondary/20 rounded-full px-5 py-2 font-label-md text-label-md text-secondary mb-6 reveal">
-        <span class="material-symbols-outlined text-[16px]">school</span> Two-Week Training Programme
-      </div>
-      <p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-3 reveal">Consultant Programme</p>
-      <h2 class="font-headline-xl text-headline-xl text-on-background mb-6 reveal">Join Ghana's research workforce.</h2>
-      <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 reveal d1">ART Ghana's consultant programme gives motivated students and graduates a structured path into professional research. Every consultant completes a two-week intensive training programme before taking on client work, so clients get quality and consultants get real experience.</p>
-      <p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-4 reveal d2">Requirements</p>
-      <ul class="space-y-3 reveal d2">
-        <li class="flex items-start gap-3 font-body-md text-[15px] text-on-surface-variant">
-          <span class="w-6 h-6 rounded-full bg-secondary/8 border border-secondary/20 flex items-center justify-center text-secondary font-bold text-[11px] flex-shrink-0 mt-0.5">✓</span>
-          Enrolled in or graduated from an accredited Ghanaian university
-        </li>
-        <li class="flex items-start gap-3 font-body-md text-[15px] text-on-surface-variant">
-          <span class="w-6 h-6 rounded-full bg-secondary/8 border border-secondary/20 flex items-center justify-center text-secondary font-bold text-[11px] flex-shrink-0 mt-0.5">✓</span>
-          Demonstrated research competence in at least one domain
-        </li>
-        <li class="flex items-start gap-3 font-body-md text-[15px] text-on-surface-variant">
-          <span class="w-6 h-6 rounded-full bg-secondary/8 border border-secondary/20 flex items-center justify-center text-secondary font-bold text-[11px] flex-shrink-0 mt-0.5">✓</span>
-          Ability to deliver clear, well-structured written work to deadline
-        </li>
-        <li class="flex items-start gap-3 font-body-md text-[15px] text-on-surface-variant">
-          <span class="w-6 h-6 rounded-full bg-secondary/8 border border-secondary/20 flex items-center justify-center text-secondary font-bold text-[11px] flex-shrink-0 mt-0.5">✓</span>
-          Completion of the ART Ghana two-week onboarding programme
-        </li>
-        <li class="flex items-start gap-3 font-body-md text-[15px] text-on-surface-variant">
-          <span class="w-6 h-6 rounded-full bg-secondary/8 border border-secondary/20 flex items-center justify-center text-secondary font-bold text-[11px] flex-shrink-0 mt-0.5">✓</span>
-          Professional communication and commitment to client confidentiality
-        </li>
-      </ul>
-    </div>
-    <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-2xl p-10 shadow-sm reveal d1">
-      <p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-6">What You Get</p>
-      <ul class="space-y-6 mb-10">
-        <li class="flex items-start gap-4">
-          <span class="w-8 h-8 bg-secondary text-on-secondary rounded-full flex items-center justify-center flex-shrink-0">
-            <span class="material-symbols-outlined text-[18px]">payments</span>
-          </span>
-          <div>
-            <p class="font-label-md text-label-md text-on-background mb-1">Competitive Project-Based Earnings</p>
-            <p class="font-body-md text-[15px] text-on-surface-variant">Set your availability and earn on your own terms. No fixed hours, no salary cap.</p>
-          </div>
-        </li>
-        <li class="flex items-start gap-4">
-          <span class="w-8 h-8 bg-secondary text-on-secondary rounded-full flex items-center justify-center flex-shrink-0">
-            <span class="material-symbols-outlined text-[18px]">verified_user</span>
-          </span>
-          <div>
-            <p class="font-label-md text-label-md text-on-background mb-1">Verified Professional Profile</p>
-            <p class="font-body-md text-[15px] text-on-surface-variant">Build a public portfolio of completed work that distinguishes you in Ghana's research landscape.</p>
-          </div>
-        </li>
-        <li class="flex items-start gap-4">
-          <span class="w-8 h-8 bg-secondary text-on-secondary rounded-full flex items-center justify-center flex-shrink-0">
-            <span class="material-symbols-outlined text-[18px]">school</span>
-          </span>
-          <div>
-            <p class="font-label-md text-label-md text-on-background mb-1">Free ART Academy Access</p>
-            <p class="font-body-md text-[15px] text-on-surface-variant">All consultants receive complimentary access to the full ART Academy course library.</p>
-          </div>
-        </li>
-        <li class="flex items-start gap-4">
-          <span class="w-8 h-8 bg-secondary text-on-secondary rounded-full flex items-center justify-center flex-shrink-0">
-            <span class="material-symbols-outlined text-[18px]">handshake</span>
-          </span>
-          <div>
-            <p class="font-label-md text-label-md text-on-background mb-1">Mentorship &amp; Peer Network</p>
-            <p class="font-body-md text-[15px] text-on-surface-variant">Connect with senior researchers, get feedback on your work, and grow within a professional community.</p>
-          </div>
-        </li>
-        <li class="flex items-start gap-4">
-          <span class="w-8 h-8 bg-secondary text-on-secondary rounded-full flex items-center justify-center flex-shrink-0">
-            <span class="material-symbols-outlined text-[18px]">lock</span>
-          </span>
-          <div>
-            <p class="font-label-md text-label-md text-on-background mb-1">Secure &amp; Guaranteed Payment</p>
-            <p class="font-body-md text-[15px] text-on-surface-variant">All payments are processed through the platform. Protected, reliable, and on time.</p>
-          </div>
-        </li>
-      </ul>
-      <a href="https://web-production-2ebb7.up.railway.app/pages/register-consultant.html" target="_blank"
-         class="font-label-md text-label-md bg-on-background text-surface w-full py-4 rounded-xl hover:opacity-90 transition-all flex items-center justify-center gap-2 no-underline">
-        Apply as a Consultant <span class="material-symbols-outlined text-[18px]">person_add</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- CREDIBILITY -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low" id="credibility">
+<!-- CONSULTANT PROGRAMME (dark with image) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-on-background text-paper-white overflow-hidden" id="consultants">
   <div class="max-w-[1200px] mx-auto">
-    <p class="font-body-lg text-body-lg text-on-surface-variant text-center max-w-2xl mx-auto mb-16 reveal">
-      Every project on ART Ghana is backed by a framework built with leading Ghanaian academics and industry professionals.
-    </p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-10 text-center hover:-translate-y-1 transition-all reveal">
-        <div class="w-16 h-16 bg-secondary/8 border border-secondary/15 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">🎓</div>
-        <h3 class="font-body-md text-[19px] font-semibold text-on-background mb-3">Academically Supervised Research</h3>
-        <p class="font-body-md text-[15px] text-on-surface-variant">All consultants are vetted academics and graduates from accredited Ghanaian institutions. Methodology is grounded in recognised scholarly frameworks across every discipline.</p>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div class="relative reveal">
+        <div class="w-full h-[460px] bg-surface-container-low rounded-2xl flex items-center justify-center relative overflow-hidden">
+          <span class="material-symbols-outlined text-on-surface-variant" style="font-size:120px;opacity:0.15">groups</span>
+          <div class="absolute inset-0 bg-gradient-to-t from-on-background/40 to-transparent"></div>
+        </div>
+        <div class="absolute -top-10 -left-10 p-8 bg-secondary text-on-secondary rounded-xl shadow-2xl hidden md:block">
+          <p class="text-3xl font-bold">150+</p>
+          <p class="text-xs uppercase font-bold opacity-80">Verified Consultants</p>
+        </div>
       </div>
-      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-10 text-center hover:-translate-y-1 transition-all reveal d1">
-        <div class="w-16 h-16 bg-secondary/8 border border-secondary/15 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">⚙️</div>
-        <h3 class="font-body-md text-[19px] font-semibold text-on-background mb-3">Industry-Informed Methodology</h3>
-        <p class="font-body-md text-[15px] text-on-surface-variant">Research designs are grounded in real-world requirements, connecting academic standards with practical utility for businesses, NGOs, and government agencies.</p>
-      </div>
-      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-10 text-center hover:-translate-y-1 transition-all reveal d2">
-        <div class="w-16 h-16 bg-secondary/8 border border-secondary/15 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">📋</div>
-        <h3 class="font-body-md text-[19px] font-semibold text-on-background mb-3">Peer-Reviewed Standards</h3>
-        <p class="font-body-md text-[15px] text-on-surface-variant">Deliverables are reviewed against international publication standards before handover. You receive research you can present, publish, or act on with confidence.</p>
+      <div class="reveal d1">
+        <p class="font-label-md text-secondary-fixed uppercase tracking-widest mb-6">Join the Research Network</p>
+        <h2 class="font-display-lg text-display-lg-mobile md:text-[44px] leading-tight mb-8 italic font-bold">Join Ghana's research workforce.</h2>
+        <p class="font-body-lg text-surface-variant mb-10">ART Ghana's consultant programme gives motivated students and graduates a structured path into professional research. Every consultant completes a two-week intensive training before taking on client work.</p>
+        <div class="space-y-5 mb-10">
+          <div class="flex items-center gap-6 p-4 bg-white/5 rounded-xl border border-white/10">
+            <span class="material-symbols-outlined text-secondary-fixed text-3xl flex-shrink-0">workspace_premium</span>
+            <div>
+              <h4 class="font-bold mb-1">Competitive Project-Based Earnings</h4>
+              <p class="text-sm text-surface-variant">Set your availability and earn on your own terms. No fixed hours, no salary cap.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-6 p-4 bg-white/5 rounded-xl border border-white/10">
+            <span class="material-symbols-outlined text-secondary-fixed text-3xl flex-shrink-0">verified_user</span>
+            <div>
+              <h4 class="font-bold mb-1">Verified Professional Profile</h4>
+              <p class="text-sm text-surface-variant">Build a public portfolio of completed work that distinguishes you in Ghana's research landscape.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-6 p-4 bg-white/5 rounded-xl border border-white/10">
+            <span class="material-symbols-outlined text-secondary-fixed text-3xl flex-shrink-0">school</span>
+            <div>
+              <h4 class="font-bold mb-1">Free ART Academy Access + Mentorship</h4>
+              <p class="text-sm text-surface-variant">Complimentary full course library access and peer network with senior researchers.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-6 p-4 bg-white/5 rounded-xl border border-white/10">
+            <span class="material-symbols-outlined text-secondary-fixed text-3xl flex-shrink-0">currency_exchange</span>
+            <div>
+              <h4 class="font-bold mb-1">Secure &amp; Guaranteed Payment</h4>
+              <p class="text-sm text-surface-variant">All payments are processed through the platform. Protected, reliable, and on time.</p>
+            </div>
+          </div>
+        </div>
+        <a href="https://web-production-2ebb7.up.railway.app/pages/register-consultant.html" target="_blank"
+           class="inline-flex items-center gap-4 bg-secondary text-on-secondary px-10 py-5 rounded-lg font-label-md hover:opacity-90 transition-all no-underline">
+          Apply as a Consultant <span class="material-symbols-outlined">arrow_outward</span>
+        </a>
       </div>
     </div>
   </div>
@@ -710,7 +724,7 @@ tailwind.config = {
 <!-- CEO QUOTE -->
 <section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest text-center relative overflow-hidden" id="vision">
   <div class="max-w-[900px] mx-auto relative z-10">
-    <span class="font-display-lg text-[120px] leading-none text-secondary/10 block mb-6 reveal" style="line-height:0.8">"</span>
+    <span class="font-display-lg text-[100px] leading-none text-secondary/10 block mb-4 reveal" style="line-height:0.8">"</span>
     <blockquote class="font-display-lg text-[clamp(20px,2.5vw,34px)] font-semibold italic text-on-background max-w-3xl mx-auto mb-10 leading-snug reveal d1">
       Every student who graduates from a Ghanaian university carries research capability that the world needs. ART Ghana was built to give that capability a market, so organisations seeking research excellence can find it right here at home.
     </blockquote>
@@ -725,56 +739,54 @@ tailwind.config = {
 <div class="grid grid-cols-1 md:grid-cols-2" id="get-started">
   <div class="px-margin-mobile md:px-margin-desktop py-24 bg-surface-container-low flex flex-col justify-center reveal">
     <p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-4">For Organisations &amp; Individuals</p>
-    <h2 class="font-headline-xl text-headline-xl text-on-background mb-4">Need research<br>done right?</h2>
-    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-md">Commission a project today. Tell us what you need and we will match you with a consultant team that has the exact expertise and deliver work that holds up to scrutiny.</p>
+    <h2 class="font-headline-xl text-on-background mb-4">Need research<br>done right?</h2>
+    <p class="font-body-lg text-on-surface-variant mb-8 max-w-md">Commission a project today. Tell us what you need and we will match you with a consultant team that has the exact expertise to deliver work that holds up to scrutiny.</p>
     <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
-       class="self-start font-label-md text-label-md bg-on-background text-surface px-8 py-4 rounded-xl hover:opacity-90 transition-all flex items-center gap-2 no-underline">
+       class="self-start inline-flex items-center gap-2 font-label-md bg-on-background text-surface px-8 py-4 rounded-lg hover:opacity-90 transition-all no-underline">
       Commission Research <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
     </a>
   </div>
   <div class="px-margin-mobile md:px-margin-desktop py-24 bg-on-background flex flex-col justify-center reveal d1">
     <p class="font-label-md text-label-md text-secondary-fixed uppercase tracking-widest mb-4">For Students &amp; Researchers</p>
-    <h2 class="font-headline-xl text-headline-xl text-paper-white mb-4">Need expert<br>guidance?</h2>
-    <p class="font-body-lg text-body-lg text-surface-variant mb-8 max-w-md">Whether it is your dissertation, your data analysis, or your research proposal, our consultants have been through it and know how to help you produce work you are proud of.</p>
+    <h2 class="font-headline-xl text-paper-white mb-4">Need expert<br>guidance?</h2>
+    <p class="font-body-lg text-surface-variant mb-8 max-w-md">Whether it is your dissertation, your data analysis, or your research proposal, our consultants have been through it and know how to help you produce work you are proud of.</p>
     <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
-       class="self-start font-label-md text-label-md bg-secondary text-on-secondary px-8 py-4 rounded-xl hover:opacity-90 transition-all flex items-center gap-2 no-underline">
+       class="self-start inline-flex items-center gap-2 font-label-md bg-secondary text-on-secondary px-8 py-4 rounded-lg hover:opacity-90 transition-all no-underline">
       Get Research Support <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
     </a>
   </div>
 </div>
 
 <!-- FOOTER -->
-<footer class="bg-on-background border-t border-paper-white/6 py-20 px-margin-mobile md:px-margin-desktop">
-  <div class="max-w-[1200px] mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-16 pb-16 border-b border-paper-white/8">
-      <div class="col-span-1 md:col-span-2">
-        <h2 class="font-headline-lg text-[20px] font-bold text-paper-white mb-4 leading-snug">Academy of Research<br>and Technology <span class="text-secondary-fixed">Ghana</span></h2>
-        <p class="font-body-md text-[14px] text-surface-variant max-w-xs mb-6">Connecting organisations and individuals with Ghana's best research talent. Quality research, made accessible to all.</p>
-        <p class="font-body-md text-[14px] text-surface-variant">Get in touch: <a href="mailto:acarestech@gmail.com" class="text-secondary-fixed hover:text-secondary transition-colors no-underline">acarestech@gmail.com</a></p>
-      </div>
-      <div>
-        <h4 class="font-label-md text-label-md text-secondary-fixed uppercase tracking-widest mb-6">Platform</h4>
-        <ul class="space-y-3">
-          <li><a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="font-body-md text-[14px] text-surface-variant hover:text-paper-white transition-colors no-underline">Dashboard</a></li>
-          <li><a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank" class="font-body-md text-[14px] text-surface-variant hover:text-paper-white transition-colors no-underline">Client Registration</a></li>
-          <li><a href="https://web-production-2ebb7.up.railway.app/pages/register-consultant.html" target="_blank" class="font-body-md text-[14px] text-surface-variant hover:text-paper-white transition-colors no-underline">Consultant Registration</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-label-md text-label-md text-secondary-fixed uppercase tracking-widest mb-6">Explore</h4>
-        <ul class="space-y-3">
-          <li><a href="#services" class="font-body-md text-[14px] text-surface-variant hover:text-paper-white transition-colors no-underline">For Organisations</a></li>
-          <li><a href="#academic" class="font-body-md text-[14px] text-surface-variant hover:text-paper-white transition-colors no-underline">For Students</a></li>
-          <li><a href="#defence" class="font-body-md text-[14px] text-surface-variant hover:text-paper-white transition-colors no-underline">Research Defence</a></li>
-          <li><a href="#academy" class="font-body-md text-[14px] text-surface-variant hover:text-paper-white transition-colors no-underline">ART Academy</a></li>
-          <li><a href="#consultants" class="font-body-md text-[14px] text-surface-variant hover:text-paper-white transition-colors no-underline">Consultant Programme</a></li>
-        </ul>
-      </div>
+<footer class="bg-on-background text-paper-white py-20 border-t border-slate-gray/20">
+  <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter">
+    <div class="col-span-1 md:col-span-2">
+      <h2 class="font-headline-xl text-[22px] mb-6">ART Ghana</h2>
+      <p class="text-surface-variant max-w-sm mb-6 leading-relaxed text-[15px]">Connecting organisations and individuals with Ghana's best research talent. Quality research, made accessible to all.</p>
+      <p class="text-surface-variant text-[15px]">Get in touch: <a href="mailto:acarestech@gmail.com" class="text-secondary-fixed hover:text-secondary transition-colors no-underline">acarestech@gmail.com</a></p>
     </div>
-    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-surface-variant">
-      <p class="font-label-sm text-label-sm">© 2026 Academy of Research and Technology Ghana. All rights reserved.</p>
-      <p class="font-label-sm text-label-sm">Founded by <span class="text-secondary-fixed">Silas Asani Abudu</span>, CEO &amp; Founder</p>
+    <div>
+      <h4 class="font-label-md text-label-md text-secondary-fixed mb-6 uppercase tracking-widest">Platform</h4>
+      <ul class="space-y-4">
+        <li><a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="text-surface-variant hover:text-secondary-fixed transition-colors text-[14px] no-underline">Dashboard</a></li>
+        <li><a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank" class="text-surface-variant hover:text-secondary-fixed transition-colors text-[14px] no-underline">Client Registration</a></li>
+        <li><a href="https://web-production-2ebb7.up.railway.app/pages/register-consultant.html" target="_blank" class="text-surface-variant hover:text-secondary-fixed transition-colors text-[14px] no-underline">Consultant Registration</a></li>
+      </ul>
     </div>
+    <div>
+      <h4 class="font-label-md text-label-md text-secondary-fixed mb-6 uppercase tracking-widest">Explore</h4>
+      <ul class="space-y-4">
+        <li><a href="#services" class="text-surface-variant hover:text-secondary-fixed transition-colors text-[14px] no-underline">For Organisations</a></li>
+        <li><a href="#academic" class="text-surface-variant hover:text-secondary-fixed transition-colors text-[14px] no-underline">For Students</a></li>
+        <li><a href="#defence" class="text-surface-variant hover:text-secondary-fixed transition-colors text-[14px] no-underline">Research Defence</a></li>
+        <li><a href="#academy" class="text-surface-variant hover:text-secondary-fixed transition-colors text-[14px] no-underline">ART Academy</a></li>
+        <li><a href="#consultants" class="text-surface-variant hover:text-secondary-fixed transition-colors text-[14px] no-underline">Consultant Programme</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop mt-16 pt-8 border-t border-slate-gray/10 flex flex-col md:flex-row justify-between items-center gap-4 text-surface-variant text-[11px] uppercase tracking-widest">
+    <p>© 2026 Academy of Research and Technology Ghana. All rights reserved.</p>
+    <p>Founded by <span class="text-secondary-fixed">Silas Asani Abudu</span>, CEO &amp; Founder</p>
   </div>
 </footer>
 
@@ -788,10 +800,16 @@ tailwind.config = {
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   revealEls.forEach(el => io.observe(el));
 
-  // Nav shadow on scroll
-  const nav = document.getElementById('main-nav');
+  // Nav effects
   window.addEventListener('scroll', () => {
-    nav.classList.toggle('shadow-md', window.scrollY > 50);
+    const nav = document.getElementById('main-nav');
+    if (window.scrollY > 50) {
+      nav.classList.add('h-16', 'shadow-md');
+      nav.classList.remove('h-20');
+    } else {
+      nav.classList.remove('h-16', 'shadow-md');
+      nav.classList.add('h-20');
+    }
   }, { passive: true });
 
   // Mobile menu
@@ -800,7 +818,7 @@ tailwind.config = {
   toggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
   function closeMobileMenu() { mobileMenu.classList.add('hidden'); }
   document.addEventListener('click', (e) => {
-    if (!nav.contains(e.target) && !mobileMenu.contains(e.target)) closeMobileMenu();
+    if (!document.getElementById('main-nav').contains(e.target) && !mobileMenu.contains(e.target)) closeMobileMenu();
   });
 </script>
 </body>
