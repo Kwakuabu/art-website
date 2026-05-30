@@ -1,1660 +1,806 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth" lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ART Ghana: Ghana's Research Partner</title>
-  <meta name="description" content="ART Ghana delivers credible, independently verified research for organisations that need answers and expert guidance for students who need support." />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      /* Core brand darks */
-      --navy:         #091830;
-      --navy-dark:    #0d1b33;
-      --navy-deeper:  #091830;
-      --dark-section: #1c1c18;
-
-      /* Gold accent */
-      --gold:         #C9922A;
-      --gold-light:   #f9bc51;
-      --gold-pale:    rgba(201,146,42,0.08);
-      --gold-border:  rgba(201,146,42,0.22);
-
-      /* Light surfaces */
-      --cream:        #fcf9f3;
-      --off-white:    #f6f3ed;
-      --white:        #ffffff;
-
-      /* Text */
-      --dark-text:    #1c1c18;
-      --body-text:    #44474d;
-      --muted-text:   #75777e;
-      --slate-gray:   #475569;
-
-      /* On-dark text */
-      --light-text:   rgba(252,249,243,0.85);
-      --light-muted:  rgba(252,249,243,0.55);
-
-      /* UI chrome */
-      --nav-border:   rgba(71,85,105,0.1);
-      --card-border:  rgba(71,85,105,0.1);
-
-      --playfair:     'Playfair Display', Georgia, serif;
-      --inter:        'Inter', system-ui, sans-serif;
-      --ease:         cubic-bezier(0.4,0,0.2,1);
-    }
-
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--inter);
-      color: var(--dark-text);
-      line-height: 1.65;
-      background: var(--cream);
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    /* ── REVEAL ANIMATIONS ───────────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .d1 { transition-delay: 0.08s; }
-    .d2 { transition-delay: 0.16s; }
-    .d3 { transition-delay: 0.24s; }
-    .d4 { transition-delay: 0.32s; }
-    .d5 { transition-delay: 0.40s; }
-    .d6 { transition-delay: 0.48s; }
-
-    /* ── NAV (light theme) ─────────────────────────────── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      height: 80px;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 clamp(20px,5vw,64px);
-      background: rgba(252,249,243,0.95);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--nav-border);
-      box-shadow: 0 1px 8px rgba(28,28,24,0.06);
-      transition: background 0.3s var(--ease), box-shadow 0.3s var(--ease);
-    }
-    nav.scrolled {
-      background: rgba(252,249,243,0.99);
-      box-shadow: 0 2px 16px rgba(28,28,24,0.1);
-    }
-    .nav-logo {
-      display: flex; align-items: center; gap: 10px; text-decoration: none;
-    }
-    .nav-logo-mark {
-      width: 36px; height: 36px;
-      background: var(--navy); border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--playfair); font-weight: 800; font-size: 11px;
-      color: #fff; letter-spacing: 0.5px;
-    }
-    .nav-logo-name {
-      font-family: var(--playfair); font-weight: 700; font-size: 16px;
-      color: var(--dark-text); letter-spacing: -0.02em;
-    }
-    .nav-logo-name span { color: var(--gold); }
-    .nav-links {
-      display: flex; align-items: center; gap: 36px; list-style: none;
-    }
-    .nav-links a {
-      font-size: 14px; font-weight: 600; letter-spacing: 0.03em;
-      color: var(--body-text); text-decoration: none;
-      transition: color 0.25s;
-    }
-    .nav-links a:hover { color: var(--dark-text); }
-    .nav-cta {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 10px 22px;
-      background: var(--navy); color: #fff !important;
-      font-weight: 700 !important; font-size: 13px !important;
-      letter-spacing: 0.04em;
-      border-radius: 8px;
-      transition: background 0.25s, transform 0.25s !important;
-    }
-    .nav-cta:hover { background: var(--dark-section) !important; transform: translateY(-1px); }
-    .nav-toggle {
-      display: none; background: none; border: none;
-      cursor: pointer; padding: 4px; color: var(--dark-text);
-    }
-    .mobile-menu {
-      display: none; flex-direction: column; gap: 0;
-      position: fixed; top: 80px; left: 0; right: 0; z-index: 999;
-      background: rgba(252,249,243,0.99);
-      border-bottom: 1px solid var(--card-border);
-      padding: 24px clamp(20px,5vw,64px) 32px;
-      backdrop-filter: blur(20px);
-      box-shadow: 0 4px 20px rgba(28,28,24,0.08);
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      font-size: 17px; font-weight: 600;
-      color: var(--body-text); text-decoration: none;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--card-border);
-      transition: color 0.2s;
-    }
-    .mobile-menu a:hover { color: var(--dark-text); }
-    /* Ghost button override for light mobile menu */
-    .mobile-menu .btn-ghost-light {
-      color: var(--navy); border-color: rgba(9,24,48,0.22);
-    }
-    .mobile-menu .btn-ghost-light:hover {
-      background: rgba(9,24,48,0.06); border-color: var(--navy);
-    }
-    .mobile-menu-ctas {
-      display: flex; flex-direction: column; gap: 12px;
-      margin-top: 24px;
-    }
-    @media (max-width: 860px) {
-      .nav-links { display: none; }
-      .nav-toggle { display: block; }
-    }
-
-    /* ── SECTION BASE ────────────────────────────────── */
-    section { padding: clamp(80px,10vw,120px) clamp(20px,5vw,64px); }
-
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 14px; font-weight: 600; letter-spacing: 0.05em;
-      text-transform: uppercase; margin-bottom: 16px;
-    }
-    .eyebrow::before {
-      content: ''; display: inline-block;
-      width: 24px; height: 1px; background: currentColor; opacity: 0.6;
-    }
-    .eyebrow--gold { color: var(--gold); }
-    .eyebrow--gold-light { color: rgba(201,146,42,0.9); }
-
-    .sh { /* section heading */
-      font-family: var(--playfair);
-      font-size: clamp(32px,4.5vw,56px);
-      font-weight: 700; line-height: 1.1;
-      letter-spacing: -0.02em; margin-bottom: 20px;
-    }
-    .sh--dark { color: var(--dark-text); }
-    .sh--light { color: #fff; }
-
-    .sb { /* section body */
-      font-size: clamp(16px,1.4vw,18px); line-height: 1.6;
-      max-width: 54ch;
-    }
-    .sb--dark { color: var(--body-text); }
-    .sb--light { color: var(--light-text); }
-
-    /* ══════════════════════════════════════════════════
-       §1  HERO
-    ══════════════════════════════════════════════════ */
-    .hero {
-      min-height: 100vh;
-      background: var(--navy);
-      position: relative; overflow: hidden;
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 120px clamp(20px,5vw,64px) 100px;
-    }
-    .hero-grid {
-      position: absolute; inset: 0; pointer-events: none;
-      background-image: radial-gradient(rgba(215,226,255,0.05) 1px, transparent 1px);
-      background-size: 32px 32px;
-    }
-    .hero-glow {
-      position: absolute; inset: 0; pointer-events: none;
-      background:
-        radial-gradient(ellipse 70% 60% at 60% 30%, rgba(201,146,42,0.07) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 60% at 5% 100%, rgba(9,24,48,0.6) 0%, transparent 60%);
-    }
-    .hero-content {
-      position: relative; z-index: 1;
-      max-width: 1200px; margin: 0 auto; width: 100%;
-      text-align: center;
-    }
-
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 12px;
-      font-size: 14px; font-weight: 600; letter-spacing: 0.05em;
-      text-transform: uppercase; color: var(--gold-light);
-      margin-bottom: 32px;
-      opacity: 0; transform: translateY(18px);
-      animation: hfu 0.8s var(--ease) 0.1s forwards;
-    }
-    .hero-eyebrow-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--gold-light); flex-shrink: 0;
-      animation: dot-pulse 2.4s ease infinite;
-    }
-    @keyframes dot-pulse {
-      0%,100% { opacity:1; transform:scale(1); }
-      50% { opacity:0.4; transform:scale(0.7); }
-    }
-
-    .hero-h1 {
-      font-family: var(--playfair);
-      font-size: clamp(48px,8vw,96px);
-      font-weight: 700; line-height: 1.05;
-      letter-spacing: -0.02em;
-      color: #fff;
-      opacity: 0; transform: translateY(28px);
-      animation: hfu 1s var(--ease) 0.22s forwards;
-    }
-    .hero-h1 em { font-style: italic; color: var(--gold-light); }
-    .hero-h1-line2 {
-      display: block;
-      opacity: 0; transform: translateY(28px);
-      animation: hfu 1s var(--ease) 0.36s forwards;
-    }
-
-    .hero-sub {
-      font-size: clamp(16px,1.6vw,20px);
-      color: rgba(252,249,243,0.62); max-width: 52ch; line-height: 1.6;
-      margin: 28px auto 44px;
-      opacity: 0; transform: translateY(18px);
-      animation: hfu 0.8s var(--ease) 0.52s forwards;
-    }
-
-    .hero-ctas {
-      display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
-      opacity: 0; transform: translateY(18px);
-      animation: hfu 0.7s var(--ease) 0.66s forwards;
-    }
-
-    .hero-scroll {
-      position: absolute; bottom: 44px; left: clamp(20px,5vw,64px);
-      display: flex; align-items: center; gap: 14px;
-      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-      color: rgba(252,249,243,0.3);
-      opacity: 0; animation: hfu 0.7s ease 1.1s forwards;
-    }
-    .hero-scroll-bar {
-      width: 40px; height: 1px;
-      background: linear-gradient(to right, rgba(252,249,243,0.3), transparent);
-    }
-
-    @keyframes hfu { to { opacity:1; transform:translateY(0); } }
-
-    /* ── BUTTONS ─────────────────────────────────────── */
-    /* Primary: Midnight Navy + white (Stitch spec) */
-    .btn-gold {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 32px;
-      background: var(--navy); color: #fff;
-      font-family: var(--inter); font-size: 14px; font-weight: 700;
-      letter-spacing: 0.04em;
-      border: none; border-radius: 8px; text-decoration: none; cursor: pointer;
-      transition: background 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
-    }
-    .btn-gold:hover {
-      background: var(--dark-section); transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(9,24,48,0.28);
-    }
-    /* On dark consultant CTA block: invert to gold */
-    .cta-block--consultant .btn-gold {
-      background: var(--gold); color: var(--navy);
-    }
-    .cta-block--consultant .btn-gold:hover {
-      background: var(--gold-light); box-shadow: 0 10px 28px rgba(201,146,42,0.3);
-    }
-    .btn-ghost-light {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 13px 32px;
-      background: transparent; color: #fff;
-      font-family: var(--inter); font-size: 14px; font-weight: 600;
-      letter-spacing: 0.03em;
-      border: 1px solid rgba(252,249,243,0.25); border-radius: 8px;
-      text-decoration: none; cursor: pointer;
-      transition: background 0.3s, border-color 0.3s, transform 0.3s;
-    }
-    .btn-ghost-light:hover {
-      background: rgba(252,249,243,0.08);
-      border-color: rgba(252,249,243,0.5); transform: translateY(-2px);
-    }
-    /* Secondary: Gold border + navy text (Stitch spec for light backgrounds) */
-    .btn-ghost-dark {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 13px 32px;
-      background: transparent; color: var(--navy);
-      font-family: var(--inter); font-size: 14px; font-weight: 700;
-      letter-spacing: 0.04em;
-      border: 2px solid var(--gold); border-radius: 8px;
-      text-decoration: none; cursor: pointer;
-      transition: background 0.3s, color 0.3s, transform 0.3s;
-    }
-    .btn-ghost-dark:hover {
-      background: var(--gold); color: #fff; transform: translateY(-2px);
-    }
-
-    /* ── SVG ARROW ───────────────────────────────────── */
-    .arrow-svg { width:15px; height:15px; flex-shrink:0; }
-
-    /* ══════════════════════════════════════════════════
-       §2  CREDIBILITY
-    ══════════════════════════════════════════════════ */
-    .credibility { background: var(--white); }
-    .credibility-header {
-      text-align: center; max-width: 680px; margin: 0 auto 64px;
-    }
-    .cred-grid {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      gap: 20px; max-width: 1200px; margin: 0 auto;
-    }
-    .cred-card {
-      background: var(--cream);
-      border: 1px solid var(--card-border); border-radius: 12px;
-      padding: clamp(36px,4vw,52px) clamp(28px,3vw,40px);
-      text-align: center; position: relative; overflow: hidden;
-      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
-    }
-    .cred-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(28,28,24,0.08);
-    }
-    .cred-icon {
-      width: 64px; height: 64px;
-      background: var(--gold-pale); border: 1px solid var(--gold-border);
-      border-radius: 16px;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 24px; font-size: 26px;
-    }
-    .cred-title {
-      font-family: var(--playfair); font-size: 20px; font-weight: 700;
-      color: var(--dark-text); margin-bottom: 12px; line-height: 1.25;
-    }
-    .cred-desc { font-size: 15px; color: var(--body-text); line-height: 1.7; }
-    @media (max-width: 720px) { .cred-grid { grid-template-columns: 1fr; } }
-
-    /* ══════════════════════════════════════════════════
-       §3  PORTFOLIO
-    ══════════════════════════════════════════════════ */
-    .portfolio { background: var(--cream); }
-    .portfolio-header {
-      display: flex; align-items: flex-end;
-      justify-content: space-between; margin-bottom: 48px;
-      gap: 28px; flex-wrap: wrap;
-    }
-    .portfolio-grid {
-      display: grid; grid-template-columns: repeat(2,1fr); gap: 20px;
-    }
-    .proj-card {
-      border: 1px solid var(--card-border); border-radius: 12px;
-      padding: clamp(28px,3vw,40px);
-      background: var(--white); position: relative; overflow: hidden;
-      transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
-    }
-    .proj-card:hover {
-      box-shadow: 0 12px 36px rgba(28,28,24,0.09);
-      transform: translateY(-4px);
-    }
-    .proj-tag {
-      display: inline-block; font-size: 11px; font-weight: 600;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--gold); background: var(--gold-pale);
-      border: 1px solid var(--gold-border);
-      padding: 4px 12px; border-radius: 100px; margin-bottom: 18px;
-    }
-    .proj-title {
-      font-family: var(--playfair); font-size: clamp(18px,2vw,22px);
-      font-weight: 700; color: var(--dark-text);
-      line-height: 1.3; margin-bottom: 12px;
-    }
-    .proj-desc {
-      font-size: 15px; color: var(--body-text);
-      line-height: 1.7; margin-bottom: 24px;
-    }
-    .proj-meta {
-      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
-      padding-top: 20px; border-top: 1px solid var(--card-border);
-    }
-    .proj-meta-item {
-      display: flex; align-items: center; gap: 6px;
-      font-size: 13px; color: var(--muted-text); font-weight: 500;
-    }
-    .proj-meta-item svg { width:14px; height:14px; flex-shrink:0; }
-    @media (max-width: 720px) { .portfolio-grid { grid-template-columns: 1fr; } }
-
-    /* ══════════════════════════════════════════════════
-       §4  SERVICES
-    ══════════════════════════════════════════════════ */
-    .services { background: var(--cream); }
-    .services-header { text-align: center; max-width: 620px; margin: 0 auto 52px; }
-    .svc-grid {
-      display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
-    }
-    .svc-card {
-      background: var(--white); border: 1px solid var(--card-border);
-      border-radius: 12px; padding: clamp(28px,3vw,40px) clamp(24px,2.5vw,32px);
-      position: relative; overflow: hidden;
-      transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
-    }
-    .svc-card:hover {
-      box-shadow: 0 10px 32px rgba(28,28,24,0.08);
-      transform: translateY(-4px);
-    }
-    .svc-num {
-      font-family: var(--playfair); font-size: 48px; font-weight: 900;
-      color: rgba(28,28,24,0.05); line-height: 1; margin-bottom: 4px;
-    }
-    .svc-icon {
-      width: 48px; height: 48px; background: var(--gold-pale);
-      border: 1px solid var(--gold-border);
-      border-radius: 12px; display: flex; align-items: center; justify-content: center;
-      font-size: 20px; margin-bottom: 20px;
-    }
-    .svc-name {
-      font-family: var(--playfair); font-size: 19px; font-weight: 700;
-      color: var(--dark-text); margin-bottom: 10px;
-    }
-    .svc-text { font-size: 15px; color: var(--body-text); line-height: 1.7; }
-    @media (max-width: 900px) { .svc-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 540px) { .svc-grid { grid-template-columns: 1fr; } }
-
-    /* ══════════════════════════════════════════════════
-       §5  RESEARCH DEFENCE
-    ══════════════════════════════════════════════════ */
-    .defence { background: var(--off-white); }
-    .defence-header { text-align: center; max-width: 720px; margin: 0 auto 64px; }
-
-    .bundle-grid {
-      display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
-      margin-bottom: 48px; align-items: start;
-    }
-    .bundle-card {
-      border: 1px solid var(--card-border); border-radius: 12px;
-      padding: clamp(32px,3.5vw,44px) clamp(24px,3vw,36px);
-      position: relative; overflow: hidden;
-      transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
-    }
-    .bundle-card--light { background: var(--white); }
-    .bundle-card--dark {
-      background: var(--navy);
-      border-color: transparent;
-      transform: scale(1.03);
-      box-shadow: 0 20px 56px rgba(9,24,48,0.22);
-    }
-    .bundle-card--light:hover {
-      box-shadow: 0 14px 40px rgba(28,28,24,0.1);
-      transform: translateY(-4px);
-    }
-    .bundle-card--dark:hover { transform: scale(1.03) translateY(-4px); }
-    .bundle-popular {
-      position: absolute; top: -1px; right: 24px;
-      background: var(--gold); color: var(--navy);
-      font-size: 9px; font-weight: 800; letter-spacing: 0.1em;
-      text-transform: uppercase; padding: 5px 12px;
-      border-radius: 0 0 8px 8px;
-    }
-    .bundle-tier {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; margin-bottom: 10px;
-    }
-    .bundle-card--light .bundle-tier { color: var(--gold); }
-    .bundle-card--dark .bundle-tier { color: rgba(201,146,42,0.8); }
-    .bundle-title {
-      font-family: var(--playfair); font-size: clamp(22px,2.5vw,28px);
-      font-weight: 700; line-height: 1.2; margin-bottom: 14px;
-    }
-    .bundle-card--light .bundle-title { color: var(--dark-text); }
-    .bundle-card--dark .bundle-title { color: #fff; }
-    .bundle-panel-tag {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 5px 12px; border-radius: 100px; margin-bottom: 18px;
-    }
-    .bundle-card--light .bundle-panel-tag {
-      background: var(--gold-pale); border: 1px solid var(--gold-border); color: var(--gold);
-    }
-    .bundle-card--dark .bundle-panel-tag {
-      background: rgba(201,146,42,0.15); border: 1px solid rgba(201,146,42,0.3); color: var(--gold-light);
-    }
-    .bundle-desc {
-      font-size: 14px; line-height: 1.7; margin-bottom: 22px;
-      padding-bottom: 22px;
-    }
-    .bundle-card--light .bundle-desc { color: var(--body-text); border-bottom: 1px solid var(--card-border); }
-    .bundle-card--dark .bundle-desc { color: var(--light-muted); border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .bundle-features { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .bundle-feature {
-      display: flex; align-items: flex-start; gap: 10px;
-      font-size: 14px; line-height: 1.5;
-    }
-    .bundle-card--light .bundle-feature { color: var(--body-text); }
-    .bundle-card--dark .bundle-feature { color: rgba(255,255,255,0.82); }
-    .bf-check {
-      flex-shrink: 0; color: var(--gold);
-      font-size: 12px; font-weight: 700; margin-top: 2px;
-    }
-
-    .defence-ethics {
-      background: var(--gold-pale); border: 1px solid var(--gold-border);
-      border-radius: 12px; padding: clamp(24px,3vw,36px) clamp(24px,3vw,44px);
-      display: flex; align-items: flex-start; gap: 20px;
-    }
-    .defence-ethics-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
-    .defence-ethics-title {
-      font-family: var(--playfair); font-size: 17px; font-weight: 700;
-      color: var(--dark-text); margin-bottom: 8px;
-    }
-    .defence-ethics-text { font-size: 15px; color: var(--body-text); line-height: 1.7; }
-    @media (max-width: 860px) { .bundle-grid { grid-template-columns: 1fr; } }
-
-    /* ══════════════════════════════════════════════════
-       §6  QUALITY ASSURANCE (dark)
-    ══════════════════════════════════════════════════ */
-    .quality { background: var(--dark-section); position: relative; overflow: hidden; }
-    .quality::before {
-      content: ''; position: absolute; inset: 0; pointer-events: none;
-      background: radial-gradient(ellipse 60% 80% at 80% 20%, rgba(201,146,42,0.06) 0%, transparent 60%);
-    }
-    .quality-header { text-align: center; max-width: 640px; margin: 0 auto 64px; position: relative; }
-    .pillar-grid {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      gap: 20px; position: relative;
-    }
-    .pillar {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(12px);
-      border-radius: 16px;
-      padding: 48px 36px; text-align: center;
-      transition: background 0.3s;
-    }
-    .pillar:hover { background: rgba(255,255,255,0.09); }
-    .pillar-icon {
-      width: 64px; height: 64px;
-      background: rgba(201,146,42,0.1); border: 1px solid var(--gold-border);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 24px; font-size: 26px;
-    }
-    .pillar-name {
-      font-family: var(--playfair); font-size: 21px; font-weight: 700;
-      color: #fff; margin-bottom: 14px; line-height: 1.25;
-    }
-    .pillar-desc { font-size: 15px; color: var(--light-muted); line-height: 1.7; }
-    .pillar-badge {
-      display: inline-block; margin-top: 20px;
-      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--gold-light);
-      background: rgba(201,146,42,0.1); border: 1px solid rgba(201,146,42,0.25);
-      padding: 5px 14px; border-radius: 100px;
-    }
-    @media (max-width: 720px) { .pillar-grid { grid-template-columns: 1fr; } }
-
-    /* ══════════════════════════════════════════════════
-       §6  HOW IT WORKS (dark section)
-    ══════════════════════════════════════════════════ */
-    .how { background: var(--dark-section); }
-    .how-header { max-width: 560px; margin-bottom: 72px; }
-    /* Text overrides inside dark section */
-    .how .sh--dark { color: #fff; }
-    .how .sb--dark { color: var(--light-text); }
-    .how .eyebrow--gold { color: rgba(201,146,42,0.9); }
-
-    .steps-row {
-      display: grid; grid-template-columns: repeat(4,1fr);
-      gap: 0; position: relative;
-    }
-    .steps-row::before {
-      content: ''; position: absolute;
-      top: 40px; left: 7%; width: 86%; height: 1px;
-      background: linear-gradient(to right, transparent, rgba(201,146,42,0.22) 20%, rgba(201,146,42,0.22) 80%, transparent);
-      z-index: 0;
-    }
-    .step { padding: 0 20px 0 0; position: relative; z-index: 1; }
-    .step-circle {
-      width: 80px; height: 80px;
-      background: rgba(255,255,255,0.08);
-      border: 2px solid rgba(201,146,42,0.25); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 28px;
-      transition: background 0.3s var(--ease), border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
-    }
-    /* Step 1 active state: gold fill */
-    .step:first-child .step-circle {
-      background: var(--gold); border-color: var(--gold);
-      box-shadow: 0 8px 24px rgba(201,146,42,0.3);
-    }
-    .step:first-child .step-num { color: #fff; }
-    .step-num {
-      font-family: var(--playfair); font-size: 24px; font-weight: 900;
-      color: rgba(252,249,243,0.7); line-height: 1;
-    }
-    .step:hover .step-circle {
-      background: var(--gold); border-color: var(--gold);
-      box-shadow: 0 8px 24px rgba(201,146,42,0.28);
-    }
-    .step:hover .step-num { color: #fff; }
-    .step-title {
-      font-family: var(--playfair); font-size: 18px; font-weight: 700;
-      color: #fff; margin-bottom: 10px;
-    }
-    .step-text { font-size: 15px; color: var(--light-muted); line-height: 1.65; }
-    @media (max-width: 900px) {
-      .steps-row { grid-template-columns: 1fr 1fr; gap: 40px; }
-      .steps-row::before { display: none; }
-      .step { padding: 0; }
-    }
-    @media (max-width: 540px) { .steps-row { grid-template-columns: 1fr; gap: 36px; } }
-
-    /* ══════════════════════════════════════════════════
-       §7  COURSES
-    ══════════════════════════════════════════════════ */
-    .courses { background: var(--cream); }
-    .courses-header {
-      display: flex; align-items: flex-end;
-      justify-content: space-between; margin-bottom: 48px;
-      gap: 28px; flex-wrap: wrap;
-    }
-    .courses-grid {
-      display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
-    }
-    .course-card {
-      background: var(--white); border: 1px solid var(--card-border);
-      border-radius: 12px; padding: clamp(24px,3vw,36px) clamp(20px,2.5vw,28px);
-      display: flex; flex-direction: column;
-      position: relative; overflow: hidden;
-      transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
-    }
-    .course-card:hover {
-      box-shadow: 0 10px 32px rgba(28,28,24,0.09);
-      transform: translateY(-4px);
-    }
-    .course-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
-    .course-level {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase; padding: 4px 10px; border-radius: 100px;
-    }
-    .level-beginner { background: rgba(16,185,129,0.08); color: #059669; border: 1px solid rgba(16,185,129,0.2); }
-    .level-intermediate { background: rgba(59,130,246,0.08); color: #2563EB; border: 1px solid rgba(59,130,246,0.2); }
-    .level-advanced { background: var(--gold-pale); color: #A0671A; border: 1px solid var(--gold-border); }
-    .course-duration {
-      display: flex; align-items: center; gap: 4px;
-      font-size: 12px; font-weight: 500; color: var(--muted-text);
-    }
-    .course-title {
-      font-family: var(--playfair); font-size: 18px; font-weight: 700;
-      color: var(--dark-text); margin-bottom: 8px; line-height: 1.35;
-    }
-    .course-desc { font-size: 14px; color: var(--body-text); line-height: 1.7; flex: 1; margin-bottom: 22px; }
-    .course-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 13px; font-weight: 700; color: var(--navy);
-      letter-spacing: 0.03em;
-      text-decoration: none; transition: color 0.25s, gap 0.25s;
-    }
-    .course-link:hover { color: var(--gold); gap: 10px; }
-    @media (max-width: 900px) { .courses-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 540px) { .courses-grid { grid-column: 1fr; } }
-
-    /* ══════════════════════════════════════════════════
-       §8  CONSULTANT PROGRAMME (light section per Stitch)
-    ══════════════════════════════════════════════════ */
-    .consultant { background: var(--off-white); position: relative; overflow: hidden; }
-    .consultant-inner {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: clamp(40px,6vw,80px); align-items: start;
-    }
-    .consultant-training-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--gold-pale); border: 1px solid var(--gold-border);
-      border-radius: 100px; padding: 8px 18px;
-      font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--gold); margin-bottom: 28px;
-    }
-    /* Override light-on-dark classes in now-light section */
-    .consultant .sh--light { color: var(--dark-text); }
-    .consultant .sb--light { color: var(--body-text); }
-    .consultant .eyebrow--gold-light { color: var(--gold); }
-
-    .cons-req-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--muted-text); margin-bottom: 18px;
-      margin-top: 32px;
-    }
-    .req-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .req-list li {
-      display: flex; align-items: flex-start; gap: 14px;
-      font-size: 15px; color: var(--body-text); line-height: 1.55;
-    }
-    .req-bullet {
-      flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
-      background: var(--gold-pale); border: 1px solid var(--gold-border);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold); font-size: 10px; font-weight: 700; margin-top: 1px;
-    }
-    .consultant-panel {
-      background: var(--white); border: 1px solid var(--card-border);
-      border-radius: 16px; padding: clamp(32px,4vw,48px) clamp(28px,3vw,40px);
-      box-shadow: 0 4px 24px rgba(28,28,24,0.06);
-    }
-    .perks-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--muted-text); margin-bottom: 24px;
-    }
-    .perks-list { list-style: none; display: flex; flex-direction: column; gap: 20px; margin-bottom: 36px; }
-    .perk { display: flex; align-items: flex-start; gap: 14px; }
-    .perk-ico { flex-shrink:0; font-size:20px; margin-top:1px; }
-    .perk-text { font-size:15px; color:var(--body-text); line-height:1.55; }
-    .perk-text strong { display:block; color:var(--dark-text); font-weight:600; margin-bottom:2px; }
-    @media (max-width: 840px) { .consultant-inner { grid-template-columns: 1fr; } }
-
-    /* ══════════════════════════════════════════════════
-       §9  CEO QUOTE
-    ══════════════════════════════════════════════════ */
-    .ceo-section {
-      background: var(--white); text-align: center;
-      padding: clamp(80px,12vw,140px) clamp(20px,10vw,160px);
-      position: relative; overflow: hidden;
-    }
-    .ceo-section::before {
-      content: ''; position: absolute; inset: 0; pointer-events: none;
-      background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(201,146,42,0.03) 0%, transparent 70%);
-    }
-    .big-quote {
-      font-family: var(--playfair); font-size: 140px; font-weight: 900;
-      color: rgba(201,146,42,0.1); line-height: 0.6; display: block; margin-bottom: 48px;
-    }
-    .quote-body {
-      font-family: var(--playfair);
-      font-size: clamp(20px,2.5vw,36px);
-      font-weight: 600; font-style: italic; line-height: 1.5;
-      color: var(--dark-text); max-width: 800px; margin: 0 auto 44px;
-      letter-spacing: -0.01em; position: relative; z-index: 1;
-    }
-    .quote-rule {
-      width: 48px; height: 2px; background: var(--gold); margin: 0 auto 24px;
-    }
-    .quote-name {
-      font-size: 16px; font-weight: 700; color: var(--dark-text); margin-bottom: 4px;
-    }
-    .quote-role {
-      font-size: 13px; color: var(--muted-text); text-transform: uppercase;
-      letter-spacing: 0.08em; font-weight: 500;
-    }
-
-    /* ══════════════════════════════════════════════════
-       §10  FINAL CTA
-    ══════════════════════════════════════════════════ */
-    .final-cta { display: grid; grid-template-columns: 1fr 1fr; padding: 0; }
-    .cta-block {
-      padding: clamp(60px,8vw,100px) clamp(36px,5vw,72px);
-      display: flex; flex-direction: column; justify-content: center;
-    }
-    .cta-block--client {
-      background: var(--cream); border-right: 1px solid var(--card-border);
-    }
-    .cta-block--consultant { background: var(--navy); }
-    .cta-tag {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; margin-bottom: 18px;
-    }
-    .cta-block--client .cta-tag { color: var(--gold); }
-    .cta-block--consultant .cta-tag { color: rgba(201,146,42,0.8); }
-    .cta-title {
-      font-family: var(--playfair); font-size: clamp(28px,3vw,40px);
-      font-weight: 700; line-height: 1.15; margin-bottom: 14px;
-    }
-    .cta-block--client .cta-title { color: var(--dark-text); }
-    .cta-block--consultant .cta-title { color: #fff; }
-    .cta-desc { font-size:15px; line-height:1.7; margin-bottom:32px; max-width:40ch; }
-    .cta-block--client .cta-desc { color: var(--body-text); }
-    .cta-block--consultant .cta-desc { color: var(--light-muted); }
-    @media (max-width: 720px) {
-      .final-cta { grid-template-columns: 1fr; }
-      .cta-block--client { border-right: none; border-bottom: 1px solid var(--card-border); }
-    }
-
-    /* ══════════════════════════════════════════════════
-       FOOTER
-    ══════════════════════════════════════════════════ */
-    footer {
-      background: var(--dark-section); border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 72px clamp(20px,5vw,64px) 44px;
-    }
-    .footer-top {
-      display: grid; grid-template-columns: 2fr 1fr 1fr;
-      gap: clamp(32px,5vw,64px); margin-bottom: 56px; padding-bottom: 56px;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-    .footer-brand-name {
-      font-family: var(--playfair); font-size: 18px; font-weight: 800;
-      color: #fff; margin-bottom: 12px; line-height: 1.25;
-    }
-    .footer-brand-name span { color: var(--gold); }
-    .footer-brand-desc {
-      font-size: 14px; color: rgba(252,249,243,0.45);
-      line-height: 1.7; max-width: 34ch;
-    }
-    .footer-col-title {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: rgba(201,146,42,0.75); margin-bottom: 20px;
-    }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .footer-col a {
-      font-size: 14px; color: rgba(252,249,243,0.52); text-decoration: none;
-      transition: color 0.25s;
-    }
-    .footer-col a:hover { color: #fff; }
-    .footer-bottom {
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 14px;
-    }
-    .footer-copy { font-size: 13px; color: rgba(252,249,243,0.3); }
-    .footer-ceo { font-size: 13px; color: rgba(252,249,243,0.3); }
-    .footer-ceo span { color: var(--gold-light); }
-    @media (max-width: 820px) { .footer-top { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 540px) { .footer-top { grid-template-columns: 1fr; } }
-
-  </style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ART Ghana: Ghana's Research Partner</title>
+<meta name="description" content="ART Ghana delivers credible, independently verified research for organisations that need answers and expert guidance for students who need support."/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "background":               "#fcf9f3",
+        "surface":                  "#fcf9f3",
+        "surface-bright":           "#fcf9f3",
+        "surface-dim":              "#dcdad4",
+        "surface-container-low":    "#f6f3ed",
+        "surface-container":        "#f0eee8",
+        "surface-container-high":   "#ebe8e2",
+        "surface-container-highest":"#e5e2dc",
+        "surface-container-lowest": "#ffffff",
+        "surface-variant":          "#e5e2dc",
+        "on-background":            "#1c1c18",
+        "on-surface":               "#1c1c18",
+        "on-surface-variant":       "#44474d",
+        "outline":                  "#75777e",
+        "outline-variant":          "#c5c6ce",
+        "primary":                  "#091830",
+        "on-primary":               "#ffffff",
+        "primary-container":        "#0d1b33",
+        "secondary":                "#C9922A",
+        "on-secondary":             "#ffffff",
+        "secondary-container":      "#ffc256",
+        "secondary-fixed":          "#f9bc51",
+        "secondary-fixed-dim":      "#C9922A",
+        "on-secondary-container":   "#744f00",
+        "tertiary":                 "#1b3a6b",
+        "tertiary-container":       "#001a40",
+        "paper-white":              "#ffffff",
+        "slate-gray":               "#475569",
+        "ink-black":                "#020617",
+      },
+      borderRadius: {
+        "DEFAULT": "0.5rem",
+        "lg":      "0.75rem",
+        "xl":      "1rem",
+        "2xl":     "1.5rem",
+        "full":    "9999px",
+      },
+      spacing: {
+        "margin-desktop": "64px",
+        "margin-mobile":  "20px",
+        "gutter":         "24px",
+        "section-gap":    "120px",
+      },
+      fontFamily: {
+        "display-lg":   ["Playfair Display", "Georgia", "serif"],
+        "headline-xl":  ["Playfair Display", "Georgia", "serif"],
+        "headline-lg":  ["Playfair Display", "Georgia", "serif"],
+        "body-lg":      ["Inter", "system-ui", "sans-serif"],
+        "body-md":      ["Inter", "system-ui", "sans-serif"],
+        "label-md":     ["Inter", "system-ui", "sans-serif"],
+        "label-sm":     ["Inter", "system-ui", "sans-serif"],
+      },
+      fontSize: {
+        "display-lg":        ["56px",  {lineHeight:"1.1",  letterSpacing:"-0.02em", fontWeight:"700"}],
+        "display-lg-mobile": ["38px",  {lineHeight:"1.15", fontWeight:"700"}],
+        "headline-xl":       ["40px",  {lineHeight:"1.2",  fontWeight:"700"}],
+        "headline-lg":       ["32px",  {lineHeight:"1.3",  fontWeight:"600"}],
+        "body-lg":           ["18px",  {lineHeight:"1.6",  fontWeight:"400"}],
+        "body-md":           ["16px",  {lineHeight:"1.5",  fontWeight:"400"}],
+        "label-md":          ["14px",  {lineHeight:"1.2",  letterSpacing:"0.05em", fontWeight:"600"}],
+        "label-sm":          ["12px",  {lineHeight:"1.2",  fontWeight:"500"}],
+      }
+    }
+  }
+}
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .hero-pattern {
+    background-color: #091830;
+    background-image: radial-gradient(rgba(215,226,255,0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .glass-card {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .d1 { transition-delay: 0.08s; }
+  .d2 { transition-delay: 0.16s; }
+  .d3 { transition-delay: 0.24s; }
+  .d4 { transition-delay: 0.32s; }
+</style>
 </head>
-<body>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
 
-<!-- ── NAV ──────────────────────────────────────────── -->
-<nav id="main-nav">
-  <a href="/" class="nav-logo">
-    <div class="nav-logo-mark">ART</div>
-    <span class="nav-logo-name">ART <span>Ghana</span></span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#academic">For Students</a></li>
-    <li><a href="#defence">Defence</a></li>
-    <li><a href="#academy">Academy</a></li>
-    <li><a href="#consultants">Consultants</a></li>
-    <li>
-      <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="nav-cta">
-        Login
-        <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </li>
-  </ul>
-  <button class="nav-toggle" id="menuToggle" aria-label="Toggle menu">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-  </button>
+<!-- NAV -->
+<nav id="main-nav" class="fixed top-0 w-full z-50 bg-surface/95 backdrop-blur-md border-b border-slate-gray/10 h-20 transition-all duration-300 shadow-sm">
+  <div class="flex justify-between items-center max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop h-full">
+    <a href="/" class="flex items-center gap-3 no-underline">
+      <div class="w-9 h-9 bg-on-background rounded-lg flex items-center justify-center flex-shrink-0">
+        <span class="font-label-md text-[11px] font-bold text-surface tracking-wider">ART</span>
+      </div>
+      <span class="font-headline-lg text-[17px] font-bold text-on-background tracking-tight">ART <span class="text-secondary">Ghana</span></span>
+    </a>
+    <div class="hidden md:flex gap-8 items-center">
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-on-background transition-colors no-underline" href="#services">Services</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-on-background transition-colors no-underline" href="#academic">For Students</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-on-background transition-colors no-underline" href="#defence">Defence</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-on-background transition-colors no-underline" href="#academy">Academy</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-on-background transition-colors no-underline" href="#consultants">Consultants</a>
+      <div class="flex gap-3 ml-4">
+        <a href="https://web-production-2ebb7.up.railway.app" target="_blank"
+           class="font-label-md text-label-md text-on-background px-4 py-2 hover:text-secondary transition-colors no-underline">Login</a>
+        <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
+           class="font-label-md text-label-md bg-on-background text-surface px-6 py-2.5 rounded-lg hover:opacity-90 transition-all shadow-sm no-underline">Get Started</a>
+      </div>
+    </div>
+    <button id="menuToggle" class="md:hidden p-2 text-on-background" aria-label="Toggle menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#services" onclick="closeMobileMenu()">Services</a>
-  <a href="#academic" onclick="closeMobileMenu()">For Students</a>
-  <a href="#defence" onclick="closeMobileMenu()">Defence Service</a>
-  <a href="#academy" onclick="closeMobileMenu()">ART Academy</a>
-  <a href="#consultants" onclick="closeMobileMenu()">Consultants</a>
-  <a href="https://web-production-2ebb7.up.railway.app" target="_blank">Login</a>
-  <div class="mobile-menu-ctas">
-    <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank" class="btn-gold">Commission Research</a>
-    <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank" class="btn-ghost-light">I'm a Student</a>
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="hidden fixed top-20 left-0 right-0 z-40 bg-surface/99 backdrop-blur-lg border-b border-slate-gray/10 shadow-lg">
+  <div class="flex flex-col px-margin-mobile py-6 gap-0 max-w-[1200px] mx-auto">
+    <a href="#services" class="font-label-md text-label-md text-on-surface-variant py-3.5 border-b border-outline-variant/30 no-underline hover:text-on-background transition-colors" onclick="closeMobileMenu()">Services</a>
+    <a href="#academic" class="font-label-md text-label-md text-on-surface-variant py-3.5 border-b border-outline-variant/30 no-underline hover:text-on-background transition-colors" onclick="closeMobileMenu()">For Students</a>
+    <a href="#defence" class="font-label-md text-label-md text-on-surface-variant py-3.5 border-b border-outline-variant/30 no-underline hover:text-on-background transition-colors" onclick="closeMobileMenu()">Defence Service</a>
+    <a href="#academy" class="font-label-md text-label-md text-on-surface-variant py-3.5 border-b border-outline-variant/30 no-underline hover:text-on-background transition-colors" onclick="closeMobileMenu()">ART Academy</a>
+    <a href="#consultants" class="font-label-md text-label-md text-on-surface-variant py-3.5 border-b border-outline-variant/30 no-underline hover:text-on-background transition-colors" onclick="closeMobileMenu()">Consultants</a>
+    <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="font-label-md text-label-md text-on-surface-variant py-3.5 border-b border-outline-variant/30 no-underline">Login</a>
+    <div class="flex flex-col gap-3 mt-5">
+      <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
+         class="font-label-md text-label-md bg-on-background text-surface px-6 py-3 rounded-lg text-center no-underline">Commission Research</a>
+      <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
+         class="font-label-md text-label-md border-2 border-secondary text-secondary px-6 py-3 rounded-lg text-center no-underline">Get Research Support</a>
+    </div>
   </div>
 </div>
 
-
-<!-- ══════════════════════════════════════════════════
-     §1  HERO
-══════════════════════════════════════════════════ -->
-<section class="hero" id="home">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span class="hero-eyebrow-dot"></span>
-      Academy of Research and Technology Ghana
-    </div>
-    <h1 class="hero-h1">
-      <em>Ghana's</em>
-      <span class="hero-h1-line2">Research Partner.</span>
+<!-- HERO -->
+<section class="hero-pattern min-h-screen flex flex-col justify-center pt-32 pb-24 px-margin-mobile md:px-margin-desktop relative overflow-hidden" id="home">
+  <div class="max-w-[1200px] mx-auto relative z-10 text-center w-full">
+    <p class="font-label-md text-label-md text-secondary-fixed tracking-[0.2em] uppercase mb-8 reveal">Academy of Research and Technology Ghana</p>
+    <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-paper-white mx-auto leading-tight reveal">
+      <em class="italic text-secondary-fixed">Ghana's</em>
+      <span class="block not-italic">Research Partner.</span>
     </h1>
-    <p class="hero-sub">
+    <p class="font-body-lg text-body-lg text-surface-variant max-w-2xl mx-auto mt-6 mb-10 reveal d1">
       We deliver credible, independently verified research for organisations that need answers and expert guidance for students who need support.
     </p>
-    <div class="hero-ctas">
-      <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html"
-         class="btn-gold" target="_blank">
-        Commission Research
-        <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center reveal d2">
+      <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
+         class="font-label-md text-label-md bg-secondary text-on-secondary px-10 py-4 rounded-xl hover:opacity-90 transition-all shadow-lg flex items-center gap-2 no-underline">
+        Commission Research <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
       </a>
-      <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html"
-         class="btn-ghost-light" target="_blank">
+      <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
+         class="font-label-md text-label-md border border-paper-white/25 text-paper-white px-10 py-4 rounded-xl hover:bg-paper-white/10 transition-all no-underline">
         Get Research Support
       </a>
     </div>
   </div>
-  <div class="hero-scroll">
-    <span class="hero-scroll-bar"></span>
-    Scroll to explore
+  <div class="absolute bottom-8 left-8 md:left-margin-desktop text-paper-white/30 flex items-center gap-3 reveal">
+    <span class="w-10 h-px bg-paper-white/30 inline-block"></span>
+    <span class="font-label-sm text-label-sm tracking-widest uppercase">Scroll to explore</span>
   </div>
+  <div class="absolute -top-20 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="absolute bottom-0 -left-20 w-96 h-96 bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
 </section>
 
-
-<!-- ══════════════════════════════════════════════════
-     §2  ORGANISATIONAL RESEARCH
-══════════════════════════════════════════════════ -->
-<section class="courses" id="services">
-  <div class="portfolio-header">
-    <div>
-      <div class="eyebrow eyebrow--gold reveal">For Organisations</div>
-      <h2 class="sh sh--dark reveal d1">Research that drives decisions.</h2>
-    </div>
-    <p class="sb sb--dark reveal d2" style="max-width:46ch;">
-      From market entry studies to impact evaluations, ART Ghana delivers research that organisations across Ghana rely on to make informed, confident decisions.
-    </p>
-  </div>
-  <div class="portfolio-grid">
-
-    <div class="proj-card reveal">
-      <span class="proj-tag">Business Research</span>
-      <div class="proj-title">Market &amp; Feasibility Research</div>
-      <p class="proj-desc">Before you launch, expand, or invest, know the market. We conduct consumer surveys, competitor analysis, market sizing, and feasibility studies for SMEs, startups, and established businesses.</p>
-    </div>
-
-    <div class="proj-card reveal d2">
-      <span class="proj-tag">Development &amp; Policy</span>
-      <div class="proj-title">Impact Evaluation &amp; Development Research</div>
-      <p class="proj-desc">Measure what matters. We design and deliver programme evaluations, needs assessments, and policy research for NGOs, development organisations, and government agencies operating across Ghana.</p>
-    </div>
-
-    <div class="proj-card reveal d1">
-      <span class="proj-tag">Health &amp; Social Sciences</span>
-      <div class="proj-title">Health &amp; Community Research</div>
-      <p class="proj-desc">Research for health interventions, community programmes, and public health assessments. Designed to meet donor reporting and publication standards.</p>
-    </div>
-
-    <div class="proj-card reveal d3">
-      <span class="proj-tag">Business &amp; Management</span>
-      <div class="proj-title">Corporate &amp; Strategic Research</div>
-      <p class="proj-desc">Organisational studies, HR research, financial analyses, and strategic assessments that give leadership teams the evidence base for their next move.</p>
-    </div>
-
-  </div>
-  <div class="reveal" style="text-align:center;margin-top:52px;">
-    <p class="sb sb--dark" style="margin:0 auto 32px;max-width:62ch;text-align:center;">
-      Every organisational research project is assigned a dedicated consultant team, supervised by a senior researcher, and delivered through ART Ghana's three-layer quality assurance process.
-    </p>
-    <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html"
-       class="btn-gold" target="_blank">
-      Commission a Research Project
-      <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════
-     §3  RESEARCH DEFENCE
-══════════════════════════════════════════════════ -->
-<section class="defence" id="defence">
-  <div class="defence-header reveal">
-    <div class="eyebrow eyebrow--gold">Premium Service</div>
-    <h2 class="sh sh--dark">Academic Research<br>Defence Service</h2>
-    <p class="sb sb--dark">
-      For organisations and researchers who need formal academic validation of their work, ART Ghana empanels vetted professors and senior industry practitioners to review, challenge, and certify findings. The panel composition scales with your chosen bundle.
-    </p>
-  </div>
-
-  <div class="bundle-grid">
-
-    <!-- Starter -->
-    <div class="bundle-card bundle-card--light reveal">
-      <div class="bundle-tier">Starter Bundle</div>
-      <div class="bundle-title">Individual<br>Review</div>
-      <span class="bundle-panel-tag">
-        🎓 1 Academic Reviewer
-      </span>
-      <p class="bundle-desc">A single qualified academic provides a structured written review of your completed research, with a formal quality score and improvement recommendations.</p>
-      <ul class="bundle-features">
-        <li class="bundle-feature"><span class="bf-check">✓</span> 1 vetted academic reviewer</li>
-        <li class="bundle-feature"><span class="bf-check">✓</span> Written feedback report</li>
-        <li class="bundle-feature"><span class="bf-check">✓</span> Quality score certificate</li>
-        <li class="bundle-feature"><span class="bf-check">✓</span> One revision round included</li>
-      </ul>
-    </div>
-
-    <!-- Standard (featured) -->
-    <div class="bundle-card bundle-card--dark reveal d2">
-      <span class="bundle-popular">Most Popular</span>
-      <div class="bundle-tier">Standard Bundle</div>
-      <div class="bundle-title">Panel<br>Defence</div>
-      <span class="bundle-panel-tag">
-        🎓 2 Academics + 1 Industry Expert
-      </span>
-      <p class="bundle-desc">A structured defence session with a mixed academic and industry panel. Scholarly standards meet real-world relevance. Formal certificate issued on completion.</p>
-      <ul class="bundle-features">
-        <li class="bundle-feature"><span class="bf-check">✓</span> 2 academic reviewers</li>
-        <li class="bundle-feature"><span class="bf-check">✓</span> 1 senior industry practitioner</li>
-        <li class="bundle-feature"><span class="bf-check">✓</span> Live or virtual defence session</li>
-        <li class="bundle-feature"><span class="bf-check">✓</span> Structured examiner feedback</li>
-        <li class="bundle-feature"><span class="bf-check">✓</span> Formal defence certificate</li>
-        <li class="bundle-feature"><span class="bf-check">✓</span> Two revision rounds</li>
-      </ul>
-    </div>
-
-    <!-- Premium -->
-    <div class="bundle-card bundle-card--light reveal d4">
-      <div class="bundle-tier">Premium Bundle</div>
-      <div class="bundle-title">Full<br>Empanelment</div>
-      <span class="bundle-panel-tag">
-        🎓 3 Professors + 2 Industry Leaders
-      </span>
-      <p class="bundle-desc">The complete formal empanelment. Senior professors and industry leaders conduct a full viva-style defence, with an examiner-grade report and a publication-readiness assessment.</p>
-      <ul class="bundle-features">
-        <li class="bundle-feature"><span class="bf-check">✓</span> 3 senior professors</li>
-        <li class="bundle-feature"><span class="bf-check">✓</span> 2 industry leaders</li>
-        <li class="bundle-feature"><span class="bf-check">✓</span> Full viva-style defence session</li>
-        <li class="bundle-feature"><span class="bf-check">✓</span> Examiner-grade written report</li>
-        <li class="bundle-feature"><span class="bf-check">✓</span> Publication-readiness assessment</li>
-        <li class="bundle-feature"><span class="bf-check">✓</span> ART Ghana Seal of Excellence</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <div class="defence-ethics reveal d1">
-    <div class="defence-ethics-icon">⚖️</div>
-    <div class="defence-ethics-body">
-      <div class="defence-ethics-title">Governed by the ART Ghana Academic Ethics Framework</div>
-      <p class="defence-ethics-text">All defence panels operate under strict ethical guidelines. Panel members declare conflicts of interest, sign confidentiality agreements, and evaluate work in line with ART Ghana's professional conduct standards. Every student receives a fair, independent assessment.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════
-     §4  QUALITY ASSURANCE (dark)
-══════════════════════════════════════════════════ -->
-<section class="quality" id="quality">
-  <div class="quality-header reveal">
-    <div class="eyebrow eyebrow--gold-light">Quality Standards</div>
-    <h2 class="sh sh--light">Research you can stand behind.</h2>
-    <p class="sb sb--light">
-      Every deliverable, whether for a multinational NGO or a final-year student, goes through the same three-layer quality process before it leaves our platform.
-    </p>
-  </div>
-  <div class="pillar-grid">
-
-    <div class="pillar reveal">
-      <div class="pillar-icon">🔍</div>
-      <div class="pillar-name">Plagiarism Detection</div>
-      <p class="pillar-desc">All written deliverables are scanned using Copyleaks, one of the world's leading plagiarism detection platforms, to confirm originality before submission.</p>
-      <span class="pillar-badge">Powered by Copyleaks</span>
-    </div>
-
-    <div class="pillar reveal d2">
-      <div class="pillar-icon">🤖</div>
-      <div class="pillar-name">AI Content Detection</div>
-      <p class="pillar-desc">We screen every document for AI-generated content to confirm your research reflects genuine human expertise throughout.</p>
-      <span class="pillar-badge">Human-First Standard</span>
-    </div>
-
-    <div class="pillar reveal d4">
-      <div class="pillar-icon">⭐</div>
-      <div class="pillar-name">Quality Score Review</div>
-      <p class="pillar-desc">A senior ART reviewer scores each submission against our quality rubric, covering clarity, methodology, evidence, and presentation before handover.</p>
-      <span class="pillar-badge">ART Quality Rubric</span>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════
-     §5  ACADEMIC RESEARCH SERVICES
-══════════════════════════════════════════════════ -->
-<section class="services" id="academic">
-  <div class="services-header reveal">
-    <div class="eyebrow eyebrow--gold">For Students &amp; Researchers</div>
-    <h2 class="sh sh--dark">Expert support for every stage<br>of your research.</h2>
-    <p class="sb sb--dark">
-      From your first research proposal to your final defence, ART Ghana's consultants provide the guidance, analysis, and writing support you need to produce work you're proud of.
-    </p>
-  </div>
-  <div class="svc-grid">
-
-    <div class="svc-card reveal">
-      <div class="svc-icon">📝</div>
-      <span class="proj-tag" style="display:inline-block;margin-bottom:16px;">Undergraduate to Doctoral</span>
-      <div class="svc-name">Dissertation &amp; Thesis Support</div>
-      <p class="svc-text">End-to-end support for undergraduate and postgraduate research: topic selection, proposal writing, methodology, data collection, analysis, and writeup.</p>
-    </div>
-
-    <div class="svc-card reveal d1">
-      <div class="svc-icon">🔬</div>
-      <span class="proj-tag" style="display:inline-block;margin-bottom:16px;">All Levels</span>
-      <div class="svc-name">Research Proposal Development</div>
-      <p class="svc-text">A strong proposal is the foundation of good research. We help you define your research questions, justify your methodology, and build a compelling case for your supervisor or ethics board.</p>
-    </div>
-
-    <div class="svc-card reveal d2">
-      <div class="svc-icon">📊</div>
-      <span class="proj-tag" style="display:inline-block;margin-bottom:16px;">Undergraduate to Doctoral</span>
-      <div class="svc-name">Data Analysis (SPSS, R, Python)</div>
-      <p class="svc-text">Stuck on your numbers? Our analysts work with you to clean, analyse, and interpret your dataset and explain every step so you understand your own findings.</p>
-    </div>
-
-    <div class="svc-card reveal d1">
-      <div class="svc-icon">📚</div>
-      <span class="proj-tag" style="display:inline-block;margin-bottom:16px;">All Levels</span>
-      <div class="svc-name">Literature Review Writing</div>
-      <p class="svc-text">A thorough, well-structured literature review that maps the academic landscape of your topic, identifies gaps, and positions your research within the existing body of knowledge.</p>
-    </div>
-
-    <div class="svc-card reveal d2">
-      <div class="svc-icon">✍️</div>
-      <span class="proj-tag" style="display:inline-block;margin-bottom:16px;">All Levels</span>
-      <div class="svc-name">Academic Writing &amp; Editing</div>
-      <p class="svc-text">From sentence structure to argument flow, we review and improve your academic writing while keeping your voice and ensuring your work meets journal and university standards.</p>
-    </div>
-
-    <div class="svc-card reveal d3">
-      <div class="svc-icon">⚖️</div>
-      <span class="proj-tag" style="display:inline-block;margin-bottom:16px;">Postgraduate &amp; Professional</span>
-      <div class="svc-name">Research Ethics &amp; Compliance</div>
-      <p class="svc-text">Navigate IRB applications, informed consent forms, and ethical review processes with confidence. We help you design research that is ethical, compliant, and defensible.</p>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════
-     §6  HOW IT WORKS
-══════════════════════════════════════════════════ -->
-<section class="how" id="how-it-works">
-  <div class="how-header">
-    <div class="eyebrow eyebrow--gold reveal">The Process</div>
-    <h2 class="sh sh--dark reveal d1">Simple from start to finish.</h2>
-    <p class="sb sb--dark reveal d2">
-      Whether you are an NGO commissioning a programme evaluation or a student completing your dissertation, the process is the same. Clear, trackable, and built around your deadline.
-    </p>
-  </div>
-  <div class="steps-row">
-
-    <div class="step reveal">
-      <div class="step-circle">
-        <span class="step-num">01</span>
-      </div>
-      <div class="step-title">Tell us what you need</div>
-      <p class="step-text">Describe your research project: topic, scope, deadline, and any specific requirements. Takes under five minutes to submit.</p>
-    </div>
-
-    <div class="step reveal d1">
-      <div class="step-circle">
-        <span class="step-num">02</span>
-      </div>
-      <div class="step-title">We match you with the right team</div>
-      <p class="step-text">We surface consultants whose academic background and domain expertise fit your project. You choose who you work with.</p>
-    </div>
-
-    <div class="step reveal d2">
-      <div class="step-circle">
-        <span class="step-num">03</span>
-      </div>
-      <div class="step-title">Track progress in real time</div>
-      <p class="step-text">Work directly with your consultant. Share documents, give feedback, and track progress in real time through our platform.</p>
-    </div>
-
-    <div class="step reveal d3">
-      <div class="step-circle">
-        <span class="step-num">04</span>
-      </div>
-      <div class="step-title">Receive and approve your research</div>
-      <p class="step-text">Get quality-checked research you can present with confidence. On time, within budget, ready to use.</p>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════
-     §7  PORTFOLIO
-══════════════════════════════════════════════════ -->
-<section class="portfolio" id="portfolio">
-  <div class="portfolio-header">
-    <div>
-      <div class="eyebrow eyebrow--gold reveal">Our Work</div>
-      <h2 class="sh sh--dark reveal d1">A sample of what<br>we have delivered.</h2>
-    </div>
-    <p class="sb sb--dark reveal d2" style="max-width:38ch;">
-      Across academic institutions, development organisations, and private businesses, a snapshot of the research ART Ghana has produced.
-    </p>
-  </div>
-  <div class="portfolio-grid">
-
-    <div class="proj-card reveal">
-      <span class="proj-tag">Organisational Research</span>
-      <div class="proj-title">Mobile Money Adoption and SME Growth in Greater Accra</div>
-      <p class="proj-desc">A quantitative study examining how mobile payment platforms changed operations across 220 small enterprises in Accra, La Dade Kotopon, and Tema. Findings were shared with fintech providers and used in district-level policy discussions.</p>
-      <div class="proj-meta">
-        <span class="proj-meta-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          5 weeks
-        </span>
-        <span class="proj-meta-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/></svg>
-          Quantitative
-        </span>
+<!-- FOR ORGANISATIONS -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface" id="services">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="mb-16">
+      <p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-3 reveal">For Organisations</p>
+      <div class="flex flex-col md:flex-row justify-between items-end gap-8">
+        <h2 class="font-headline-xl text-headline-xl text-on-background max-w-lg reveal">Research that drives decisions.</h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md reveal d1">
+          From market entry studies to impact evaluations, ART Ghana delivers research that organisations across Ghana rely on to make informed, confident decisions.
+        </p>
       </div>
     </div>
-
-    <div class="proj-card reveal d2">
-      <span class="proj-tag">Academic Research</span>
-      <div class="proj-title">Digital Financial Inclusion in Rural Volta Region</div>
-      <p class="proj-desc">A mixed-methods undergraduate dissertation exploring barriers to digital banking adoption among rural communities. The study combined household surveys with in-depth interviews across four districts.</p>
-      <div class="proj-meta">
-        <span class="proj-meta-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          8 weeks
-        </span>
-        <span class="proj-meta-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/></svg>
-          Mixed Methods
-        </span>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+      <div class="p-8 bg-surface-container-lowest border border-slate-gray/10 rounded-xl hover:shadow-lg transition-all group reveal">
+        <div class="w-12 h-12 bg-surface-container-low rounded-xl flex items-center justify-center mb-6 text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">
+          <span class="material-symbols-outlined">analytics</span>
+        </div>
+        <p class="font-label-sm text-label-sm text-secondary mb-2">Business Research</p>
+        <h3 class="font-body-md text-[18px] font-semibold text-on-background mb-3 leading-snug">Market &amp; Feasibility Research</h3>
+        <p class="font-body-md text-on-surface-variant text-[15px]">Consumer surveys, competitor analysis, market sizing, and feasibility studies for SMEs, startups, and established businesses.</p>
+      </div>
+      <div class="p-8 bg-surface-container-lowest border border-slate-gray/10 rounded-xl hover:shadow-lg transition-all group reveal d1">
+        <div class="w-12 h-12 bg-surface-container-low rounded-xl flex items-center justify-center mb-6 text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">
+          <span class="material-symbols-outlined">policy</span>
+        </div>
+        <p class="font-label-sm text-label-sm text-secondary mb-2">Development &amp; Policy</p>
+        <h3 class="font-body-md text-[18px] font-semibold text-on-background mb-3 leading-snug">Impact Evaluation &amp; Development Research</h3>
+        <p class="font-body-md text-on-surface-variant text-[15px]">Programme evaluations, needs assessments, and policy research for NGOs, development organisations, and government agencies.</p>
+      </div>
+      <div class="p-8 bg-surface-container-lowest border border-slate-gray/10 rounded-xl hover:shadow-lg transition-all group reveal d2">
+        <div class="w-12 h-12 bg-surface-container-low rounded-xl flex items-center justify-center mb-6 text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">
+          <span class="material-symbols-outlined">health_metrics</span>
+        </div>
+        <p class="font-label-sm text-label-sm text-secondary mb-2">Health &amp; Social Sciences</p>
+        <h3 class="font-body-md text-[18px] font-semibold text-on-background mb-3 leading-snug">Health &amp; Community Research</h3>
+        <p class="font-body-md text-on-surface-variant text-[15px]">Research for health interventions, community programmes, and public health assessments designed to meet donor and publication standards.</p>
+      </div>
+      <div class="p-8 bg-surface-container-lowest border border-slate-gray/10 rounded-xl hover:shadow-lg transition-all group reveal d3">
+        <div class="w-12 h-12 bg-surface-container-low rounded-xl flex items-center justify-center mb-6 text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">
+          <span class="material-symbols-outlined">corporate_fare</span>
+        </div>
+        <p class="font-label-sm text-label-sm text-secondary mb-2">Business &amp; Management</p>
+        <h3 class="font-body-md text-[18px] font-semibold text-on-background mb-3 leading-snug">Corporate &amp; Strategic Research</h3>
+        <p class="font-body-md text-on-surface-variant text-[15px]">Organisational studies, HR research, financial analyses, and strategic assessments for leadership teams.</p>
       </div>
     </div>
-
-    <div class="proj-card reveal d1">
-      <span class="proj-tag">Development Research</span>
-      <div class="proj-title">Nutrition Intervention Impact Assessment, Northern Region</div>
-      <p class="proj-desc">An impact evaluation conducted for an NGO running a community nutrition programme. Measured outcomes across 12 communities using pre and post intervention data collection.</p>
-      <div class="proj-meta">
-        <span class="proj-meta-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          6 weeks
-        </span>
-        <span class="proj-meta-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/></svg>
-          Pre-Post Design
-        </span>
+    <div class="mt-16 bg-on-background p-10 md:p-12 rounded-xl text-paper-white flex flex-col md:flex-row items-center justify-between gap-8 reveal">
+      <div>
+        <h4 class="font-body-md text-[20px] font-semibold mb-2">Ready to commission a project?</h4>
+        <p class="text-surface-variant font-body-md">Every project is assigned a dedicated consultant team, supervised by a senior researcher, and delivered through ART Ghana's three-layer quality assurance process.</p>
       </div>
-    </div>
-
-    <div class="proj-card reveal d3">
-      <span class="proj-tag">Business Research</span>
-      <div class="proj-title">Agri-Tech Market Sizing for Smallholder Farmer Platform</div>
-      <p class="proj-desc">A feasibility and market sizing study for a proposed digital platform targeting smallholder farmers in three regions. Included competitor mapping, willingness-to-pay analysis, and demand projections.</p>
-      <div class="proj-meta">
-        <span class="proj-meta-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          3 weeks
-        </span>
-        <span class="proj-meta-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/></svg>
-          Survey · Desk Research
-        </span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ══════════════════════════════════════════════════
-     §8  COURSES
-══════════════════════════════════════════════════ -->
-<section class="courses" id="academy">
-  <div class="courses-header">
-    <div>
-      <div class="eyebrow eyebrow--gold reveal">ART Academy</div>
-      <h2 class="sh sh--dark reveal d1">Build the skills.<br>Do the work.</h2>
-    </div>
-    <p class="sb sb--dark reveal d2" style="max-width:42ch;">
-      Our training programmes are open to students, working professionals, and anyone who wants to conduct better research. Short, practical, and built around Ghanaian research contexts.
-    </p>
-  </div>
-  <div class="courses-grid">
-
-    <div class="course-card reveal">
-      <div class="course-meta">
-        <span class="course-level level-beginner">Beginner</span>
-        <span class="course-duration">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          4 Weeks
-        </span>
-      </div>
-      <div class="course-title">Research Methods Fundamentals</div>
-      <p class="course-desc">Master the building blocks of rigorous research design, literature review strategies, and data collection methods across academic disciplines.</p>
-      <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="course-link">
-        Enrol Now
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
+         class="whitespace-nowrap font-label-md text-label-md bg-secondary text-on-secondary px-8 py-4 rounded-xl hover:opacity-90 transition-all flex items-center gap-2 no-underline flex-shrink-0">
+        Commission a Research Project <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
       </a>
     </div>
-
-    <div class="course-card reveal d1">
-      <div class="course-meta">
-        <span class="course-level level-beginner">Beginner</span>
-        <span class="course-duration">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          3 Weeks
-        </span>
-      </div>
-      <div class="course-title">Academic Writing for Publication</div>
-      <p class="course-desc">Learn to write compelling research papers, structured abstracts, and literature reviews aligned with international journal publication standards.</p>
-      <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="course-link">
-        Enrol Now
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-
-    <div class="course-card reveal d2">
-      <div class="course-meta">
-        <span class="course-level level-intermediate">Intermediate</span>
-        <span class="course-duration">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          6 Weeks
-        </span>
-      </div>
-      <div class="course-title">Statistical Analysis with SPSS &amp; Excel</div>
-      <p class="course-desc">Practical training in quantitative data analysis, hypothesis testing, and result interpretation for social science researchers.</p>
-      <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="course-link">
-        Enrol Now
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-
-    <div class="course-card reveal d1">
-      <div class="course-meta">
-        <span class="course-level level-intermediate">Intermediate</span>
-        <span class="course-duration">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          5 Weeks
-        </span>
-      </div>
-      <div class="course-title">Qualitative Research Methods</div>
-      <p class="course-desc">Master in-depth interviews, focus group design, thematic analysis, and ethnographic methods for social and community research.</p>
-      <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="course-link">
-        Enrol Now
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-
-    <div class="course-card reveal d2">
-      <div class="course-meta">
-        <span class="course-level level-advanced">Advanced</span>
-        <span class="course-duration">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          8 Weeks
-        </span>
-      </div>
-      <div class="course-title">Data Analysis with Python for Researchers</div>
-      <p class="course-desc">Apply Python to clean, analyse, and visualise research datasets using pandas, matplotlib, and scipy. No prior coding experience needed.</p>
-      <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="course-link">
-        Enrol Now
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-
-    <div class="course-card reveal d3">
-      <div class="course-meta">
-        <span class="course-level level-beginner">Beginner</span>
-        <span class="course-duration">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          2 Weeks
-        </span>
-      </div>
-      <div class="course-title">Research Ethics &amp; Academic Integrity</div>
-      <p class="course-desc">Essential training on research ethics, plagiarism prevention, informed consent protocols, and the responsible conduct of research in Ghana.</p>
-      <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="course-link">
-        Enrol Now
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-
   </div>
 </section>
 
-
-<!-- ══════════════════════════════════════════════════
-     §8  CONSULTANT PROGRAMME (dark)
-══════════════════════════════════════════════════ -->
-<section class="consultant" id="consultants">
-  <div class="consultant-inner">
-
-    <div>
-      <div class="consultant-training-tag reveal">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-        Two-Week Training Programme
-      </div>
-      <div class="eyebrow eyebrow--gold-light reveal">Consultant Programme</div>
-      <h2 class="sh sh--light reveal d1">Join Ghana's research workforce.</h2>
-      <p class="sb sb--light reveal d2">
-        ART Ghana's consultant programme gives motivated students and graduates a structured path into professional research. Every consultant completes a two-week intensive training programme before taking on client work, so clients get quality and consultants get real experience.
+<!-- RESEARCH DEFENCE -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low" id="defence">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="text-center mb-16 reveal">
+      <p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-3">Premium Service</p>
+      <h2 class="font-display-lg text-display-lg-mobile md:text-[44px] font-bold text-on-background mb-6 leading-tight">Academic Research<br>Defence Service</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+        For organisations and researchers who need formal academic validation of their work, ART Ghana empanels vetted professors and senior industry practitioners to review, challenge, and certify findings. The panel composition scales with your chosen bundle.
       </p>
-      <div class="cons-req-label reveal d3">Requirements</div>
-      <ul class="req-list reveal d3">
-        <li>
-          <span class="req-bullet">✓</span>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+      <!-- Starter -->
+      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-10 flex flex-col reveal">
+        <div class="mb-8">
+          <p class="font-label-md text-label-md text-on-surface-variant mb-2">Starter Bundle</p>
+          <h3 class="font-body-md text-[26px] font-semibold text-on-background leading-snug mb-3">Individual<br>Review</h3>
+          <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 border border-secondary/15 px-3 py-1.5 rounded-full inline-block">🎓 1 Academic Reviewer</span>
+        </div>
+        <p class="font-body-md text-[15px] text-on-surface-variant mb-6 pb-6 border-b border-slate-gray/10">A single qualified academic provides a structured written review of your completed research, with a formal quality score and improvement recommendations.</p>
+        <ul class="space-y-3 mb-auto font-body-md text-[15px] text-on-surface-variant">
+          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>1 vetted academic reviewer</li>
+          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>Written feedback report</li>
+          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>Quality score certificate</li>
+          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>One revision round included</li>
+        </ul>
+        <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
+           class="mt-10 w-full border-2 border-secondary text-secondary py-3 rounded-xl font-label-md text-label-md hover:bg-secondary hover:text-on-secondary transition-all text-center block no-underline">Select Starter</a>
+      </div>
+      <!-- Standard (featured) -->
+      <div class="bg-on-background text-paper-white rounded-xl p-10 flex flex-col relative md:-my-4 shadow-2xl z-10 reveal d1">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-secondary text-on-secondary px-5 py-1.5 rounded-full font-label-sm text-[11px] font-bold uppercase tracking-wider whitespace-nowrap">Most Popular</div>
+        <div class="mb-8">
+          <p class="font-label-md text-label-md text-surface-variant mb-2">Standard Bundle</p>
+          <h3 class="font-body-md text-[26px] font-semibold text-paper-white leading-snug mb-3">Panel<br>Defence</h3>
+          <span class="font-label-sm text-label-sm text-secondary-fixed bg-secondary/15 border border-secondary/25 px-3 py-1.5 rounded-full inline-block">🎓 2 Academics + 1 Industry Expert</span>
+        </div>
+        <p class="font-body-md text-[15px] text-surface-variant mb-6 pb-6 border-b border-paper-white/10">A structured defence session with a mixed academic and industry panel. Scholarly standards meet real-world relevance. Formal certificate issued on completion.</p>
+        <ul class="space-y-3 mb-auto font-body-md text-[15px] text-surface-variant">
+          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary-fixed text-[18px] mt-0.5">check_circle</span>2 academic reviewers</li>
+          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary-fixed text-[18px] mt-0.5">check_circle</span>1 senior industry practitioner</li>
+          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary-fixed text-[18px] mt-0.5">check_circle</span>Live or virtual defence session</li>
+          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary-fixed text-[18px] mt-0.5">check_circle</span>Structured examiner feedback</li>
+          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary-fixed text-[18px] mt-0.5">check_circle</span>Formal defence certificate</li>
+          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary-fixed text-[18px] mt-0.5">check_circle</span>Two revision rounds</li>
+        </ul>
+        <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
+           class="mt-10 w-full bg-secondary text-on-secondary py-3 rounded-xl font-label-md text-label-md hover:opacity-90 transition-all text-center block no-underline">Select Standard</a>
+      </div>
+      <!-- Premium -->
+      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-10 flex flex-col reveal d2">
+        <div class="mb-8">
+          <p class="font-label-md text-label-md text-on-surface-variant mb-2">Premium Bundle</p>
+          <h3 class="font-body-md text-[26px] font-semibold text-on-background leading-snug mb-3">Full<br>Empanelment</h3>
+          <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 border border-secondary/15 px-3 py-1.5 rounded-full inline-block">🎓 3 Professors + 2 Industry Leaders</span>
+        </div>
+        <p class="font-body-md text-[15px] text-on-surface-variant mb-6 pb-6 border-b border-slate-gray/10">The complete formal empanelment. Senior professors and industry leaders conduct a full viva-style defence, with an examiner-grade report and a publication-readiness assessment.</p>
+        <ul class="space-y-3 mb-auto font-body-md text-[15px] text-on-surface-variant">
+          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>3 senior professors</li>
+          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>2 industry leaders</li>
+          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>Full viva-style defence session</li>
+          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>Examiner-grade written report</li>
+          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>Publication-readiness assessment</li>
+          <li class="flex items-start gap-3"><span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">check_circle</span>ART Ghana Seal of Excellence</li>
+        </ul>
+        <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
+           class="mt-10 w-full border-2 border-secondary text-secondary py-3 rounded-xl font-label-md text-label-md hover:bg-secondary hover:text-on-secondary transition-all text-center block no-underline">Select Premium</a>
+      </div>
+    </div>
+    <div class="mt-12 p-8 border border-secondary/20 rounded-xl bg-secondary/5 flex items-start gap-6 reveal">
+      <span class="material-symbols-outlined text-secondary text-4xl flex-shrink-0 mt-1">gavel</span>
+      <div>
+        <p class="font-body-md text-[17px] font-semibold text-on-background mb-2">Governed by the ART Ghana Academic Ethics Framework</p>
+        <p class="font-body-md text-[15px] text-on-surface-variant">All defence panels operate under strict ethical guidelines. Panel members declare conflicts of interest, sign confidentiality agreements, and evaluate work in line with ART Ghana's professional conduct standards. Every student receives a fair, independent assessment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUALITY STANDARDS (dark) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-on-background relative overflow-hidden" id="quality">
+  <div class="max-w-[1200px] mx-auto relative z-10">
+    <div class="text-center mb-16 reveal">
+      <p class="font-label-md text-label-md text-secondary-fixed uppercase tracking-widest mb-3">Quality Standards</p>
+      <h2 class="font-headline-xl text-headline-xl text-paper-white mb-6">Research you can stand behind.</h2>
+      <p class="font-body-lg text-body-lg text-surface-variant max-w-2xl mx-auto">
+        Every deliverable, whether for a multinational NGO or a final-year student, goes through the same three-layer quality process before it leaves our platform.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+      <div class="glass-card p-10 rounded-2xl text-center reveal">
+        <span class="material-symbols-outlined text-secondary-fixed mb-6 block" style="font-size:48px">pageview</span>
+        <h3 class="font-body-md text-[21px] font-semibold text-paper-white mb-4">Plagiarism Detection</h3>
+        <p class="font-body-md text-[15px] text-surface-variant mb-6">All written deliverables are scanned using Copyleaks, one of the world's leading plagiarism detection platforms, to confirm originality before submission.</p>
+        <span class="font-label-sm text-label-sm text-secondary-fixed bg-secondary/10 border border-secondary/20 px-4 py-1.5 rounded-full uppercase tracking-wider inline-block">Powered by Copyleaks</span>
+      </div>
+      <div class="glass-card p-10 rounded-2xl text-center reveal d1">
+        <span class="material-symbols-outlined text-secondary-fixed mb-6 block" style="font-size:48px">smart_toy</span>
+        <h3 class="font-body-md text-[21px] font-semibold text-paper-white mb-4">AI Content Detection</h3>
+        <p class="font-body-md text-[15px] text-surface-variant mb-6">We screen every document for AI-generated content to confirm your research reflects genuine human expertise throughout.</p>
+        <span class="font-label-sm text-label-sm text-secondary-fixed bg-secondary/10 border border-secondary/20 px-4 py-1.5 rounded-full uppercase tracking-wider inline-block">Human-First Standard</span>
+      </div>
+      <div class="glass-card p-10 rounded-2xl text-center reveal d2">
+        <span class="material-symbols-outlined text-secondary-fixed mb-6 block" style="font-size:48px">verified</span>
+        <h3 class="font-body-md text-[21px] font-semibold text-paper-white mb-4">Quality Score Review</h3>
+        <p class="font-body-md text-[15px] text-surface-variant mb-6">A senior ART reviewer scores each submission against our quality rubric, covering clarity, methodology, evidence, and presentation before handover.</p>
+        <span class="font-label-sm text-label-sm text-secondary-fixed bg-secondary/10 border border-secondary/20 px-4 py-1.5 rounded-full uppercase tracking-wider inline-block">ART Quality Rubric</span>
+      </div>
+    </div>
+  </div>
+  <div class="absolute top-0 right-0 w-64 h-64 bg-secondary opacity-5 blur-[120px] pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-primary opacity-10 blur-[120px] pointer-events-none"></div>
+</section>
+
+<!-- FOR STUDENTS -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface" id="academic">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="mb-16 reveal">
+      <p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-3">For Students &amp; Researchers</p>
+      <div class="flex flex-col lg:flex-row justify-between items-end gap-8">
+        <h2 class="font-headline-xl text-headline-xl text-on-background max-w-lg">Expert support for every stage of your research.</h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">From your first research proposal to your final defence, ART Ghana's consultants provide the guidance, analysis, and writing support you need to produce work you're proud of.</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+      <div class="p-8 bg-surface-container-lowest border border-slate-gray/10 rounded-xl hover:-translate-y-1 transition-all reveal">
+        <span class="material-symbols-outlined text-secondary mb-4 block" style="font-size:30px">edit_note</span>
+        <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 inline-block px-3 py-1 rounded-full mb-4">Undergraduate to Doctoral</span>
+        <h3 class="font-body-md text-[19px] font-semibold text-on-background mb-3">Dissertation &amp; Thesis Support</h3>
+        <p class="font-body-md text-[15px] text-on-surface-variant">End-to-end support for undergraduate and postgraduate research: topic selection, proposal writing, methodology, data collection, analysis, and writeup.</p>
+      </div>
+      <div class="p-8 bg-surface-container-lowest border border-slate-gray/10 rounded-xl hover:-translate-y-1 transition-all reveal d1">
+        <span class="material-symbols-outlined text-secondary mb-4 block" style="font-size:30px">biotech</span>
+        <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 inline-block px-3 py-1 rounded-full mb-4">All Levels</span>
+        <h3 class="font-body-md text-[19px] font-semibold text-on-background mb-3">Research Proposal Development</h3>
+        <p class="font-body-md text-[15px] text-on-surface-variant">A strong proposal is the foundation of good research. We help you define your research questions, justify your methodology, and build a compelling case for your supervisor or ethics board.</p>
+      </div>
+      <div class="p-8 bg-surface-container-lowest border border-slate-gray/10 rounded-xl hover:-translate-y-1 transition-all reveal d2">
+        <span class="material-symbols-outlined text-secondary mb-4 block" style="font-size:30px">calculate</span>
+        <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 inline-block px-3 py-1 rounded-full mb-4">Undergraduate to Doctoral</span>
+        <h3 class="font-body-md text-[19px] font-semibold text-on-background mb-3">Data Analysis (SPSS, R, Python)</h3>
+        <p class="font-body-md text-[15px] text-on-surface-variant">Stuck on your numbers? Our analysts work with you to clean, analyse, and interpret your dataset and explain every step so you understand your own findings.</p>
+      </div>
+      <div class="p-8 bg-surface-container-lowest border border-slate-gray/10 rounded-xl hover:-translate-y-1 transition-all reveal">
+        <span class="material-symbols-outlined text-secondary mb-4 block" style="font-size:30px">menu_book</span>
+        <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 inline-block px-3 py-1 rounded-full mb-4">All Levels</span>
+        <h3 class="font-body-md text-[19px] font-semibold text-on-background mb-3">Literature Review Writing</h3>
+        <p class="font-body-md text-[15px] text-on-surface-variant">A thorough, well-structured literature review that maps the academic landscape of your topic, identifies gaps, and positions your research within the existing body of knowledge.</p>
+      </div>
+      <div class="p-8 bg-surface-container-lowest border border-slate-gray/10 rounded-xl hover:-translate-y-1 transition-all reveal d1">
+        <span class="material-symbols-outlined text-secondary mb-4 block" style="font-size:30px">history_edu</span>
+        <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 inline-block px-3 py-1 rounded-full mb-4">All Levels</span>
+        <h3 class="font-body-md text-[19px] font-semibold text-on-background mb-3">Academic Writing &amp; Editing</h3>
+        <p class="font-body-md text-[15px] text-on-surface-variant">From sentence structure to argument flow, we review and improve your academic writing while keeping your voice and ensuring your work meets journal and university standards.</p>
+      </div>
+      <div class="p-8 bg-surface-container-lowest border border-slate-gray/10 rounded-xl hover:-translate-y-1 transition-all reveal d2">
+        <span class="material-symbols-outlined text-secondary mb-4 block" style="font-size:30px">balance</span>
+        <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 inline-block px-3 py-1 rounded-full mb-4">Postgraduate &amp; Professional</span>
+        <h3 class="font-body-md text-[19px] font-semibold text-on-background mb-3">Research Ethics &amp; Compliance</h3>
+        <p class="font-body-md text-[15px] text-on-surface-variant">Navigate IRB applications, informed consent forms, and ethical review processes with confidence. We help you design research that is ethical, compliant, and defensible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS (dark) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-on-background" id="how-it-works">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="mb-16 max-w-xl reveal">
+      <p class="font-label-md text-label-md text-secondary-fixed uppercase tracking-widest mb-3">The Process</p>
+      <h2 class="font-headline-xl text-headline-xl text-paper-white mb-4">Simple from start to finish.</h2>
+      <p class="font-body-lg text-body-lg text-surface-variant">Whether you are an NGO commissioning a programme evaluation or a student completing your dissertation, the process is the same. Clear, trackable, and built around your deadline.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter relative">
+      <div class="hidden md:block absolute top-10 left-0 w-full h-px bg-slate-gray/25 z-0"></div>
+      <div class="relative z-10 reveal">
+        <div class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mb-8 shadow-lg shadow-secondary/20">
+          <span class="font-display-lg text-[22px] font-bold text-on-secondary">01</span>
+        </div>
+        <h4 class="font-body-md text-[18px] font-semibold text-paper-white mb-3">Tell us what you need</h4>
+        <p class="font-body-md text-[15px] text-surface-variant">Describe your research project: topic, scope, deadline, and any specific requirements. Takes under five minutes to submit.</p>
+      </div>
+      <div class="relative z-10 reveal d1">
+        <div class="w-20 h-20 bg-paper-white text-on-background rounded-full flex items-center justify-center mb-8">
+          <span class="font-display-lg text-[22px] font-bold">02</span>
+        </div>
+        <h4 class="font-body-md text-[18px] font-semibold text-paper-white mb-3">We match you with the right team</h4>
+        <p class="font-body-md text-[15px] text-surface-variant">We surface consultants whose academic background and domain expertise fit your project. You choose who you work with.</p>
+      </div>
+      <div class="relative z-10 reveal d2">
+        <div class="w-20 h-20 bg-paper-white text-on-background rounded-full flex items-center justify-center mb-8">
+          <span class="font-display-lg text-[22px] font-bold">03</span>
+        </div>
+        <h4 class="font-body-md text-[18px] font-semibold text-paper-white mb-3">Track progress in real time</h4>
+        <p class="font-body-md text-[15px] text-surface-variant">Work directly with your consultant. Share documents, give feedback, and track progress in real time through our platform.</p>
+      </div>
+      <div class="relative z-10 reveal d3">
+        <div class="w-20 h-20 bg-paper-white text-on-background rounded-full flex items-center justify-center mb-8">
+          <span class="font-display-lg text-[22px] font-bold">04</span>
+        </div>
+        <h4 class="font-body-md text-[18px] font-semibold text-paper-white mb-3">Receive and approve your research</h4>
+        <p class="font-body-md text-[15px] text-surface-variant">Get quality-checked research you can present with confidence. On time, within budget, ready to use.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR WORK -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface" id="portfolio">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+      <div class="reveal">
+        <p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-3">Our Work</p>
+        <h2 class="font-headline-xl text-headline-xl text-on-background">A sample of what<br>we have delivered.</h2>
+      </div>
+      <p class="max-w-md font-body-md text-on-surface-variant reveal d1">Across academic institutions, development organisations, and private businesses, a snapshot of the research ART Ghana has produced.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+      <div class="bg-surface-container-lowest p-10 border border-slate-gray/10 rounded-xl flex flex-col gap-5 reveal">
+        <div class="flex justify-between items-start flex-wrap gap-3">
+          <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 px-3 py-1 rounded-full uppercase">Organisational Research</span>
+          <div class="flex gap-4 text-on-surface-variant font-label-sm text-[13px]">
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">schedule</span>5 weeks</span>
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">bar_chart</span>Quantitative</span>
+          </div>
+        </div>
+        <h3 class="font-body-md text-[20px] font-semibold text-on-background">Mobile Money Adoption and SME Growth in Greater Accra</h3>
+        <p class="font-body-md text-[15px] text-on-surface-variant flex-1">A quantitative study examining how mobile payment platforms changed operations across 220 small enterprises in Accra, La Dade Kotopon, and Tema. Findings were shared with fintech providers and used in district-level policy discussions.</p>
+        <div class="pt-5 border-t border-slate-gray/10">
+          <span class="text-secondary font-label-md flex items-center gap-2 cursor-default">View Case Details <span class="material-symbols-outlined text-[18px]">chevron_right</span></span>
+        </div>
+      </div>
+      <div class="bg-surface-container-lowest p-10 border border-slate-gray/10 rounded-xl flex flex-col gap-5 reveal d1">
+        <div class="flex justify-between items-start flex-wrap gap-3">
+          <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 px-3 py-1 rounded-full uppercase">Academic Research</span>
+          <div class="flex gap-4 text-on-surface-variant font-label-sm text-[13px]">
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">schedule</span>8 weeks</span>
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">layers</span>Mixed Methods</span>
+          </div>
+        </div>
+        <h3 class="font-body-md text-[20px] font-semibold text-on-background">Digital Financial Inclusion in Rural Volta Region</h3>
+        <p class="font-body-md text-[15px] text-on-surface-variant flex-1">A mixed-methods undergraduate dissertation exploring barriers to digital banking adoption among rural communities. The study combined household surveys with in-depth interviews across four districts.</p>
+        <div class="pt-5 border-t border-slate-gray/10">
+          <span class="text-secondary font-label-md flex items-center gap-2 cursor-default">View Case Details <span class="material-symbols-outlined text-[18px]">chevron_right</span></span>
+        </div>
+      </div>
+      <div class="bg-surface-container-lowest p-10 border border-slate-gray/10 rounded-xl flex flex-col gap-5 reveal">
+        <div class="flex justify-between items-start flex-wrap gap-3">
+          <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 px-3 py-1 rounded-full uppercase">Development Research</span>
+          <div class="flex gap-4 text-on-surface-variant font-label-sm text-[13px]">
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">schedule</span>6 weeks</span>
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">science</span>Pre-Post Design</span>
+          </div>
+        </div>
+        <h3 class="font-body-md text-[20px] font-semibold text-on-background">Nutrition Intervention Impact Assessment, Northern Region</h3>
+        <p class="font-body-md text-[15px] text-on-surface-variant flex-1">An impact evaluation conducted for an NGO running a community nutrition programme. Measured outcomes across 12 communities using pre and post intervention data collection.</p>
+        <div class="pt-5 border-t border-slate-gray/10">
+          <span class="text-secondary font-label-md flex items-center gap-2 cursor-default">View Case Details <span class="material-symbols-outlined text-[18px]">chevron_right</span></span>
+        </div>
+      </div>
+      <div class="bg-surface-container-lowest p-10 border border-slate-gray/10 rounded-xl flex flex-col gap-5 reveal d1">
+        <div class="flex justify-between items-start flex-wrap gap-3">
+          <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 px-3 py-1 rounded-full uppercase">Business Research</span>
+          <div class="flex gap-4 text-on-surface-variant font-label-sm text-[13px]">
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">schedule</span>3 weeks</span>
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[15px]">search</span>Survey · Desk Research</span>
+          </div>
+        </div>
+        <h3 class="font-body-md text-[20px] font-semibold text-on-background">Agri-Tech Market Sizing for Smallholder Farmer Platform</h3>
+        <p class="font-body-md text-[15px] text-on-surface-variant flex-1">A feasibility and market sizing study for a proposed digital platform targeting smallholder farmers in three regions. Included competitor mapping, willingness-to-pay analysis, and demand projections.</p>
+        <div class="pt-5 border-t border-slate-gray/10">
+          <span class="text-secondary font-label-md flex items-center gap-2 cursor-default">View Case Details <span class="material-symbols-outlined text-[18px]">chevron_right</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ART ACADEMY -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low" id="academy">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+      <div class="reveal">
+        <p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-3">ART Academy</p>
+        <h2 class="font-headline-xl text-headline-xl text-on-background">Build the skills.<br>Do the work.</h2>
+      </div>
+      <p class="max-w-md font-body-lg text-body-lg text-on-surface-variant reveal d1">Our training programmes are open to students, working professionals, and anyone who wants to conduct better research. Short, practical, and built around Ghanaian research contexts.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-8 flex flex-col hover:shadow-md transition-all reveal">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="font-label-sm text-label-sm text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-3 py-1 rounded-full uppercase">Beginner</span>
+          <span class="font-label-sm text-[12px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>4 Weeks</span>
+        </div>
+        <h3 class="font-body-md text-[18px] font-semibold text-on-background mb-3">Research Methods Fundamentals</h3>
+        <p class="font-body-md text-[15px] text-on-surface-variant flex-1 mb-6">Master the building blocks of rigorous research design, literature review strategies, and data collection methods across academic disciplines.</p>
+        <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="font-label-md text-label-md text-secondary flex items-center gap-2 no-underline hover:gap-4 transition-all">Enrol Now <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+      </div>
+      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-8 flex flex-col hover:shadow-md transition-all reveal d1">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="font-label-sm text-label-sm text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-3 py-1 rounded-full uppercase">Beginner</span>
+          <span class="font-label-sm text-[12px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>3 Weeks</span>
+        </div>
+        <h3 class="font-body-md text-[18px] font-semibold text-on-background mb-3">Academic Writing for Publication</h3>
+        <p class="font-body-md text-[15px] text-on-surface-variant flex-1 mb-6">Learn to write compelling research papers, structured abstracts, and literature reviews aligned with international journal publication standards.</p>
+        <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="font-label-md text-label-md text-secondary flex items-center gap-2 no-underline hover:gap-4 transition-all">Enrol Now <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+      </div>
+      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-8 flex flex-col hover:shadow-md transition-all reveal d2">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="font-label-sm text-label-sm text-blue-700 bg-blue-50 border border-blue-200/80 px-3 py-1 rounded-full uppercase">Intermediate</span>
+          <span class="font-label-sm text-[12px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>6 Weeks</span>
+        </div>
+        <h3 class="font-body-md text-[18px] font-semibold text-on-background mb-3">Statistical Analysis with SPSS &amp; Excel</h3>
+        <p class="font-body-md text-[15px] text-on-surface-variant flex-1 mb-6">Practical training in quantitative data analysis, hypothesis testing, and result interpretation for social science researchers.</p>
+        <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="font-label-md text-label-md text-secondary flex items-center gap-2 no-underline hover:gap-4 transition-all">Enrol Now <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+      </div>
+      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-8 flex flex-col hover:shadow-md transition-all reveal">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="font-label-sm text-label-sm text-blue-700 bg-blue-50 border border-blue-200/80 px-3 py-1 rounded-full uppercase">Intermediate</span>
+          <span class="font-label-sm text-[12px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>5 Weeks</span>
+        </div>
+        <h3 class="font-body-md text-[18px] font-semibold text-on-background mb-3">Qualitative Research Methods</h3>
+        <p class="font-body-md text-[15px] text-on-surface-variant flex-1 mb-6">Master in-depth interviews, focus group design, thematic analysis, and ethnographic methods for social and community research.</p>
+        <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="font-label-md text-label-md text-secondary flex items-center gap-2 no-underline hover:gap-4 transition-all">Enrol Now <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+      </div>
+      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-8 flex flex-col hover:shadow-md transition-all reveal d1">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="font-label-sm text-label-sm text-secondary bg-secondary/8 border border-secondary/20 px-3 py-1 rounded-full uppercase">Advanced</span>
+          <span class="font-label-sm text-[12px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>8 Weeks</span>
+        </div>
+        <h3 class="font-body-md text-[18px] font-semibold text-on-background mb-3">Data Analysis with Python for Researchers</h3>
+        <p class="font-body-md text-[15px] text-on-surface-variant flex-1 mb-6">Apply Python to clean, analyse, and visualise research datasets using pandas, matplotlib, and scipy. No prior coding experience needed.</p>
+        <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="font-label-md text-label-md text-secondary flex items-center gap-2 no-underline hover:gap-4 transition-all">Enrol Now <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+      </div>
+      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-8 flex flex-col hover:shadow-md transition-all reveal d2">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="font-label-sm text-label-sm text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-3 py-1 rounded-full uppercase">Beginner</span>
+          <span class="font-label-sm text-[12px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">schedule</span>2 Weeks</span>
+        </div>
+        <h3 class="font-body-md text-[18px] font-semibold text-on-background mb-3">Research Ethics &amp; Academic Integrity</h3>
+        <p class="font-body-md text-[15px] text-on-surface-variant flex-1 mb-6">Essential training on research ethics, plagiarism prevention, informed consent protocols, and the responsible conduct of research in Ghana.</p>
+        <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="font-label-md text-label-md text-secondary flex items-center gap-2 no-underline hover:gap-4 transition-all">Enrol Now <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULTANT PROGRAMME -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface" id="consultants">
+  <div class="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+    <div>
+      <div class="inline-flex items-center gap-2 bg-secondary/8 border border-secondary/20 rounded-full px-5 py-2 font-label-md text-label-md text-secondary mb-6 reveal">
+        <span class="material-symbols-outlined text-[16px]">school</span> Two-Week Training Programme
+      </div>
+      <p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-3 reveal">Consultant Programme</p>
+      <h2 class="font-headline-xl text-headline-xl text-on-background mb-6 reveal">Join Ghana's research workforce.</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 reveal d1">ART Ghana's consultant programme gives motivated students and graduates a structured path into professional research. Every consultant completes a two-week intensive training programme before taking on client work, so clients get quality and consultants get real experience.</p>
+      <p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-4 reveal d2">Requirements</p>
+      <ul class="space-y-3 reveal d2">
+        <li class="flex items-start gap-3 font-body-md text-[15px] text-on-surface-variant">
+          <span class="w-6 h-6 rounded-full bg-secondary/8 border border-secondary/20 flex items-center justify-center text-secondary font-bold text-[11px] flex-shrink-0 mt-0.5">✓</span>
           Enrolled in or graduated from an accredited Ghanaian university
         </li>
-        <li>
-          <span class="req-bullet">✓</span>
+        <li class="flex items-start gap-3 font-body-md text-[15px] text-on-surface-variant">
+          <span class="w-6 h-6 rounded-full bg-secondary/8 border border-secondary/20 flex items-center justify-center text-secondary font-bold text-[11px] flex-shrink-0 mt-0.5">✓</span>
           Demonstrated research competence in at least one domain
         </li>
-        <li>
-          <span class="req-bullet">✓</span>
+        <li class="flex items-start gap-3 font-body-md text-[15px] text-on-surface-variant">
+          <span class="w-6 h-6 rounded-full bg-secondary/8 border border-secondary/20 flex items-center justify-center text-secondary font-bold text-[11px] flex-shrink-0 mt-0.5">✓</span>
           Ability to deliver clear, well-structured written work to deadline
         </li>
-        <li>
-          <span class="req-bullet">✓</span>
+        <li class="flex items-start gap-3 font-body-md text-[15px] text-on-surface-variant">
+          <span class="w-6 h-6 rounded-full bg-secondary/8 border border-secondary/20 flex items-center justify-center text-secondary font-bold text-[11px] flex-shrink-0 mt-0.5">✓</span>
           Completion of the ART Ghana two-week onboarding programme
         </li>
-        <li>
-          <span class="req-bullet">✓</span>
+        <li class="flex items-start gap-3 font-body-md text-[15px] text-on-surface-variant">
+          <span class="w-6 h-6 rounded-full bg-secondary/8 border border-secondary/20 flex items-center justify-center text-secondary font-bold text-[11px] flex-shrink-0 mt-0.5">✓</span>
           Professional communication and commitment to client confidentiality
         </li>
       </ul>
     </div>
-
-    <div class="consultant-panel reveal d2">
-      <div class="perks-label">What You Get</div>
-      <ul class="perks-list">
-        <li class="perk">
-          <span class="perk-ico">💰</span>
-          <div class="perk-text">
-            <strong>Competitive Project-Based Earnings</strong>
-            Set your availability and earn on your own terms. No fixed hours, no salary cap.
+    <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-2xl p-10 shadow-sm reveal d1">
+      <p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-6">What You Get</p>
+      <ul class="space-y-6 mb-10">
+        <li class="flex items-start gap-4">
+          <span class="w-8 h-8 bg-secondary text-on-secondary rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-[18px]">payments</span>
+          </span>
+          <div>
+            <p class="font-label-md text-label-md text-on-background mb-1">Competitive Project-Based Earnings</p>
+            <p class="font-body-md text-[15px] text-on-surface-variant">Set your availability and earn on your own terms. No fixed hours, no salary cap.</p>
           </div>
         </li>
-        <li class="perk">
-          <span class="perk-ico">🗂️</span>
-          <div class="perk-text">
-            <strong>Verified Professional Profile</strong>
-            Build a public portfolio of completed work that distinguishes you in Ghana's research landscape.
+        <li class="flex items-start gap-4">
+          <span class="w-8 h-8 bg-secondary text-on-secondary rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-[18px]">verified_user</span>
+          </span>
+          <div>
+            <p class="font-label-md text-label-md text-on-background mb-1">Verified Professional Profile</p>
+            <p class="font-body-md text-[15px] text-on-surface-variant">Build a public portfolio of completed work that distinguishes you in Ghana's research landscape.</p>
           </div>
         </li>
-        <li class="perk">
-          <span class="perk-ico">📚</span>
-          <div class="perk-text">
-            <strong>Free ART Academy Access</strong>
-            All consultants receive complimentary access to the full ART Academy course library.
+        <li class="flex items-start gap-4">
+          <span class="w-8 h-8 bg-secondary text-on-secondary rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-[18px]">school</span>
+          </span>
+          <div>
+            <p class="font-label-md text-label-md text-on-background mb-1">Free ART Academy Access</p>
+            <p class="font-body-md text-[15px] text-on-surface-variant">All consultants receive complimentary access to the full ART Academy course library.</p>
           </div>
         </li>
-        <li class="perk">
-          <span class="perk-ico">🤝</span>
-          <div class="perk-text">
-            <strong>Mentorship &amp; Peer Network</strong>
-            Connect with senior researchers, get feedback on your work, and grow within a professional community.
+        <li class="flex items-start gap-4">
+          <span class="w-8 h-8 bg-secondary text-on-secondary rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-[18px]">handshake</span>
+          </span>
+          <div>
+            <p class="font-label-md text-label-md text-on-background mb-1">Mentorship &amp; Peer Network</p>
+            <p class="font-body-md text-[15px] text-on-surface-variant">Connect with senior researchers, get feedback on your work, and grow within a professional community.</p>
           </div>
         </li>
-        <li class="perk">
-          <span class="perk-ico">🔒</span>
-          <div class="perk-text">
-            <strong>Secure &amp; Guaranteed Payment</strong>
-            All payments are processed through the platform. Protected, reliable, and on time.
+        <li class="flex items-start gap-4">
+          <span class="w-8 h-8 bg-secondary text-on-secondary rounded-full flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-[18px]">lock</span>
+          </span>
+          <div>
+            <p class="font-label-md text-label-md text-on-background mb-1">Secure &amp; Guaranteed Payment</p>
+            <p class="font-body-md text-[15px] text-on-surface-variant">All payments are processed through the platform. Protected, reliable, and on time.</p>
           </div>
         </li>
       </ul>
-      <a href="https://web-production-2ebb7.up.railway.app/pages/register-consultant.html"
-         class="btn-gold" target="_blank">
-        Apply as a Consultant
-        <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <a href="https://web-production-2ebb7.up.railway.app/pages/register-consultant.html" target="_blank"
+         class="font-label-md text-label-md bg-on-background text-surface w-full py-4 rounded-xl hover:opacity-90 transition-all flex items-center justify-center gap-2 no-underline">
+        Apply as a Consultant <span class="material-symbols-outlined text-[18px]">person_add</span>
       </a>
     </div>
-
   </div>
 </section>
 
-
-<!-- ══════════════════════════════════════════════════
-     §10  CREDIBILITY BADGES
-══════════════════════════════════════════════════ -->
-<section class="credibility" id="credibility">
-  <div class="credibility-header reveal">
-    <p class="sb sb--dark" style="text-align:center;margin:0 auto;">
+<!-- CREDIBILITY -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low" id="credibility">
+  <div class="max-w-[1200px] mx-auto">
+    <p class="font-body-lg text-body-lg text-on-surface-variant text-center max-w-2xl mx-auto mb-16 reveal">
       Every project on ART Ghana is backed by a framework built with leading Ghanaian academics and industry professionals.
     </p>
-  </div>
-  <div class="cred-grid">
-    <div class="cred-card reveal">
-      <div class="cred-icon">🎓</div>
-      <div class="cred-title">Academically Supervised Research</div>
-      <p class="cred-desc">All consultants are vetted academics and graduates from accredited Ghanaian institutions. Methodology is grounded in recognised scholarly frameworks across every discipline.</p>
-    </div>
-    <div class="cred-card reveal d2">
-      <div class="cred-icon">⚙️</div>
-      <div class="cred-title">Industry-Informed Methodology</div>
-      <p class="cred-desc">Research designs are grounded in real-world requirements, connecting academic standards with practical utility for businesses, NGOs, and government agencies.</p>
-    </div>
-    <div class="cred-card reveal d4">
-      <div class="cred-icon">📋</div>
-      <div class="cred-title">Peer-Reviewed Standards</div>
-      <p class="cred-desc">Deliverables are reviewed against international publication standards before handover. You receive research you can present, publish, or act on with confidence.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-10 text-center hover:-translate-y-1 transition-all reveal">
+        <div class="w-16 h-16 bg-secondary/8 border border-secondary/15 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">🎓</div>
+        <h3 class="font-body-md text-[19px] font-semibold text-on-background mb-3">Academically Supervised Research</h3>
+        <p class="font-body-md text-[15px] text-on-surface-variant">All consultants are vetted academics and graduates from accredited Ghanaian institutions. Methodology is grounded in recognised scholarly frameworks across every discipline.</p>
+      </div>
+      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-10 text-center hover:-translate-y-1 transition-all reveal d1">
+        <div class="w-16 h-16 bg-secondary/8 border border-secondary/15 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">⚙️</div>
+        <h3 class="font-body-md text-[19px] font-semibold text-on-background mb-3">Industry-Informed Methodology</h3>
+        <p class="font-body-md text-[15px] text-on-surface-variant">Research designs are grounded in real-world requirements, connecting academic standards with practical utility for businesses, NGOs, and government agencies.</p>
+      </div>
+      <div class="bg-surface-container-lowest border border-slate-gray/10 rounded-xl p-10 text-center hover:-translate-y-1 transition-all reveal d2">
+        <div class="w-16 h-16 bg-secondary/8 border border-secondary/15 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">📋</div>
+        <h3 class="font-body-md text-[19px] font-semibold text-on-background mb-3">Peer-Reviewed Standards</h3>
+        <p class="font-body-md text-[15px] text-on-surface-variant">Deliverables are reviewed against international publication standards before handover. You receive research you can present, publish, or act on with confidence.</p>
+      </div>
     </div>
   </div>
 </section>
 
-
-<!-- ══════════════════════════════════════════════════
-     §11  CEO QUOTE
-══════════════════════════════════════════════════ -->
-<section class="ceo-section" id="vision">
-  <span class="big-quote reveal">"</span>
-  <blockquote class="quote-body reveal d1">
-    Every student who graduates from a Ghanaian university carries research capability that the world needs. ART Ghana was built to give that capability a market, so organisations seeking research excellence can find it right here at home.
-  </blockquote>
-  <div class="quote-rule reveal d2"></div>
-  <div class="reveal d3">
-    <div class="quote-name">Silas Asani Abudu</div>
-    <div class="quote-role">Founder &amp; CEO, Academy of Research &amp; Technology Ghana</div>
+<!-- CEO QUOTE -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest text-center relative overflow-hidden" id="vision">
+  <div class="max-w-[900px] mx-auto relative z-10">
+    <span class="font-display-lg text-[120px] leading-none text-secondary/10 block mb-6 reveal" style="line-height:0.8">"</span>
+    <blockquote class="font-display-lg text-[clamp(20px,2.5vw,34px)] font-semibold italic text-on-background max-w-3xl mx-auto mb-10 leading-snug reveal d1">
+      Every student who graduates from a Ghanaian university carries research capability that the world needs. ART Ghana was built to give that capability a market, so organisations seeking research excellence can find it right here at home.
+    </blockquote>
+    <div class="w-12 h-0.5 bg-secondary mx-auto mb-6 reveal d2"></div>
+    <p class="font-label-md text-label-md text-on-background mb-1 reveal d2">Silas Asani Abudu</p>
+    <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest reveal d3">Founder &amp; CEO, Academy of Research &amp; Technology Ghana</p>
   </div>
+  <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse 60% 50% at 50% 50%, rgba(201,146,42,0.03) 0%, transparent 70%)"></div>
 </section>
 
-
-<!-- ══════════════════════════════════════════════════
-     §12  FINAL CTA
-══════════════════════════════════════════════════ -->
-<div class="final-cta" id="get-started">
-
-  <div class="cta-block cta-block--client reveal">
-    <div class="cta-tag">For Organisations &amp; Individuals</div>
-    <h2 class="cta-title">Need research<br>done right?</h2>
-    <p class="cta-desc">Commission a project today. Tell us what you need and we will match you with a consultant team that has the exact expertise and deliver work that holds up to scrutiny.</p>
-    <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html"
-       class="btn-gold" target="_blank" style="align-self:flex-start;">
-      Commission Research
-      <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+<!-- FINAL CTA -->
+<div class="grid grid-cols-1 md:grid-cols-2" id="get-started">
+  <div class="px-margin-mobile md:px-margin-desktop py-24 bg-surface-container-low flex flex-col justify-center reveal">
+    <p class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-4">For Organisations &amp; Individuals</p>
+    <h2 class="font-headline-xl text-headline-xl text-on-background mb-4">Need research<br>done right?</h2>
+    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 max-w-md">Commission a project today. Tell us what you need and we will match you with a consultant team that has the exact expertise and deliver work that holds up to scrutiny.</p>
+    <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
+       class="self-start font-label-md text-label-md bg-on-background text-surface px-8 py-4 rounded-xl hover:opacity-90 transition-all flex items-center gap-2 no-underline">
+      Commission Research <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
     </a>
   </div>
-
-  <div class="cta-block cta-block--consultant reveal d2">
-    <div class="cta-tag">For Students &amp; Researchers</div>
-    <h2 class="cta-title">Need expert<br>guidance?</h2>
-    <p class="cta-desc">Whether it is your dissertation, your data analysis, or your research proposal, our consultants have been through it and know how to help you produce work you are proud of.</p>
-    <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html"
-       class="btn-gold" target="_blank" style="align-self:flex-start;">
-      Get Research Support
-      <svg class="arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  <div class="px-margin-mobile md:px-margin-desktop py-24 bg-on-background flex flex-col justify-center reveal d1">
+    <p class="font-label-md text-label-md text-secondary-fixed uppercase tracking-widest mb-4">For Students &amp; Researchers</p>
+    <h2 class="font-headline-xl text-headline-xl text-paper-white mb-4">Need expert<br>guidance?</h2>
+    <p class="font-body-lg text-body-lg text-surface-variant mb-8 max-w-md">Whether it is your dissertation, your data analysis, or your research proposal, our consultants have been through it and know how to help you produce work you are proud of.</p>
+    <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank"
+       class="self-start font-label-md text-label-md bg-secondary text-on-secondary px-8 py-4 rounded-xl hover:opacity-90 transition-all flex items-center gap-2 no-underline">
+      Get Research Support <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
     </a>
   </div>
-
 </div>
 
-
-<!-- ══════════════════════════════════════════════════
-     FOOTER
-══════════════════════════════════════════════════ -->
-<footer>
-  <div class="footer-top">
-    <div>
-      <div class="footer-brand-name">
-        Academy of Research<br>and Technology <span>Ghana</span>
+<!-- FOOTER -->
+<footer class="bg-on-background border-t border-paper-white/6 py-20 px-margin-mobile md:px-margin-desktop">
+  <div class="max-w-[1200px] mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-16 pb-16 border-b border-paper-white/8">
+      <div class="col-span-1 md:col-span-2">
+        <h2 class="font-headline-lg text-[20px] font-bold text-paper-white mb-4 leading-snug">Academy of Research<br>and Technology <span class="text-secondary-fixed">Ghana</span></h2>
+        <p class="font-body-md text-[14px] text-surface-variant max-w-xs mb-6">Connecting organisations and individuals with Ghana's best research talent. Quality research, made accessible to all.</p>
+        <p class="font-body-md text-[14px] text-surface-variant">Get in touch: <a href="mailto:acarestech@gmail.com" class="text-secondary-fixed hover:text-secondary transition-colors no-underline">acarestech@gmail.com</a></p>
       </div>
-      <p class="footer-brand-desc">
-        Connecting organisations and individuals with Ghana's best research talent. Quality research, made accessible to all.
-      </p>
-      <p class="footer-brand-desc" style="margin-top:12px;">
-        Get in touch: <a href="mailto:acarestech@gmail.com" style="color:var(--gold);text-decoration:none;">acarestech@gmail.com</a>
-      </p>
+      <div>
+        <h4 class="font-label-md text-label-md text-secondary-fixed uppercase tracking-widest mb-6">Platform</h4>
+        <ul class="space-y-3">
+          <li><a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="font-body-md text-[14px] text-surface-variant hover:text-paper-white transition-colors no-underline">Dashboard</a></li>
+          <li><a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank" class="font-body-md text-[14px] text-surface-variant hover:text-paper-white transition-colors no-underline">Client Registration</a></li>
+          <li><a href="https://web-production-2ebb7.up.railway.app/pages/register-consultant.html" target="_blank" class="font-body-md text-[14px] text-surface-variant hover:text-paper-white transition-colors no-underline">Consultant Registration</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-label-md text-label-md text-secondary-fixed uppercase tracking-widest mb-6">Explore</h4>
+        <ul class="space-y-3">
+          <li><a href="#services" class="font-body-md text-[14px] text-surface-variant hover:text-paper-white transition-colors no-underline">For Organisations</a></li>
+          <li><a href="#academic" class="font-body-md text-[14px] text-surface-variant hover:text-paper-white transition-colors no-underline">For Students</a></li>
+          <li><a href="#defence" class="font-body-md text-[14px] text-surface-variant hover:text-paper-white transition-colors no-underline">Research Defence</a></li>
+          <li><a href="#academy" class="font-body-md text-[14px] text-surface-variant hover:text-paper-white transition-colors no-underline">ART Academy</a></li>
+          <li><a href="#consultants" class="font-body-md text-[14px] text-surface-variant hover:text-paper-white transition-colors no-underline">Consultant Programme</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-col">
-      <div class="footer-col-title">Platform</div>
-      <ul>
-        <li><a href="https://web-production-2ebb7.up.railway.app" target="_blank">Dashboard</a></li>
-        <li><a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank">Client Registration</a></li>
-        <li><a href="https://web-production-2ebb7.up.railway.app/pages/register-consultant.html" target="_blank">Consultant Registration</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <div class="footer-col-title">Explore</div>
-      <ul>
-        <li><a href="#services">For Organisations</a></li>
-        <li><a href="#academic">For Students</a></li>
-        <li><a href="#defence">Research Defence</a></li>
-        <li><a href="#academy">ART Academy</a></li>
-        <li><a href="#consultants">Consultant Programme</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">
-      &copy; 2026 Academy of Research and Technology Ghana. All rights reserved.
-    </div>
-    <div class="footer-ceo">
-      Founded by <span>Silas Asani Abudu</span>, CEO &amp; Founder
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-surface-variant">
+      <p class="font-label-sm text-label-sm">© 2026 Academy of Research and Technology Ghana. All rights reserved.</p>
+      <p class="font-label-sm text-label-sm">Founded by <span class="text-secondary-fixed">Silas Asani Abudu</span>, CEO &amp; Founder</p>
     </div>
   </div>
 </footer>
-
 
 <script>
   // Scroll reveal
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
-      }
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   revealEls.forEach(el => io.observe(el));
 
-  // Nav scroll style
+  // Nav shadow on scroll
   const nav = document.getElementById('main-nav');
   window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
+    nav.classList.toggle('shadow-md', window.scrollY > 50);
   }, { passive: true });
 
   // Mobile menu
   const toggle = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
-  toggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-  });
-  function closeMobileMenu() {
-    mobileMenu.classList.remove('open');
-  }
-  // Close mobile menu on outside click
+  toggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  function closeMobileMenu() { mobileMenu.classList.add('hidden'); }
   document.addEventListener('click', (e) => {
-    if (!nav.contains(e.target) && !mobileMenu.contains(e.target)) {
-      mobileMenu.classList.remove('open');
-    }
+    if (!nav.contains(e.target) && !mobileMenu.contains(e.target)) closeMobileMenu();
   });
 </script>
 </body>
