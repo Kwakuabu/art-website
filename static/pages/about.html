@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="/static/css/main.css"/>
 <script>tailwind.config={theme:{extend:{colors:{navy:"#0D1B2A",gold:"#C8973A",cream:"#F8F6F1"}}}}</script>
 <style>.team-card:hover{transform:translateY(-4px);border-bottom-color:#C8973A!important}</style>
+<style>@media(max-width:640px){.footer-grid{grid-template-columns:1fr!important;gap:32px!important}}</style>
 </head>
 <body class="bg-cream overflow-x-hidden" style="font-family:'Inter',sans-serif;color:#0D1B2A">
 <!-- NAV -->
@@ -220,8 +221,8 @@
 <!-- FOOTER -->
 <footer class="py-16 border-t border-white/10" style="background:#080F18;color:white">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-      <div class="col-span-2 md:col-span-2">
+    <div class="footer-grid" style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.1)">
+      <div>
         <div class="flex items-center gap-2.5 mb-4"><img src="/static/logo.jpg" alt="ART Ghana" class="w-9 h-9 rounded-lg object-cover"/><span class="font-semibold tracking-wide">ART Ghana</span></div>
         <p class="text-sm leading-relaxed max-w-xs mb-5" style="color:rgba(255,255,255,0.5)">Connecting organisations and individuals with Ghana's best research talent.</p>
         <a href="mailto:acarestech@gmail.com" class="flex items-center gap-2 text-sm no-underline" style="color:#C8973A"><span class="material-symbols-outlined text-[14px]">mail</span> acarestech@gmail.com</a
@@ -254,7 +255,7 @@
         </ul>
       </div>
     </div>
-    <div class="border-t border-white/10 pt-8"><p class="text-xs" style="color:rgba(255,255,255,0.3)">© 2026 Academy of Research and Technology Ghana.</p></div>
+    <div class="pt-8"><p class="text-xs" style="color:rgba(255,255,255,0.3)">© 2026 Academy of Research and Technology Ghana.</p></div>
   </div>
 </footer>
 <script>
