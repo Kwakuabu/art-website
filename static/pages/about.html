@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/static/css/main.css"/>
 <script>tailwind.config={theme:{extend:{colors:{navy:"#0D1B2A",gold:"#C8973A",cream:"#F8F6F1"}}}}</script>
+<style>.team-card:hover{transform:translateY(-4px);border-bottom-color:#C8973A!important}</style>
 </head>
 <body class="bg-cream overflow-x-hidden" style="font-family:'Inter',sans-serif;color:#0D1B2A">
 <!-- NAV -->
@@ -91,26 +92,78 @@
 </section>
 
 <!-- TEAM -->
-<section class="py-16" style="background:#C8973A">
+<section class="py-24" style="background:#F8F5EF">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-10 reveal">
-      <span class="text-xs tracking-widest uppercase block mb-2" style="color:rgba(255,255,255,0.7);font-family:monospace">Our Team</span>
-      <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:#ffffff">The people behind ART Ghana.</h2>
+    <div class="text-center mb-14 reveal">
+      <span class="text-xs tracking-widest uppercase block mb-3" style="color:#C8973A;font-family:monospace">Our People</span>
+      <h2 class="mb-4" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:#0D1B2A">The Team Behind ART Ghana.</h2>
+      <p class="text-sm max-w-lg mx-auto leading-relaxed" style="color:#6B7280">Researchers, strategists, and technologists committed to building Ghana's research infrastructure.</p>
     </div>
-    <div class="flex justify-center">
-      <div class="flex flex-col sm:flex-row gap-6 w-full" style="max-width:800px">
-        <div class="flex-1 reveal d1" style="background:rgba(0,0,0,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:32px">
-          <div class="flex items-center gap-4 mb-5">
-            <div class="flex items-center justify-center flex-shrink-0" style="width:60px;height:60px;border-radius:50%;background:#0F2447">
-              <span style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#C8973A">PK</span>
-            </div>
-            <div>
-              <div style="font-family:'Playfair Display',serif;font-size:1.375rem;font-weight:700;color:#ffffff;line-height:1.2">Dr. Patrick Kudjo</div>
-              <div style="font-size:13px;color:rgba(255,255,255,0.8);margin-top:2px">Academic Advisor · GTUC</div>
-            </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+      <div class="reveal team-card bg-white" style="border:1px solid rgba(27,58,107,0.1);border-bottom:3px solid transparent;border-radius:12px;padding:28px;transition:transform .25s ease,border-bottom-color .25s ease">
+        <div class="flex items-center gap-4 mb-5">
+          <div class="flex items-center justify-center flex-shrink-0" style="width:64px;height:64px;border-radius:50%;background:#0F2447">
+            <span style="font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;color:#C8973A">SAA</span>
           </div>
-          <div style="font-size:13px;color:#ffffff"><span style="font-weight:700">Research Focus:</span> <em>Computer Vision</em></div>
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#0D1B2A;line-height:1.2">Silas Asani Abudu</div>
+            <div style="font-size:13px;font-weight:600;color:#C8973A;margin-top:3px">Founder &amp; CEO</div>
+          </div>
         </div>
+        <p style="font-size:14px;color:#4B5563;line-height:1.6"><span style="font-weight:600;color:#0D1B2A">Research Focus:</span> Privacy-preserving intelligence systems modeling using Differential Privacy and Homomorphic Encryption.</p>
+      </div>
+      <div class="reveal d1 team-card bg-white" style="border:1px solid rgba(27,58,107,0.1);border-bottom:3px solid transparent;border-radius:12px;padding:28px;transition:transform .25s ease,border-bottom-color .25s ease">
+        <div class="flex items-center gap-4 mb-5">
+          <div class="flex items-center justify-center flex-shrink-0" style="width:64px;height:64px;border-radius:50%;background:#0F2447">
+            <span style="font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;color:#C8973A">DEA</span>
+          </div>
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#0D1B2A;line-height:1.2">David Ebo Anderson</div>
+            <div style="font-size:13px;font-weight:600;color:#C8973A;margin-top:3px">Co-Founder</div>
+          </div>
+        </div>
+        <p style="font-size:14px;color:#4B5563;line-height:1.6">Core member of the ART Ghana founding team, driving the strategic and operational direction of the organisation.</p>
+      </div>
+      <div class="reveal d2 team-card bg-white" style="border:1px solid rgba(27,58,107,0.1);border-bottom:3px solid transparent;border-radius:12px;padding:28px;transition:transform .25s ease,border-bottom-color .25s ease">
+        <div class="flex items-center gap-4 mb-5">
+          <div class="flex items-center justify-center flex-shrink-0" style="width:64px;height:64px;border-radius:50%;background:#0F2447">
+            <span style="font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;color:#C8973A">PK</span>
+          </div>
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#0D1B2A;line-height:1.2">Dr. Patrick Kudjo</div>
+            <div style="font-size:13px;font-weight:600;color:#C8973A;margin-top:3px">Quality Control Advisor</div>
+            <div style="font-size:12px;font-style:italic;color:#9CA3AF;margin-top:2px">Ghana Technology University College (GTUC)</div>
+          </div>
+        </div>
+        <p style="font-size:14px;color:#4B5563;line-height:1.6"><span style="font-weight:600;color:#0D1B2A">Research Focus:</span> Computer Vision.</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:mx-auto" style="max-width:760px">
+      <div class="reveal team-card bg-white" style="border:1px solid rgba(27,58,107,0.1);border-bottom:3px solid transparent;border-radius:12px;padding:28px;transition:transform .25s ease,border-bottom-color .25s ease">
+        <div class="flex items-center gap-4 mb-5">
+          <div class="flex items-center justify-center flex-shrink-0" style="width:64px;height:64px;border-radius:50%;background:#0F2447">
+            <span style="font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;color:#C8973A">EM</span>
+          </div>
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#0D1B2A;line-height:1.2">Emmanuel Mensah</div>
+            <div style="font-size:13px;font-weight:600;color:#C8973A;margin-top:3px">Proposal Strategist</div>
+            <div style="font-size:12px;font-style:italic;color:#9CA3AF;margin-top:2px">Centers for Disease Control and Prevention (CDC), USA</div>
+          </div>
+        </div>
+        <p style="font-size:14px;color:#4B5563;line-height:1.6">Brings rigorous public health research experience from the CDC to ART Ghana's proposal development function, ensuring research briefs meet international standards.</p>
+      </div>
+      <div class="reveal d1 team-card bg-white" style="border:1px solid rgba(27,58,107,0.1);border-bottom:3px solid transparent;border-radius:12px;padding:28px;transition:transform .25s ease,border-bottom-color .25s ease">
+        <div class="flex items-center gap-4 mb-5">
+          <div class="flex items-center justify-center flex-shrink-0" style="width:64px;height:64px;border-radius:50%;background:#0F2447">
+            <span style="font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;color:#C8973A">SM</span>
+          </div>
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#0D1B2A;line-height:1.2">Prof. Solomon Mensah</div>
+            <div style="font-size:13px;font-weight:600;color:#C8973A;margin-top:3px">Chief Research Strategist</div>
+            <div style="font-size:12px;font-style:italic;color:#9CA3AF;margin-top:2px">University of Ghana, Dept. of Computer Science</div>
+          </div>
+        </div>
+        <p style="font-size:14px;color:#4B5563;line-height:1.6">Senior Computer Science professor providing strategic oversight on research methodology and academic rigour across all ART Ghana project domains.</p>
       </div>
     </div>
   </div>
