@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ART Ghana — Ghana's Research Partner</title>
+<meta name="description" content="ART Ghana delivers credible, independently verified research for organisations that need answers and expert guidance for students who need support."/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/static/css/main.css"/>
+<script>tailwind.config={theme:{extend:{colors:{navy:"#0D1B2A",gold:"#C8973A",cream:"#F8F6F1"}}}}</script>
+</head>
+<body class="bg-cream overflow-x-hidden" style="font-family:'Inter',sans-serif;color:#0D1B2A">
+
+<!-- NAV -->
+<nav id="main-nav" class="fixed top-0 w-full z-50 backdrop-blur-md border-b border-white/5" style="background:rgba(13,27,42,0.92)">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5 no-underline">
+      <img src="/static/logo.jpg" alt="ART Ghana" class="w-9 h-9 rounded-lg object-cover flex-shrink-0"/>
+      <span class="text-white font-semibold tracking-wide">ART <span style="color:#C8973A">Ghana</span></span>
+    </a>
+    <div class="hidden md:flex items-center gap-6">
+      <a href="/services" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">Services</a>
+      <a href="/students" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">Students</a>
+      <a href="/defence" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">Defence</a>
+      <a href="/academy" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">Academy</a>
+      <a href="/consultants" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">Consultants</a>
+      <a href="/about" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">About</a>
+      <a href="/contact" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">Contact</a>
+    </div>
+    <div class="hidden md:flex items-center gap-3">
+      <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="text-white/70 hover:text-white text-sm transition-colors no-underline">Login</a>
+      <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank" class="text-white text-sm px-4 py-2 rounded-lg no-underline" style="background:#C8973A">Get Started</a>
+    </div>
+    <button id="menuToggle" class="md:hidden text-white p-2" aria-label="Toggle menu"><span class="material-symbols-outlined">menu</span></button>
+  </div>
+</nav>
+<div id="mobileMenu" class="hidden fixed top-[72px] left-0 right-0 z-40 backdrop-blur-lg border-b border-white/10 shadow-lg" style="background:rgba(13,27,42,0.99)">
+  <div class="flex flex-col px-6 py-5">
+    <a href="/services" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">Services</a>
+    <a href="/students" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">For Students</a>
+    <a href="/defence" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">Research Defence</a>
+    <a href="/academy" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">ART Academy</a>
+    <a href="/consultants" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">Consultants</a>
+    <a href="/about" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">About</a>
+    <a href="/contact" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">Contact</a>
+    <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline">Login</a>
+    <div class="flex flex-col gap-3 mt-5">
+      <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html?type=organisation" target="_blank" class="text-white px-6 py-3 rounded-lg text-center text-sm no-underline" style="background:#C8973A">Commission Research</a>
+      <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html?type=student" target="_blank" class="text-sm px-6 py-3 rounded-lg text-center no-underline border" style="border-color:#C8973A;color:#C8973A">Get Research Support</a>
+    </div>
+  </div>
+</div>
+
+<main class="page-content">
+
+<!-- HERO -->
+<section class="relative min-h-screen flex items-center overflow-hidden" style="background:#0D1B2A">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1528901166007-3784c7dd3653?w=1600&h=900&fit=crop&auto=format" alt="Research professional" class="w-full h-full object-cover" style="opacity:0.25"/>
+    <div class="absolute inset-0" style="background:linear-gradient(to right,#0D1B2A,rgba(13,27,42,0.8),transparent)"></div>
+  </div>
+  <div class="absolute top-32 right-20 w-72 h-72 rounded-full blur-3xl" style="background:rgba(200,151,58,0.1)"></div>
+  <div class="absolute bottom-20 right-40 w-48 h-48 rounded-full blur-2xl" style="background:rgba(200,151,58,0.15)"></div>
+  <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 grid md:grid-cols-2 gap-16 items-center">
+    <div class="reveal">
+      <div class="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8" style="background:rgba(200,151,58,0.2);border:1px solid rgba(200,151,58,0.3)">
+        <div class="w-1.5 h-1.5 rounded-full animate-pulse" style="background:#C8973A"></div>
+        <span class="text-xs tracking-widest uppercase" style="color:#C8973A;font-family:monospace">Academy of Research and Technology Ghana</span>
+      </div>
+      <h1 class="text-white leading-[1.1] mb-6" style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900">
+        Ghana's<br/><em style="color:#C8973A">Research</em><br/>Partner.
+      </h1>
+      <p class="text-lg leading-relaxed mb-10 max-w-md" style="color:rgba(255,255,255,0.6)">Credible research for organisations. Expert guidance for students.</p>
+      <div class="flex flex-wrap gap-4">
+        <a href="/services" class="flex items-center gap-2 text-white px-6 py-3.5 rounded-xl transition-all duration-200 hover:scale-105 no-underline text-sm font-medium" style="background:#C8973A">
+          For Organisations <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        </a>
+        <a href="/students" class="flex items-center gap-2 text-white px-6 py-3.5 rounded-xl transition-all duration-200 no-underline text-sm font-medium" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2)">
+          For Students <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+    <div class="hidden md:grid grid-cols-2 gap-4 reveal d1">
+      <div class="rounded-2xl p-6 hover:bg-white/10 transition-colors" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:rgba(200,151,58,0.2)">
+          <span class="material-symbols-outlined text-[20px]" style="color:#C8973A">trending_up</span>
+        </div>
+        <div class="text-white font-bold text-sm mb-1" style="font-family:'Playfair Display',serif">Research Design</div>
+        <div class="text-xs" style="color:rgba(255,255,255,0.5)">Proposals, frameworks &amp; methodology</div>
+      </div>
+      <div class="rounded-2xl p-6 hover:bg-white/10 transition-colors" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:rgba(74,155,143,0.2)">
+          <span class="material-symbols-outlined text-[20px]" style="color:#4A9B8F">group</span>
+        </div>
+        <div class="text-white font-bold text-sm mb-1" style="font-family:'Playfair Display',serif">Expert Consultation</div>
+        <div class="text-xs" style="color:rgba(255,255,255,0.5)">Vetted researchers across disciplines</div>
+      </div>
+      <div class="rounded-2xl p-6 hover:bg-white/10 transition-colors" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:rgba(123,104,238,0.2)">
+          <span class="material-symbols-outlined text-[20px]" style="color:#7B68EE">menu_book</span>
+        </div>
+        <div class="text-white font-bold text-sm mb-1" style="font-family:'Playfair Display',serif">Publication Support</div>
+        <div class="text-xs" style="color:rgba(255,255,255,0.5)">From manuscript to journal submission</div>
+      </div>
+      <div class="rounded-2xl p-6 hover:bg-white/10 transition-colors" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:rgba(232,125,90,0.2)">
+          <span class="material-symbols-outlined text-[20px]" style="color:#E87D5A">query_stats</span>
+        </div>
+        <div class="text-white font-bold text-sm mb-1" style="font-family:'Playfair Display',serif">Data Analysis</div>
+        <div class="text-xs" style="color:rgba(255,255,255,0.5)">Quantitative, qualitative &amp; mixed methods</div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+    <div class="w-px h-12" style="background:linear-gradient(to bottom,rgba(255,255,255,0.3),transparent)"></div>
+    <span class="text-xs tracking-widest" style="color:rgba(255,255,255,0.3);font-family:monospace">SCROLL</span>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="py-16" style="background:#C8973A">
+  <div class="max-w-7xl mx-auto px-6 flex justify-center">
+    <div class="flex flex-col sm:flex-row gap-6 w-full" style="max-width:800px">
+      <div class="flex-1 reveal d1" style="background:rgba(0,0,0,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:32px">
+        <div class="flex items-center gap-4 mb-5">
+          <div class="flex items-center justify-center flex-shrink-0" style="width:60px;height:60px;border-radius:50%;background:#0F2447">
+            <span style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#C8973A">PK</span>
+          </div>
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-size:1.375rem;font-weight:700;color:#ffffff;line-height:1.2">Dr. Patrick Kudjo</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.8);margin-top:2px">Academic Advisor · GTUC</div>
+          </div>
+        </div>
+        <div style="font-size:13px;color:#ffffff"><span style="font-weight:700">Research Focus:</span> <em>Computer Vision</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUALITY PILLARS -->
+<section class="py-20 bg-cream">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12 reveal">
+      <span class="text-xs tracking-widest uppercase block mb-3" style="color:#C8973A">Our Standard</span>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:#0D1B2A">Research you can trust, every time.</h2>
+    </div>
+    <div class="grid sm:grid-cols-3 gap-6">
+      <div class="bg-white rounded-2xl p-7 reveal" style="border:1px solid #E8E3D9">
+        <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style="background:rgba(74,155,143,0.15)">
+          <span class="material-symbols-outlined text-[20px]" style="color:#4A9B8F">document_scanner</span>
+        </div>
+        <div class="font-semibold mb-2 text-sm" style="color:#0D1B2A">Plagiarism Detection</div>
+        <p class="text-xs leading-relaxed" style="color:#6B7280">All written deliverables are scanned using Copyleaks to confirm originality before submission.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-7 reveal d1" style="border:1px solid #E8E3D9">
+        <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style="background:rgba(200,151,58,0.15)">
+          <span class="material-symbols-outlined text-[20px]" style="color:#C8973A">smart_toy</span>
+        </div>
+        <div class="font-semibold mb-2 text-sm" style="color:#0D1B2A">AI Content Detection</div>
+        <p class="text-xs leading-relaxed" style="color:#6B7280">We screen every document for AI-generated content to confirm your research reflects genuine human expertise.</p>
+      </div>
+      <div class="bg-white rounded-2xl p-7 reveal d2" style="border:1px solid #E8E3D9">
+        <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style="background:rgba(123,104,238,0.15)">
+          <span class="material-symbols-outlined text-[20px]" style="color:#7B68EE">verified</span>
+        </div>
+        <div class="font-semibold mb-2 text-sm" style="color:#0D1B2A">Quality Score Review</div>
+        <p class="text-xs leading-relaxed" style="color:#6B7280">A senior ART reviewer scores each submission against our quality rubric before handover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="grid grid-cols-1 md:grid-cols-2">
+  <div class="px-6 md:px-16 py-24 flex flex-col justify-center reveal" style="background:#F0EDE7">
+    <p class="text-xs tracking-widest uppercase mb-4" style="color:#C8973A">For Organisations &amp; Individuals</p>
+    <h2 class="mb-4" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;color:#0D1B2A">Need research<br/>done right?</h2>
+    <p class="mb-8 max-w-md text-sm leading-relaxed" style="color:#6B7280">Tell us what you need and we will match you with a consultant team that delivers work that holds up to scrutiny.</p>
+    <a href="/services" class="self-start inline-flex items-center gap-2 text-white px-8 py-4 rounded-xl hover:opacity-90 transition-all no-underline text-sm font-medium" style="background:#0D1B2A">
+      View Services <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+    </a>
+  </div>
+  <div class="px-6 md:px-16 py-24 flex flex-col justify-center reveal d1" style="background:#0D1B2A">
+    <p class="text-xs tracking-widest uppercase mb-4" style="color:#C8973A">For Students &amp; Researchers</p>
+    <h2 class="text-white mb-4" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700">Need expert<br/>guidance?</h2>
+    <p class="mb-8 max-w-md text-sm leading-relaxed" style="color:rgba(255,255,255,0.6)">Our consultants cover every stage — dissertation, data analysis, proposal — and know how to help you produce work you are proud of.</p>
+    <a href="/students" class="self-start inline-flex items-center gap-2 text-white px-8 py-4 rounded-xl transition-all no-underline text-sm font-medium" style="background:#C8973A">
+      Get Research Support <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+    </a>
+  </div>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="py-16 border-t border-white/10" style="background:#080F18;color:white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-4 gap-10 mb-12">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2.5 mb-4">
+          <img src="/static/logo.jpg" alt="ART Ghana" class="w-9 h-9 rounded-lg object-cover"/>
+          <span class="font-semibold tracking-wide">ART Ghana</span>
+        </div>
+        <p class="text-sm leading-relaxed max-w-xs mb-5" style="color:rgba(255,255,255,0.5)">Connecting organisations and individuals with Ghana's best research talent.</p>
+        <a href="mailto:acarestech@gmail.com" class="flex items-center gap-2 text-sm no-underline" style="color:#C8973A">
+          <span class="material-symbols-outlined text-[14px]">mail</span> acarestech@gmail.com
+        </a>
+      </div>
+      <div>
+        <div class="text-xs tracking-widest uppercase mb-4" style="color:rgba(255,255,255,0.3)">Platform</div>
+        <ul class="flex flex-col gap-2.5">
+          <li><a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">Dashboard</a></li>
+          <li><a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">Client Registration</a></li>
+          <li><a href="https://web-production-2ebb7.up.railway.app/pages/register-consultant.html" target="_blank" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">Consultant Registration</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="text-xs tracking-widest uppercase mb-4" style="color:rgba(255,255,255,0.3)">Explore</div>
+        <ul class="flex flex-col gap-2.5">
+          <li><a href="/services" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">For Organisations</a></li>
+          <li><a href="/students" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">For Students</a></li>
+          <li><a href="/defence" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">Research Defence</a></li>
+          <li><a href="/academy" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">ART Academy</a></li>
+          <li><a href="/consultants" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">Consultant Programme</a></li>
+          <li><a href="/contact" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-xs" style="color:rgba(255,255,255,0.3)">© 2026 Academy of Research and Technology Ghana.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => io.observe(el));
+  const toggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  toggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  function closeMobileMenu() { mobileMenu.classList.add('hidden'); }
+  document.addEventListener('click', (e) => {
+    if (!document.getElementById('main-nav').contains(e.target) && !mobileMenu.contains(e.target)) closeMobileMenu();
+  });
+  document.querySelectorAll('.nav-link').forEach(a => {
+    if (a.getAttribute('href') === window.location.pathname) a.style.color = '#C8973A';
+  });
+</script>
+</body>
+</html>

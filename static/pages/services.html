@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Organisational Research Services — ART Ghana</title>
+<meta name="description" content="Market research, impact evaluation, health research, and corporate strategy — ART Ghana delivers credible research for organisations across Ghana."/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/static/css/main.css"/>
+<script>tailwind.config={theme:{extend:{colors:{navy:"#0D1B2A",gold:"#C8973A",cream:"#F8F6F1"}}}}</script>
+</head>
+<body class="bg-cream overflow-x-hidden" style="font-family:'Inter',sans-serif;color:#0D1B2A">
+
+<!-- NAV -->
+<nav id="main-nav" class="fixed top-0 w-full z-50 backdrop-blur-md border-b border-white/5" style="background:rgba(13,27,42,0.92)">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5 no-underline">
+      <img src="/static/logo.jpg" alt="ART Ghana" class="w-9 h-9 rounded-lg object-cover flex-shrink-0"/>
+      <span class="text-white font-semibold tracking-wide">ART <span style="color:#C8973A">Ghana</span></span>
+    </a>
+    <div class="hidden md:flex items-center gap-6">
+      <a href="/services" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">Services</a>
+      <a href="/students" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">Students</a>
+      <a href="/defence" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">Defence</a>
+      <a href="/academy" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">Academy</a>
+      <a href="/consultants" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">Consultants</a>
+      <a href="/about" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">About</a>
+      <a href="/contact" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">Contact</a>
+    </div>
+    <div class="hidden md:flex items-center gap-3">
+      <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="text-white/70 hover:text-white text-sm transition-colors no-underline">Login</a>
+      <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank" class="text-white text-sm px-4 py-2 rounded-lg no-underline" style="background:#C8973A">Get Started</a>
+    </div>
+    <button id="menuToggle" class="md:hidden text-white p-2" aria-label="Toggle menu"><span class="material-symbols-outlined">menu</span></button>
+  </div>
+</nav>
+<div id="mobileMenu" class="hidden fixed top-[72px] left-0 right-0 z-40 backdrop-blur-lg border-b border-white/10 shadow-lg" style="background:rgba(13,27,42,0.99)">
+  <div class="flex flex-col px-6 py-5">
+    <a href="/services" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">Services</a>
+    <a href="/students" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">For Students</a>
+    <a href="/defence" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">Research Defence</a>
+    <a href="/academy" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">ART Academy</a>
+    <a href="/consultants" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">Consultants</a>
+    <a href="/about" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">About</a>
+    <a href="/contact" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">Contact</a>
+    <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline">Login</a>
+    <div class="flex flex-col gap-3 mt-5">
+      <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html?type=organisation" target="_blank" class="text-white px-6 py-3 rounded-lg text-center text-sm no-underline" style="background:#C8973A">Commission Research</a>
+      <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html?type=student" target="_blank" class="text-sm px-6 py-3 rounded-lg text-center no-underline border" style="border-color:#C8973A;color:#C8973A">Get Research Support</a>
+    </div>
+  </div>
+</div>
+
+<main class="page-content pt-[72px]">
+
+<!-- PAGE HEADER -->
+<section class="py-20" style="background:#0D1B2A">
+  <div class="max-w-7xl mx-auto px-6 reveal">
+    <span class="text-xs tracking-widest uppercase block mb-3" style="color:#C8973A;font-family:monospace">For Organisations</span>
+    <h1 class="text-white" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;line-height:1.1">
+      Research services<br/>built for impact.
+    </h1>
+    <p class="mt-4 max-w-lg text-sm leading-relaxed" style="color:rgba(255,255,255,0.6)">We match your organisation with vetted research professionals who deliver actionable insights on time and within scope.</p>
+  </div>
+</section>
+
+<!-- SERVICE CARDS -->
+<section class="py-28 bg-cream">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="svc-card group relative rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 reveal">
+        <div class="relative h-48 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&auto=format" alt="Market Research" class="svc-img w-full h-full object-cover"/>
+          <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(0,0,0,0.6),transparent)"></div>
+          <div class="absolute top-4 left-4 w-9 h-9 rounded-xl flex items-center justify-center" style="background:#C8973A">
+            <span class="material-symbols-outlined text-white text-[18px]">trending_up</span>
+          </div>
+          <span class="absolute top-4 right-4 text-white text-[10px] font-bold px-2 py-1 rounded" style="background:rgba(200,151,58,0.8)">SMEs &amp; Startups</span>
+        </div>
+        <div class="p-5">
+          <h3 class="mb-2" style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#0D1B2A">Market &amp; Feasibility Research</h3>
+          <p class="text-sm leading-relaxed mb-4" style="color:#6B7280">Consumer surveys, competitor analysis, and market sizing before you launch, expand, or invest.</p>
+          <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html?type=organisation" target="_blank" class="flex items-center gap-1 text-sm font-medium no-underline hover:opacity-70 transition-opacity" style="color:#C8973A">
+            Commission <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+          </a>
+        </div>
+      </div>
+      <div class="svc-card group relative rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 reveal d1">
+        <div class="relative h-48 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?w=600&h=400&fit=crop&auto=format" alt="Impact Assessment" class="svc-img w-full h-full object-cover"/>
+          <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(0,0,0,0.6),transparent)"></div>
+          <div class="absolute top-4 left-4 w-9 h-9 rounded-xl flex items-center justify-center" style="background:#4A9B8F">
+            <span class="material-symbols-outlined text-white text-[18px]">monitoring</span>
+          </div>
+          <span class="absolute top-4 right-4 text-white text-[10px] font-bold px-2 py-1 rounded" style="background:rgba(74,155,143,0.8)">NGOs &amp; Govt</span>
+        </div>
+        <div class="p-5">
+          <h3 class="mb-2" style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#0D1B2A">Impact Evaluation &amp; Development</h3>
+          <p class="text-sm leading-relaxed mb-4" style="color:#6B7280">Programme evaluations, needs assessments, and policy research for NGOs, development organisations, and government agencies.</p>
+          <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html?type=organisation" target="_blank" class="flex items-center gap-1 text-sm font-medium no-underline hover:opacity-70 transition-opacity" style="color:#4A9B8F">
+            Commission <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+          </a>
+        </div>
+      </div>
+      <div class="svc-card group relative rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 reveal d2">
+        <div class="relative h-48 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1632215861513-130b66fe97f4?w=600&h=400&fit=crop&auto=format" alt="Health Research" class="svc-img w-full h-full object-cover"/>
+          <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(0,0,0,0.6),transparent)"></div>
+          <div class="absolute top-4 left-4 w-9 h-9 rounded-xl flex items-center justify-center" style="background:#E87D5A">
+            <span class="material-symbols-outlined text-white text-[18px]">health_metrics</span>
+          </div>
+          <span class="absolute top-4 right-4 text-white text-[10px] font-bold px-2 py-1 rounded" style="background:rgba(232,125,90,0.8)">Health &amp; Community</span>
+        </div>
+        <div class="p-5">
+          <h3 class="mb-2" style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#0D1B2A">Health &amp; Community Research</h3>
+          <p class="text-sm leading-relaxed mb-4" style="color:#6B7280">Research for health interventions and community programmes, designed to meet donor reporting and publication standards.</p>
+          <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html?type=organisation" target="_blank" class="flex items-center gap-1 text-sm font-medium no-underline hover:opacity-70 transition-opacity" style="color:#E87D5A">
+            Commission <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+          </a>
+        </div>
+      </div>
+      <div class="svc-card group relative rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 reveal d3">
+        <div class="relative h-48 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1744973055006-a1c7dd30da62?w=600&h=400&fit=crop&auto=format" alt="Corporate Research" class="svc-img w-full h-full object-cover"/>
+          <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(0,0,0,0.6),transparent)"></div>
+          <div class="absolute top-4 left-4 w-9 h-9 rounded-xl flex items-center justify-center" style="background:#7B68EE">
+            <span class="material-symbols-outlined text-white text-[18px]">corporate_fare</span>
+          </div>
+          <span class="absolute top-4 right-4 text-white text-[10px] font-bold px-2 py-1 rounded" style="background:rgba(123,104,238,0.8)">Strategic</span>
+        </div>
+        <div class="p-5">
+          <h3 class="mb-2" style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#0D1B2A">Corporate &amp; Strategic Research</h3>
+          <p class="text-sm leading-relaxed mb-4" style="color:#6B7280">Organisational studies, HR research, financial analyses, and strategic assessments that give leadership teams the evidence base for their next move.</p>
+          <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html?type=organisation" target="_blank" class="flex items-center gap-1 text-sm font-medium no-underline hover:opacity-70 transition-opacity" style="color:#7B68EE">
+            Commission <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="mt-10 text-center reveal">
+      <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html?type=organisation" target="_blank" class="inline-flex items-center gap-2 text-white px-10 py-4 rounded-xl text-sm font-medium hover:opacity-90 transition-opacity no-underline" style="background:#0D1B2A">
+        Commission a Research Project <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="py-24" style="background:#0D1B2A">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <span class="text-xs tracking-widest uppercase block mb-3" style="color:#C8973A">The Process</span>
+      <h2 class="text-white" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700">Four steps to great research.</h2>
+    </div>
+    <div class="relative">
+      <div class="absolute top-12 left-[12.5%] right-[12.5%] h-px hidden lg:block" style="background:linear-gradient(to right,transparent,rgba(200,151,58,0.4),transparent)"></div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="flex flex-col items-center text-center reveal">
+          <div class="relative w-24 h-24 rounded-2xl flex items-center justify-center mb-6" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+            <span style="font-size:2rem">📋</span>
+            <div class="absolute -top-2.5 -right-2.5 w-6 h-6 rounded-full flex items-center justify-center" style="background:#C8973A"><span class="text-white text-xs font-bold">1</span></div>
+          </div>
+          <h3 class="text-white mb-2" style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700">Brief</h3>
+          <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Describe your project — topic, scope, deadline, and requirements — in under five minutes.</p>
+        </div>
+        <div class="flex flex-col items-center text-center reveal d1">
+          <div class="relative w-24 h-24 rounded-2xl flex items-center justify-center mb-6" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+            <span style="font-size:2rem">🔗</span>
+            <div class="absolute -top-2.5 -right-2.5 w-6 h-6 rounded-full flex items-center justify-center" style="background:#C8973A"><span class="text-white text-xs font-bold">2</span></div>
+          </div>
+          <h3 class="text-white mb-2" style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700">Match</h3>
+          <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">We surface consultants whose background fits your project — you choose who you work with.</p>
+        </div>
+        <div class="flex flex-col items-center text-center reveal d2">
+          <div class="relative w-24 h-24 rounded-2xl flex items-center justify-center mb-6" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+            <span style="font-size:2rem">⚡</span>
+            <div class="absolute -top-2.5 -right-2.5 w-6 h-6 rounded-full flex items-center justify-center" style="background:#C8973A"><span class="text-white text-xs font-bold">3</span></div>
+          </div>
+          <h3 class="text-white mb-2" style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700">Execute</h3>
+          <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Work directly with your consultant and track progress in real time through our platform.</p>
+        </div>
+        <div class="flex flex-col items-center text-center reveal d3">
+          <div class="relative w-24 h-24 rounded-2xl flex items-center justify-center mb-6" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+            <span style="font-size:2rem">✅</span>
+            <div class="absolute -top-2.5 -right-2.5 w-6 h-6 rounded-full flex items-center justify-center" style="background:#C8973A"><span class="text-white text-xs font-bold">4</span></div>
+          </div>
+          <h3 class="text-white mb-2" style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700">Deliver</h3>
+          <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Get quality-checked research on time, within budget, and ready to use.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH WORKFLOWS -->
+<section class="py-24 bg-cream">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <span class="text-xs tracking-widest uppercase block mb-3" style="color:#C8973A;font-family:monospace">Research Pathways</span>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;color:#0D1B2A">Two paths. One standard of rigour.</h2>
+    </div>
+    <!-- Academic -->
+    <div class="mb-14 reveal">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#C8973A">
+          <span class="material-symbols-outlined text-white" style="font-size:18px">school</span>
+        </div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#0D1B2A">Academic Research Workflow</h3>
+      </div>
+      <div class="flex flex-col lg:flex-row items-center gap-3 lg:gap-0">
+        <div class="w-full lg:flex-1 flex flex-col items-center text-center p-5 rounded-2xl" style="background:#fff;border:1px solid #E8E3D9">
+          <div class="relative w-12 h-12 rounded-xl flex items-center justify-center mb-3" style="background:rgba(200,151,58,0.1)">
+            <span class="material-symbols-outlined" style="color:#C8973A;font-size:22px">edit_note</span>
+            <span class="absolute -top-2 -right-2 w-5 h-5 rounded-full flex items-center justify-center text-white font-bold" style="background:#C8973A;font-size:10px">1</span>
+          </div>
+          <div class="font-bold text-sm mb-1" style="font-family:'Playfair Display',serif;color:#0D1B2A">Proposal &amp; Design</div>
+          <div class="text-xs leading-relaxed" style="color:#6B7280">Define the research question, objectives &amp; scope</div>
+        </div>
+        <div class="hidden lg:flex flex-shrink-0 px-2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#C8973A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex lg:hidden"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M6 13l6 6 6-6" stroke="#C8973A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="w-full lg:flex-1 flex flex-col items-center text-center p-5 rounded-2xl" style="background:#fff;border:1px solid #E8E3D9">
+          <div class="relative w-12 h-12 rounded-xl flex items-center justify-center mb-3" style="background:rgba(200,151,58,0.1)">
+            <span class="material-symbols-outlined" style="color:#C8973A;font-size:22px">auto_stories</span>
+            <span class="absolute -top-2 -right-2 w-5 h-5 rounded-full flex items-center justify-center text-white font-bold" style="background:#C8973A;font-size:10px">2</span>
+          </div>
+          <div class="font-bold text-sm mb-1" style="font-family:'Playfair Display',serif;color:#0D1B2A">Literature Review</div>
+          <div class="text-xs leading-relaxed" style="color:#6B7280">Map existing knowledge &amp; identify gaps</div>
+        </div>
+        <div class="hidden lg:flex flex-shrink-0 px-2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#C8973A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex lg:hidden"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M6 13l6 6 6-6" stroke="#C8973A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="w-full lg:flex-1 flex flex-col items-center text-center p-5 rounded-2xl" style="background:#fff;border:1px solid #E8E3D9">
+          <div class="relative w-12 h-12 rounded-xl flex items-center justify-center mb-3" style="background:rgba(200,151,58,0.1)">
+            <span class="material-symbols-outlined" style="color:#C8973A;font-size:22px">database</span>
+            <span class="absolute -top-2 -right-2 w-5 h-5 rounded-full flex items-center justify-center text-white font-bold" style="background:#C8973A;font-size:10px">3</span>
+          </div>
+          <div class="font-bold text-sm mb-1" style="font-family:'Playfair Display',serif;color:#0D1B2A">Data Collection</div>
+          <div class="text-xs leading-relaxed" style="color:#6B7280">Surveys, interviews, observations or secondary data</div>
+        </div>
+        <div class="hidden lg:flex flex-shrink-0 px-2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#C8973A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex lg:hidden"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M6 13l6 6 6-6" stroke="#C8973A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="w-full lg:flex-1 flex flex-col items-center text-center p-5 rounded-2xl" style="background:#fff;border:1px solid #E8E3D9">
+          <div class="relative w-12 h-12 rounded-xl flex items-center justify-center mb-3" style="background:rgba(200,151,58,0.1)">
+            <span class="material-symbols-outlined" style="color:#C8973A;font-size:22px">query_stats</span>
+            <span class="absolute -top-2 -right-2 w-5 h-5 rounded-full flex items-center justify-center text-white font-bold" style="background:#C8973A;font-size:10px">4</span>
+          </div>
+          <div class="font-bold text-sm mb-1" style="font-family:'Playfair Display',serif;color:#0D1B2A">Analysis</div>
+          <div class="text-xs leading-relaxed" style="color:#6B7280">Statistical or thematic analysis of findings</div>
+        </div>
+        <div class="hidden lg:flex flex-shrink-0 px-2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#C8973A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex lg:hidden"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M6 13l6 6 6-6" stroke="#C8973A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="w-full lg:flex-1 flex flex-col items-center text-center p-5 rounded-2xl" style="background:#fff;border:1px solid #E8E3D9">
+          <div class="relative w-12 h-12 rounded-xl flex items-center justify-center mb-3" style="background:rgba(200,151,58,0.1)">
+            <span class="material-symbols-outlined" style="color:#C8973A;font-size:22px">publish</span>
+            <span class="absolute -top-2 -right-2 w-5 h-5 rounded-full flex items-center justify-center text-white font-bold" style="background:#C8973A;font-size:10px">5</span>
+          </div>
+          <div class="font-bold text-sm mb-1" style="font-family:'Playfair Display',serif;color:#0D1B2A">Write &amp; Publish</div>
+          <div class="text-xs leading-relaxed" style="color:#6B7280">Manuscript writing, defence prep &amp; journal submission</div>
+        </div>
+      </div>
+    </div>
+    <!-- Corporate -->
+    <div class="reveal d1">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#0D1B2A">
+          <span class="material-symbols-outlined text-white" style="font-size:18px">corporate_fare</span>
+        </div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#0D1B2A">Corporate Research Workflow</h3>
+      </div>
+      <div class="flex flex-col lg:flex-row items-center gap-3 lg:gap-0">
+        <div class="w-full lg:flex-1 flex flex-col items-center text-center p-5 rounded-2xl" style="background:#fff;border:1px solid #E8E3D9">
+          <div class="relative w-12 h-12 rounded-xl flex items-center justify-center mb-3" style="background:rgba(13,27,42,0.07)">
+            <span class="material-symbols-outlined" style="color:#0D1B2A;font-size:22px">content_paste_search</span>
+            <span class="absolute -top-2 -right-2 w-5 h-5 rounded-full flex items-center justify-center text-white font-bold" style="background:#0D1B2A;font-size:10px">1</span>
+          </div>
+          <div class="font-bold text-sm mb-1" style="font-family:'Playfair Display',serif;color:#0D1B2A">Brief &amp; Scoping</div>
+          <div class="text-xs leading-relaxed" style="color:#6B7280">Clarify the business question, budget &amp; timeline</div>
+        </div>
+        <div class="hidden lg:flex flex-shrink-0 px-2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#0D1B2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex lg:hidden"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M6 13l6 6 6-6" stroke="#0D1B2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="w-full lg:flex-1 flex flex-col items-center text-center p-5 rounded-2xl" style="background:#fff;border:1px solid #E8E3D9">
+          <div class="relative w-12 h-12 rounded-xl flex items-center justify-center mb-3" style="background:rgba(13,27,42,0.07)">
+            <span class="material-symbols-outlined" style="color:#0D1B2A;font-size:22px">architecture</span>
+            <span class="absolute -top-2 -right-2 w-5 h-5 rounded-full flex items-center justify-center text-white font-bold" style="background:#0D1B2A;font-size:10px">2</span>
+          </div>
+          <div class="font-bold text-sm mb-1" style="font-family:'Playfair Display',serif;color:#0D1B2A">Research Design</div>
+          <div class="text-xs leading-relaxed" style="color:#6B7280">Select methodology, sampling approach &amp; instruments</div>
+        </div>
+        <div class="hidden lg:flex flex-shrink-0 px-2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#0D1B2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex lg:hidden"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M6 13l6 6 6-6" stroke="#0D1B2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="w-full lg:flex-1 flex flex-col items-center text-center p-5 rounded-2xl" style="background:#fff;border:1px solid #E8E3D9">
+          <div class="relative w-12 h-12 rounded-xl flex items-center justify-center mb-3" style="background:rgba(13,27,42,0.07)">
+            <span class="material-symbols-outlined" style="color:#0D1B2A;font-size:22px">monitoring</span>
+            <span class="absolute -top-2 -right-2 w-5 h-5 rounded-full flex items-center justify-center text-white font-bold" style="background:#0D1B2A;font-size:10px">3</span>
+          </div>
+          <div class="font-bold text-sm mb-1" style="font-family:'Playfair Display',serif;color:#0D1B2A">Field Data Gathering</div>
+          <div class="text-xs leading-relaxed" style="color:#6B7280">Primary &amp; secondary data collection in market</div>
+        </div>
+        <div class="hidden lg:flex flex-shrink-0 px-2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#0D1B2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex lg:hidden"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M6 13l6 6 6-6" stroke="#0D1B2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="w-full lg:flex-1 flex flex-col items-center text-center p-5 rounded-2xl" style="background:#fff;border:1px solid #E8E3D9">
+          <div class="relative w-12 h-12 rounded-xl flex items-center justify-center mb-3" style="background:rgba(13,27,42,0.07)">
+            <span class="material-symbols-outlined" style="color:#0D1B2A;font-size:22px">pie_chart</span>
+            <span class="absolute -top-2 -right-2 w-5 h-5 rounded-full flex items-center justify-center text-white font-bold" style="background:#0D1B2A;font-size:10px">4</span>
+          </div>
+          <div class="font-bold text-sm mb-1" style="font-family:'Playfair Display',serif;color:#0D1B2A">Analysis &amp; Insights</div>
+          <div class="text-xs leading-relaxed" style="color:#6B7280">Pattern identification, modelling &amp; interpretation</div>
+        </div>
+        <div class="hidden lg:flex flex-shrink-0 px-2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#0D1B2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="flex lg:hidden"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M6 13l6 6 6-6" stroke="#0D1B2A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="w-full lg:flex-1 flex flex-col items-center text-center p-5 rounded-2xl" style="background:#fff;border:1px solid #E8E3D9">
+          <div class="relative w-12 h-12 rounded-xl flex items-center justify-center mb-3" style="background:rgba(13,27,42,0.07)">
+            <span class="material-symbols-outlined" style="color:#0D1B2A;font-size:22px">present_to_all</span>
+            <span class="absolute -top-2 -right-2 w-5 h-5 rounded-full flex items-center justify-center text-white font-bold" style="background:#0D1B2A;font-size:10px">5</span>
+          </div>
+          <div class="font-bold text-sm mb-1" style="font-family:'Playfair Display',serif;color:#0D1B2A">Report &amp; Present</div>
+          <div class="text-xs leading-relaxed" style="color:#6B7280">Actionable report delivered &amp; presented to stakeholders</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR WORK / PORTFOLIO -->
+<section class="py-28" style="background:#0D1B2A">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="mb-14 reveal">
+      <span class="text-xs tracking-widest uppercase block mb-3" style="color:#C8973A">Our Work</span>
+      <h2 class="text-white" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;font-style:italic">A sample of what we have delivered.</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-5">
+      <div class="rounded-2xl p-8 flex flex-col hover:bg-white/10 transition-all duration-300 reveal" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+        <div class="flex justify-between items-start mb-6">
+          <span class="text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest" style="background:rgba(255,255,255,0.1)">Organisational Research</span>
+          <span class="text-xs" style="color:rgba(255,255,255,0.4)">5 weeks · Quantitative</span>
+        </div>
+        <h3 class="text-white mb-3" style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;line-height:1.35">Mobile Money Adoption and SME Growth in Greater Accra</h3>
+        <p class="text-sm leading-relaxed flex-1" style="color:rgba(255,255,255,0.5)">A quantitative study examining how mobile payment platforms changed operations across 220 small enterprises in Accra, La Dade Kotopon, and Tema.</p>
+      </div>
+      <div class="rounded-2xl p-8 flex flex-col hover:bg-white/10 transition-all duration-300 reveal d1" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+        <div class="flex justify-between items-start mb-6">
+          <span class="text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest" style="background:#C8973A;color:#0D1B2A">Academic Research</span>
+          <span class="text-xs" style="color:rgba(255,255,255,0.4)">8 weeks · Mixed Methods</span>
+        </div>
+        <h3 class="text-white mb-3" style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;line-height:1.35">Digital Financial Inclusion in Rural Volta Region</h3>
+        <p class="text-sm leading-relaxed flex-1" style="color:rgba(255,255,255,0.5)">A mixed-methods undergraduate dissertation exploring barriers to digital banking adoption among rural communities across four districts.</p>
+      </div>
+      <div class="rounded-2xl p-8 flex flex-col hover:bg-white/10 transition-all duration-300 reveal" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+        <div class="flex justify-between items-start mb-6">
+          <span class="text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest" style="background:rgba(255,255,255,0.1)">Development Research</span>
+          <span class="text-xs" style="color:rgba(255,255,255,0.4)">6 weeks · Pre-Post Design</span>
+        </div>
+        <h3 class="text-white mb-3" style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;line-height:1.35">Nutrition Intervention Impact Assessment, Northern Region</h3>
+        <p class="text-sm leading-relaxed flex-1" style="color:rgba(255,255,255,0.5)">An impact evaluation for an NGO running a community nutrition programme across 12 communities.</p>
+      </div>
+      <div class="rounded-2xl p-8 flex flex-col hover:bg-white/10 transition-all duration-300 reveal d1" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+        <div class="flex justify-between items-start mb-6">
+          <span class="text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest" style="background:#C8973A;color:#0D1B2A">Business Research</span>
+          <span class="text-xs" style="color:rgba(255,255,255,0.4)">3 weeks · Survey &amp; Desk</span>
+        </div>
+        <h3 class="text-white mb-3" style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;line-height:1.35">Agri-Tech Market Sizing for Smallholder Farmer Platform</h3>
+        <p class="text-sm leading-relaxed flex-1" style="color:rgba(255,255,255,0.5)">A feasibility and market sizing study including competitor mapping, willingness-to-pay analysis, and demand projections.</p>
+      </div>
+      <div class="rounded-2xl p-8 flex flex-col hover:bg-white/10 transition-all duration-300 reveal" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+        <div class="flex justify-between items-start mb-6">
+          <span class="text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest" style="background:#C8973A;color:#0D1B2A">Academic Research</span>
+          <span class="text-xs" style="color:rgba(255,255,255,0.4)">MSc Thesis · Machine Learning</span>
+        </div>
+        <h3 class="text-white mb-3" style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;line-height:1.35">A Machine Learning Framework for Threat Detection in Electronic Medical Records Systems</h3>
+        <p class="text-sm leading-relaxed flex-1" style="color:rgba(255,255,255,0.5)">Design science study validating Random Forest, XGBoost, SVM, and MLP against EMR access logs from 37 Military Hospital. Random Forest and XGBoost exceeded 99% F1-scores on real-world validation.</p>
+      </div>
+      <div class="rounded-2xl p-8 flex flex-col hover:bg-white/10 transition-all duration-300 reveal d1" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)">
+        <div class="flex justify-between items-start mb-6">
+          <span class="text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest" style="background:#C8973A;color:#0D1B2A">Academic Research</span>
+          <span class="text-xs" style="color:rgba(255,255,255,0.4)">BRSET · Differential Privacy</span>
+        </div>
+        <h3 class="text-white mb-3" style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;line-height:1.35">Privacy-Utility-Fairness Trilemma in Ophthalmological Machine Learning</h3>
+        <p class="text-sm leading-relaxed flex-1" style="color:rgba(255,255,255,0.5)">Differential privacy evaluation on 14,280 retinal records from BRSET. ε=2.0 with Laplace achieved clinically viable utility (MLP macro F1=0.6957, AUC=0.9320).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="py-16 border-t border-white/10" style="background:#080F18;color:white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-4 gap-10 mb-12">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2.5 mb-4">
+          <img src="/static/logo.jpg" alt="ART Ghana" class="w-9 h-9 rounded-lg object-cover"/>
+          <span class="font-semibold tracking-wide">ART Ghana</span>
+        </div>
+        <p class="text-sm leading-relaxed max-w-xs mb-5" style="color:rgba(255,255,255,0.5)">Connecting organisations and individuals with Ghana's best research talent.</p>
+        <a href="mailto:acarestech@gmail.com" class="flex items-center gap-2 text-sm no-underline" style="color:#C8973A">
+          <span class="material-symbols-outlined text-[14px]">mail</span> acarestech@gmail.com
+        </a>
+      </div>
+      <div>
+        <div class="text-xs tracking-widest uppercase mb-4" style="color:rgba(255,255,255,0.3)">Platform</div>
+        <ul class="flex flex-col gap-2.5">
+          <li><a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">Dashboard</a></li>
+          <li><a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">Client Registration</a></li>
+          <li><a href="https://web-production-2ebb7.up.railway.app/pages/register-consultant.html" target="_blank" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">Consultant Registration</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="text-xs tracking-widest uppercase mb-4" style="color:rgba(255,255,255,0.3)">Explore</div>
+        <ul class="flex flex-col gap-2.5">
+          <li><a href="/services" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">For Organisations</a></li>
+          <li><a href="/students" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">For Students</a></li>
+          <li><a href="/defence" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">Research Defence</a></li>
+          <li><a href="/academy" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">ART Academy</a></li>
+          <li><a href="/consultants" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">Consultant Programme</a></li>
+          <li><a href="/contact" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-8"><p class="text-xs" style="color:rgba(255,255,255,0.3)">© 2026 Academy of Research and Technology Ghana.</p></div>
+  </div>
+</footer>
+<script>
+  const revealEls=document.querySelectorAll('.reveal');
+  const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  revealEls.forEach(el=>io.observe(el));
+  const toggle=document.getElementById('menuToggle'),mobileMenu=document.getElementById('mobileMenu');
+  toggle.addEventListener('click',()=>mobileMenu.classList.toggle('hidden'));
+  function closeMobileMenu(){mobileMenu.classList.add('hidden');}
+  document.addEventListener('click',e=>{if(!document.getElementById('main-nav').contains(e.target)&&!mobileMenu.contains(e.target))closeMobileMenu();});
+  document.querySelectorAll('.nav-link').forEach(a=>{if(a.getAttribute('href')===window.location.pathname)a.style.color='#C8973A';});
+</script>
+</body>
+</html>

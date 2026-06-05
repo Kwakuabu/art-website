@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Technology – ART Ghana</title>
+<meta name="description" content="The platform and tools behind ART Ghana's research services."/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/static/css/main.css"/>
+<script>tailwind.config={theme:{extend:{colors:{navy:"#0D1B2A",gold:"#C8973A",cream:"#F8F6F1"}}}}</script>
+</head>
+<body class="bg-cream overflow-x-hidden" style="font-family:'Inter',sans-serif;color:#0D1B2A">
+<!-- NAV -->
+<nav id="main-nav" class="fixed top-0 w-full z-50 backdrop-blur-md border-b border-white/5" style="background:rgba(13,27,42,0.92)">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5 no-underline"><img src="/static/logo.jpg" alt="ART Ghana" class="w-9 h-9 rounded-lg object-cover flex-shrink-0"/><span class="text-white font-semibold tracking-wide">ART <span style="color:#C8973A">Ghana</span></span></a>
+    <div class="hidden md:flex items-center gap-6">
+      <a href="/services" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">Services</a>
+      <a href="/students" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">Students</a>
+      <a href="/defence" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">Defence</a>
+      <a href="/academy" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">Academy</a>
+      <a href="/consultants" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">Consultants</a>
+      <a href="/about" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">About</a>
+      <a href="/contact" class="nav-link text-white/70 hover:text-white text-xs transition-colors no-underline">Contact</a>
+    </div>
+    <div class="hidden md:flex items-center gap-3">
+      <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="text-white/70 hover:text-white text-sm transition-colors no-underline">Login</a>
+      <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank" class="text-white text-sm px-4 py-2 rounded-lg no-underline" style="background:#C8973A">Get Started</a>
+    </div>
+    <button id="menuToggle" class="md:hidden text-white p-2"><span class="material-symbols-outlined">menu</span></button>
+  </div>
+</nav>
+<div id="mobileMenu" class="hidden fixed top-[72px] left-0 right-0 z-40 backdrop-blur-lg border-b border-white/10 shadow-lg" style="background:rgba(13,27,42,0.99)">
+  <div class="flex flex-col px-6 py-5">
+    <a href="/services" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline">Services</a>
+    <a href="/students" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline">For Students</a>
+    <a href="/defence" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline">Research Defence</a>
+    <a href="/academy" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline">ART Academy</a>
+    <a href="/consultants" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline">Consultants</a>
+    <a href="/about" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline">About</a>
+    <a href="/contact" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline">Contact</a>
+    <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline">Login</a>
+  </div>
+</div>
+
+<main class="page-content pt-[72px]">
+
+<!-- PAGE HEADER -->
+<section class="py-20" style="background:#0D1B2A">
+  <div class="max-w-7xl mx-auto px-6 reveal">
+    <span class="text-xs tracking-widest uppercase block mb-3" style="color:#C8973A;font-family:monospace">Our Platform</span>
+    <h1 class="text-white" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;line-height:1.1">Technology.</h1>
+    <p class="mt-4 max-w-lg text-sm leading-relaxed" style="color:rgba(255,255,255,0.6)">A purpose-built platform connecting research professionals with clients who need them.</p>
+  </div>
+</section>
+
+<!-- COMING SOON -->
+<section class="py-32 bg-cream">
+  <div class="max-w-4xl mx-auto px-6 text-center reveal">
+    <div class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8" style="background:rgba(200,151,58,0.12)">
+      <span class="material-symbols-outlined text-[40px]" style="color:#C8973A">code</span>
+    </div>
+    <h2 class="mb-4" style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;color:#0D1B2A">Platform details coming soon.</h2>
+    <p class="text-sm leading-relaxed max-w-xl mx-auto mb-10" style="color:#6B7280">We're documenting the tools and infrastructure powering ART Ghana's research marketplace. Check back shortly, or explore the platform directly.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="inline-flex items-center justify-center gap-2 text-white px-7 py-3.5 rounded-xl text-sm font-medium hover:opacity-90 transition-all no-underline" style="background:#0D1B2A">
+        <span class="material-symbols-outlined text-[18px]">open_in_new</span> Access the Platform
+      </a>
+      <a href="/contact" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-sm font-medium hover:opacity-80 transition-all no-underline" style="border:1.5px solid #0D1B2A;color:#0D1B2A">
+        Contact Us <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+<!-- FOOTER -->
+<footer class="py-16 border-t border-white/10" style="background:#080F18;color:white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-4 gap-10 mb-12">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2.5 mb-4"><img src="/static/logo.jpg" alt="ART Ghana" class="w-9 h-9 rounded-lg object-cover"/><span class="font-semibold tracking-wide">ART Ghana</span></div>
+        <p class="text-sm leading-relaxed max-w-xs mb-5" style="color:rgba(255,255,255,0.5)">Connecting organisations and individuals with Ghana's best research talent.</p>
+        <a href="mailto:acarestech@gmail.com" class="flex items-center gap-2 text-sm no-underline" style="color:#C8973A"><span class="material-symbols-outlined text-[14px]">mail</span> acarestech@gmail.com</a>
+      </div>
+      <div>
+        <div class="text-xs tracking-widest uppercase mb-4" style="color:rgba(255,255,255,0.3)">Platform</div>
+        <ul class="flex flex-col gap-2.5">
+          <li><a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">Dashboard</a></li>
+          <li><a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">Client Registration</a></li>
+          <li><a href="https://web-production-2ebb7.up.railway.app/pages/register-consultant.html" target="_blank" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">Consultant Registration</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="text-xs tracking-widest uppercase mb-4" style="color:rgba(255,255,255,0.3)">Explore</div>
+        <ul class="flex flex-col gap-2.5">
+          <li><a href="/services" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">For Organisations</a></li>
+          <li><a href="/students" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">For Students</a></li>
+          <li><a href="/defence" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">Research Defence</a></li>
+          <li><a href="/academy" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">ART Academy</a></li>
+          <li><a href="/consultants" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">Consultant Programme</a></li>
+          <li><a href="/contact" class="text-sm no-underline hover:text-white" style="color:rgba(255,255,255,0.6)">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-8"><p class="text-xs" style="color:rgba(255,255,255,0.3)">© 2026 Academy of Research and Technology Ghana.</p></div>
+  </div>
+</footer>
+<script>
+  const toggle=document.getElementById('menuToggle'),mobileMenu=document.getElementById('mobileMenu');
+  toggle.addEventListener('click',()=>mobileMenu.classList.toggle('hidden'));
+  document.addEventListener('click',e=>{if(!document.getElementById('main-nav').contains(e.target)&&!mobileMenu.contains(e.target))mobileMenu.classList.add('hidden');});
+  document.querySelectorAll('.nav-link').forEach(a=>{if(a.getAttribute('href')===window.location.pathname)a.style.color='#C8973A';});
+  const revealEls=document.querySelectorAll('.reveal');
+  const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.08});
+  revealEls.forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
