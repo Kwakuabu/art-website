@@ -40,12 +40,15 @@ tailwind.config = {
       <img src="/static/logo.jpg" alt="ART Ghana" class="w-9 h-9 rounded-lg object-cover flex-shrink-0"/>
       <span class="text-white font-semibold tracking-wide">ART <span style="color:#C8973A">Ghana</span></span>
     </a>
-    <div class="hidden md:flex items-center gap-8">
-      <a href="#services" class="text-white/70 hover:text-white text-sm transition-colors no-underline">Services</a>
-      <a href="#academic" class="text-white/70 hover:text-white text-sm transition-colors no-underline">Students</a>
-      <a href="#defence" class="text-white/70 hover:text-white text-sm transition-colors no-underline">Defence</a>
-      <a href="#academy" class="text-white/70 hover:text-white text-sm transition-colors no-underline">Academy</a>
-      <a href="#consultants" class="text-white/70 hover:text-white text-sm transition-colors no-underline">Consultants</a>
+    <div class="hidden md:flex items-center gap-6">
+      <a href="#services" class="text-white/70 hover:text-white text-xs transition-colors no-underline">Services</a>
+      <a href="#how-it-works" class="text-white/70 hover:text-white text-xs transition-colors no-underline">How It Works</a>
+      <a href="#workflows" class="text-white/70 hover:text-white text-xs transition-colors no-underline">Workflows</a>
+      <a href="#academic" class="text-white/70 hover:text-white text-xs transition-colors no-underline">Students</a>
+      <a href="#portfolio" class="text-white/70 hover:text-white text-xs transition-colors no-underline">Our Work</a>
+      <a href="#academy" class="text-white/70 hover:text-white text-xs transition-colors no-underline">Academy</a>
+      <a href="#vacancies" class="text-white/70 hover:text-white text-xs transition-colors no-underline">Vacancies</a>
+      <a href="#consultants" class="text-white/70 hover:text-white text-xs transition-colors no-underline">Consultants</a>
     </div>
     <div class="hidden md:flex items-center gap-3">
       <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="text-white/70 hover:text-white text-sm transition-colors no-underline">Login</a>
@@ -62,9 +65,14 @@ tailwind.config = {
 <div id="mobileMenu" class="hidden fixed top-[72px] left-0 right-0 z-40 backdrop-blur-lg border-b border-white/10 shadow-lg" style="background:rgba(13,27,42,0.99)">
   <div class="flex flex-col px-6 py-5">
     <a href="#services" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">Services</a>
+    <a href="#how-it-works" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">How It Works</a>
+    <a href="#workflows" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">Research Workflows</a>
     <a href="#academic" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">For Students</a>
-    <a href="#defence" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">Defence</a>
+    <a href="#quality" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">Quality Assurance</a>
+    <a href="#defence" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">Research Defence</a>
+    <a href="#portfolio" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">Our Work</a>
     <a href="#academy" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">ART Academy</a>
+    <a href="#vacancies" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">Vacancies</a>
     <a href="#consultants" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline" onclick="closeMobileMenu()">Consultants</a>
     <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="text-white/70 py-3.5 border-b border-white/10 text-sm no-underline">Login</a>
     <div class="flex flex-col gap-3 mt-5">
@@ -155,19 +163,6 @@ tailwind.config = {
 <section class="py-16" style="background:#C8973A">
   <div class="max-w-7xl mx-auto px-6 flex justify-center">
     <div class="flex flex-col sm:flex-row gap-6 w-full" style="max-width:800px">
-      <!-- Silas Asani Abudu -->
-      <div class="flex-1 reveal" style="background:rgba(0,0,0,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:32px">
-        <div class="flex items-center gap-4 mb-5">
-          <div class="flex items-center justify-center flex-shrink-0" style="width:60px;height:60px;border-radius:50%;background:#0F2447">
-            <span style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#C8973A">SAA</span>
-          </div>
-          <div>
-            <div style="font-family:'Playfair Display',serif;font-size:1.375rem;font-weight:700;color:#ffffff;line-height:1.2">Silas Asani Abudu</div>
-            <div style="font-size:13px;color:rgba(255,255,255,0.8);margin-top:2px">Founder &amp; CEO</div>
-          </div>
-        </div>
-        <div style="font-size:13px;color:#ffffff"><span style="font-weight:700">Research Focus:</span> <em>Privacy-preserving intelligence systems modeling using Differential Privacy and Homomorphic Encryption</em></div>
-      </div>
       <!-- Dr. Patrick Kudjo -->
       <div class="flex-1 reveal d1" style="background:rgba(0,0,0,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:32px">
         <div class="flex items-center gap-4 mb-5">
@@ -974,20 +969,6 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- CEO QUOTE -->
-<section class="py-24 px-6 text-center relative overflow-hidden bg-cream" id="vision">
-  <div class="max-w-3xl mx-auto relative z-10">
-    <div class="mb-4 leading-none" style="font-family:'Playfair Display',serif;font-size:100px;line-height:0.8;color:rgba(200,151,58,0.2)">"</div>
-    <blockquote class="mb-10" style="font-family:'Playfair Display',serif;font-size:clamp(1.25rem,2.5vw,2rem);font-weight:700;font-style:italic;color:#0D1B2A;line-height:1.4">
-      Every Ghanaian student carries research capability the world needs. ART Ghana gives that capability a market.
-    </blockquote>
-    <div class="w-12 h-0.5 mx-auto mb-6" style="background:#C8973A"></div>
-    <p class="font-semibold text-sm mb-1" style="color:#0D1B2A">Silas Asani Abudu</p>
-    <p class="text-xs uppercase tracking-widest" style="color:#6B7280">Founder &amp; CEO, Academy of Research &amp; Technology Ghana</p>
-  </div>
-  <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(200,151,58,0.04) 0%,transparent 70%)"></div>
-</section>
-
 <!-- FINAL CTA -->
 <div class="grid grid-cols-1 md:grid-cols-2" id="get-started">
   <div class="px-6 md:px-16 py-24 flex flex-col justify-center reveal" style="background:#F0EDE7">
@@ -1044,7 +1025,7 @@ tailwind.config = {
       </div>
     </div>
     <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-xs" style="color:rgba(255,255,255,0.3)">© 2026 Academy of Research and Technology Ghana. Founded by <span style="color:#C8973A">Silas Asani Abudu</span>.</p>
+      <p class="text-xs" style="color:rgba(255,255,255,0.3)">© 2026 Academy of Research and Technology Ghana.</p>
       <div class="flex items-center gap-3">
         <a href="#" class="w-8 h-8 rounded-lg flex items-center justify-center transition-colors duration-200 hover:bg-gold" style="background:rgba(255,255,255,0.05)">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="color:rgba(255,255,255,0.6)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
