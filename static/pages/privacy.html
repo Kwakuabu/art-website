@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Privacy Policy | ART Ghana</title>
+<meta name="description" content="How ART Ghana collects, uses, and protects your personal information."/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/static/css/main.css"/>
+<script>tailwind.config={theme:{extend:{colors:{navy:"#0D1B2A",gold:"#C8973A",cream:"#F8F6F1"}}}}</script>
+<style>@media(max-width:767px){body{padding-bottom:68px}}</style>
+</head>
+<body class="bg-cream overflow-x-hidden" style="font-family:'Inter',sans-serif;color:#0D1B2A">
+
+<!-- HEADER -->
+<header id="site-header" class="fixed top-0 w-full z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2.5 no-underline flex-shrink-0">
+      <img src="/static/logo.jpg" alt="ART Ghana" class="w-9 h-9 rounded-lg object-cover"/>
+      <span id="logo-span" class="font-semibold tracking-wide">ART <span style="color:#D4AF37">Ghana</span></span>
+    </a>
+    <nav class="hidden md:flex items-center gap-6">
+      <a href="/services"    class="nav-link text-sm transition-colors no-underline">Services</a>
+      <a href="/students"    class="nav-link text-sm transition-colors no-underline">Students</a>
+      <a href="/defence"     class="nav-link text-sm transition-colors no-underline">Defence</a>
+      <a href="/academy"     class="nav-link text-sm transition-colors no-underline">Academy</a>
+      <a href="/consultants" class="nav-link text-sm transition-colors no-underline">Consultants</a>
+      <a href="/about"       class="nav-link text-sm transition-colors no-underline">About</a>
+    </nav>
+    <div class="hidden md:flex">
+      <a id="login-btn" href="https://web-production-2ebb7.up.railway.app" target="_blank"
+         class="text-sm px-5 py-2 rounded-lg border-2 no-underline transition-all duration-300 font-medium">Login</a>
+    </div>
+    <div class="flex md:hidden items-center gap-1">
+      <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="mobile-icon p-2 no-underline">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </a>
+      <button id="menuToggle" aria-label="Toggle menu" class="mobile-icon p-2">
+        <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="icon-close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="hidden fixed inset-x-0 top-[65px] z-40 border-b border-white/10 shadow-xl"
+     style="background:rgba(13,27,42,0.98);backdrop-filter:blur(16px)">
+  <div class="flex flex-col px-6 py-5">
+    <a href="/services"    class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">Services</a>
+    <a href="/students"    class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">Students</a>
+    <a href="/defence"     class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">Research Defence</a>
+    <a href="/academy"     class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">ART Academy</a>
+    <a href="/consultants" class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">Consultants</a>
+    <a href="/about"       class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">About</a>
+    <div class="flex flex-col gap-3 mt-5">
+      <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html?type=organisation" target="_blank"
+         class="text-white font-medium px-6 py-3 rounded-lg text-center text-sm no-underline transition-all duration-300"
+         style="background:#0d1b2a;border:2px solid #D4AF37">Commission Research</a>
+      <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html?type=student" target="_blank"
+         class="text-sm font-medium px-6 py-3 rounded-lg text-center no-underline transition-all duration-300 border-2"
+         style="border-color:#D4AF37;color:#D4AF37">Get Research Support</a>
+    </div>
+  </div>
+</div>
+
+<main class="page-content pt-[72px]">
+
+<!-- PAGE HEADER -->
+<section class="py-20" style="background:#0D1B2A">
+  <div class="max-w-3xl mx-auto px-6 reveal">
+    <span class="text-xs tracking-widest uppercase block mb-3" style="color:#C8973A;font-family:monospace">Legal</span>
+    <h1 class="text-white" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1.1">Privacy Policy</h1>
+    <p class="mt-4 text-sm leading-relaxed" style="color:rgba(255,255,255,0.5)">Last updated: June 2026</p>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<section class="py-16 bg-cream">
+  <div class="max-w-3xl mx-auto px-6">
+
+    <div class="bg-white rounded-2xl p-8 md:p-12 reveal" style="border:1px solid #E8E3D9">
+
+      <div class="prose-section mb-10">
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#0D1B2A;margin-bottom:0.75rem">1. Who We Are</h2>
+        <p class="text-sm leading-relaxed" style="color:#4B5563">ART Ghana (Academy of Research and Technology Ghana) is a research consultancy and platform based in Ghana. We connect organisations and students with vetted research consultants and provide research quality assurance services. You can contact us at <a href="mailto:acarestech@gmail.com" style="color:#C8973A;text-decoration:none">acarestech@gmail.com</a>.</p>
+      </div>
+
+      <div class="prose-section mb-10">
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#0D1B2A;margin-bottom:0.75rem">2. Information We Collect</h2>
+        <p class="text-sm leading-relaxed mb-4" style="color:#4B5563">We collect information you provide directly when you use our platform or contact us:</p>
+        <ul class="text-sm leading-relaxed flex flex-col gap-2" style="color:#4B5563;padding-left:1.25rem;list-style:disc">
+          <li><strong style="color:#0D1B2A">Registration data:</strong> name, email address, phone number, organisation name, and role when you create a client or consultant account.</li>
+          <li><strong style="color:#0D1B2A">Project information:</strong> research briefs, documents, and communications submitted through the platform.</li>
+          <li><strong style="color:#0D1B2A">Contact form data:</strong> your name, email, and message when you submit an enquiry via our website.</li>
+          <li><strong style="color:#0D1B2A">Usage data:</strong> pages visited, browser type, and device information collected automatically through standard server logs.</li>
+        </ul>
+      </div>
+
+      <div class="prose-section mb-10">
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#0D1B2A;margin-bottom:0.75rem">3. How We Use Your Information</h2>
+        <p class="text-sm leading-relaxed mb-4" style="color:#4B5563">We use the information we collect to:</p>
+        <ul class="text-sm leading-relaxed flex flex-col gap-2" style="color:#4B5563;padding-left:1.25rem;list-style:disc">
+          <li>Match clients with suitable research consultants.</li>
+          <li>Deliver and quality-assure research services.</li>
+          <li>Communicate with you about your project or enquiry.</li>
+          <li>Improve our platform and services.</li>
+          <li>Comply with legal obligations.</li>
+        </ul>
+        <p class="text-sm leading-relaxed mt-4" style="color:#4B5563">We do not sell, rent, or trade your personal information to third parties for marketing purposes.</p>
+      </div>
+
+      <div class="prose-section mb-10">
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#0D1B2A;margin-bottom:0.75rem">4. Sharing Your Information</h2>
+        <p class="text-sm leading-relaxed mb-4" style="color:#4B5563">We may share your information only in the following circumstances:</p>
+        <ul class="text-sm leading-relaxed flex flex-col gap-2" style="color:#4B5563;padding-left:1.25rem;list-style:disc">
+          <li><strong style="color:#0D1B2A">With consultants:</strong> client project briefs are shared with matched consultants solely for the purpose of delivering the commissioned research.</li>
+          <li><strong style="color:#0D1B2A">Service providers:</strong> we use trusted third-party tools (including plagiarism detection and document screening services) that process data on our behalf under confidentiality obligations.</li>
+          <li><strong style="color:#0D1B2A">Legal requirements:</strong> if required by Ghanaian law or a valid legal process.</li>
+        </ul>
+      </div>
+
+      <div class="prose-section mb-10">
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#0D1B2A;margin-bottom:0.75rem">5. Data Retention</h2>
+        <p class="text-sm leading-relaxed" style="color:#4B5563">We retain your personal data for as long as your account is active or as needed to provide services. Project data and associated documents are retained for a minimum of two years for quality assurance and dispute resolution purposes. You may request deletion of your account and associated data by contacting us at <a href="mailto:acarestech@gmail.com" style="color:#C8973A;text-decoration:none">acarestech@gmail.com</a>.</p>
+      </div>
+
+      <div class="prose-section mb-10">
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#0D1B2A;margin-bottom:0.75rem">6. Security</h2>
+        <p class="text-sm leading-relaxed" style="color:#4B5563">We implement reasonable technical and organisational measures to protect your personal information against unauthorised access, alteration, disclosure, or destruction. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+      </div>
+
+      <div class="prose-section mb-10">
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#0D1B2A;margin-bottom:0.75rem">7. Your Rights</h2>
+        <p class="text-sm leading-relaxed mb-4" style="color:#4B5563">You have the right to:</p>
+        <ul class="text-sm leading-relaxed flex flex-col gap-2" style="color:#4B5563;padding-left:1.25rem;list-style:disc">
+          <li>Access the personal data we hold about you.</li>
+          <li>Request correction of inaccurate data.</li>
+          <li>Request deletion of your data (subject to legal retention obligations).</li>
+          <li>Withdraw consent at any time where processing is based on consent.</li>
+        </ul>
+        <p class="text-sm leading-relaxed mt-4" style="color:#4B5563">To exercise any of these rights, contact us at <a href="mailto:acarestech@gmail.com" style="color:#C8973A;text-decoration:none">acarestech@gmail.com</a>.</p>
+      </div>
+
+      <div class="prose-section mb-10">
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#0D1B2A;margin-bottom:0.75rem">8. Cookies</h2>
+        <p class="text-sm leading-relaxed" style="color:#4B5563">Our website uses minimal session cookies necessary for the platform to function. We do not use tracking or advertising cookies. You can disable cookies in your browser settings, though this may affect platform functionality.</p>
+      </div>
+
+      <div class="prose-section">
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#0D1B2A;margin-bottom:0.75rem">9. Changes to This Policy</h2>
+        <p class="text-sm leading-relaxed" style="color:#4B5563">We may update this Privacy Policy from time to time. The date at the top of this page reflects the most recent revision. Continued use of our services after any update constitutes acceptance of the revised policy. For material changes, we will notify registered users by email.</p>
+      </div>
+
+    </div>
+
+    <!-- Contact CTA -->
+    <div class="mt-8 rounded-2xl p-8 text-center reveal" style="background:#0D1B2A">
+      <p class="text-sm mb-4" style="color:rgba(255,255,255,0.7)">Questions about how we handle your data?</p>
+      <a href="/contact" class="inline-flex items-center gap-2 text-sm font-semibold no-underline px-6 py-3 rounded-xl transition-all hover:opacity-90" style="background:#D4AF37;color:#0D1B2A">Contact Us</a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="py-16 border-t border-white/10" style="background:#0d1b2a;color:white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-12 pb-12 border-b border-white/10">
+      <div>
+        <div class="flex items-center gap-2.5 mb-4">
+          <img src="/static/logo.jpg" alt="ART Ghana" class="w-9 h-9 rounded-lg object-cover"/>
+          <span class="font-semibold tracking-wide">ART <span style="color:#D4AF37">Ghana</span></span>
+        </div>
+        <p class="text-sm leading-relaxed mb-4" style="color:rgba(255,255,255,0.6)">Connecting organisations and individuals with Ghana's best research talent.</p>
+        <a href="mailto:acarestech@gmail.com" class="text-sm no-underline" style="color:#D4AF37">acarestech@gmail.com</a>
+        <div class="flex gap-3 mt-4">
+          <a href="https://www.instagram.com/art_ghana1" target="_blank" rel="noopener" aria-label="Instagram" class="no-underline hover:opacity-70 transition-opacity" style="color:rgba(255,255,255,0.5)">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/AcademyofResearchandTechnology" target="_blank" rel="noopener" aria-label="Facebook" class="no-underline hover:opacity-70 transition-opacity" style="color:rgba(255,255,255,0.5)">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+        <p class="text-xs mt-6" style="color:rgba(255,255,255,0.3)">© 2026 Academy of Research and Technology Ghana</p>
+      </div>
+      <div>
+        <h4 class="text-xs font-semibold tracking-widest uppercase mb-5 text-white">Platform</h4>
+        <ul class="flex flex-col gap-3">
+          <li><a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Dashboard</a></li>
+          <li><a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank" class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Client Registration</a></li>
+          <li><a href="https://web-production-2ebb7.up.railway.app/pages/register-consultant.html" target="_blank" class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Consultant Registration</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs font-semibold tracking-widest uppercase mb-5 text-white">Services</h4>
+        <ul class="flex flex-col gap-3">
+          <li><a href="/services"    class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">For Organisations</a></li>
+          <li><a href="/students"    class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">For Students</a></li>
+          <li><a href="/defence"     class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Research Defence</a></li>
+          <li><a href="/academy"     class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">ART Academy</a></li>
+          <li><a href="/consultants" class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Consultant Programme</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs font-semibold tracking-widest uppercase mb-5 text-white">Company</h4>
+        <ul class="flex flex-col gap-3">
+          <li><a href="/about"       class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">About</a></li>
+          <li><a href="/technology"  class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Technology</a></li>
+          <li><a href="/contact"     class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Contact</a></li>
+          <li><a href="/privacy"     class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Privacy Policy</a></li>
+          <li><a href="/terms"       class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<nav id="bottom-nav" class="fixed bottom-0 inset-x-0 md:hidden z-50 border-t border-white/10" style="background:#0d1b2a">
+  <div class="flex items-center justify-around py-2 px-2">
+    <a href="/"         class="bottom-tab flex flex-col items-center gap-0.5 px-3 py-1.5 no-underline" data-path="/"><span class="text-lg leading-none">&#127968;</span><span class="text-[10px] font-medium tab-label" style="color:rgba(255,255,255,0.5)">Home</span></a>
+    <a href="/services" class="bottom-tab flex flex-col items-center gap-0.5 px-3 py-1.5 no-underline" data-path="/services"><span class="text-lg leading-none">&#128302;</span><span class="text-[10px] font-medium tab-label" style="color:rgba(255,255,255,0.5)">Services</span></a>
+    <a href="/students" class="bottom-tab flex flex-col items-center gap-0.5 px-3 py-1.5 no-underline" data-path="/students"><span class="text-lg leading-none">&#127891;</span><span class="text-[10px] font-medium tab-label" style="color:rgba(255,255,255,0.5)">Students</span></a>
+    <a href="/about"    class="bottom-tab flex flex-col items-center gap-0.5 px-3 py-1.5 no-underline" data-path="/about"><span class="text-lg leading-none">&#128203;</span><span class="text-[10px] font-medium tab-label" style="color:rgba(255,255,255,0.5)">About</span></a>
+    <a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="bottom-tab flex flex-col items-center gap-0.5 px-3 py-1.5 no-underline"><span class="text-lg leading-none">&#128100;</span><span class="text-[10px] font-medium tab-label" style="color:rgba(255,255,255,0.5)">Login</span></a>
+  </div>
+</nav>
+
+<script>
+  const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const header=document.getElementById('site-header');
+  function updateHeader(){header.classList.toggle('scrolled',window.scrollY>60);}
+  window.addEventListener('scroll',updateHeader,{passive:true});updateHeader();
+  const menuToggle=document.getElementById('menuToggle'),mobileMenu=document.getElementById('mobileMenu');
+  const iconOpen=document.getElementById('icon-open'),iconClose=document.getElementById('icon-close');
+  menuToggle.addEventListener('click',()=>{const isOpen=!mobileMenu.classList.contains('hidden');mobileMenu.classList.toggle('hidden');iconOpen.classList.toggle('hidden',!isOpen);iconClose.classList.toggle('hidden',isOpen);});
+  function closeMobileMenu(){mobileMenu.classList.add('hidden');iconOpen.classList.remove('hidden');iconClose.classList.add('hidden');}
+  document.addEventListener('click',e=>{if(!header.contains(e.target)&&!mobileMenu.contains(e.target))closeMobileMenu();});
+  document.querySelectorAll('.nav-link').forEach(a=>{if(a.getAttribute('href')===window.location.pathname)a.style.color='#D4AF37';});
+</script>
+</body>
+</html>

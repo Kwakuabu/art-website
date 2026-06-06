@@ -86,6 +86,16 @@ async def contact():
     return page("contact")
 
 
+@app.get("/privacy", include_in_schema=False)
+async def privacy():
+    return page("privacy")
+
+
+@app.get("/terms", include_in_schema=False)
+async def terms():
+    return page("terms")
+
+
 @app.get("/landing", include_in_schema=False)
 async def landing():
     return RedirectResponse(url="/")
