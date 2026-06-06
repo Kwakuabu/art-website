@@ -40,3 +40,29 @@
 #site-header.scrolled #login-btn       { border-color: #D4AF37; color: #D4AF37; }
 #site-header.scrolled #login-btn:hover { background: #D4AF37; color: #0d1b2a; }
 #site-header.scrolled .mobile-icon     { color: rgba(255,255,255,0.7); }
+
+/* ── Mobile touch targets (WCAG 2.5.5 — 44×44px minimum) ─────────────── */
+@media (max-width: 768px) {
+  .mobile-icon {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  footer li a {
+    display: block;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  footer .flex.gap-3 a {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
