@@ -12,3 +12,31 @@
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ── Header light / dark states ──────────────────────────────────────────── */
+#site-header {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+#site-header .nav-link          { color: rgba(13,27,42,0.65); }
+#site-header .nav-link:hover    { color: #0d1b2a; }
+#site-header #logo-span         { color: #0d1b2a; }
+#site-header #login-btn         { border-color: #0d1b2a; color: #0d1b2a; }
+#site-header #login-btn:hover   { background: #0d1b2a; color: white; }
+#site-header .mobile-icon       { color: rgba(13,27,42,0.65); }
+
+#site-header.scrolled {
+  background: #0d1b2a;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+#site-header.scrolled .nav-link        { color: rgba(255,255,255,0.7); }
+#site-header.scrolled .nav-link:hover  { color: white; }
+#site-header.scrolled #logo-span       { color: white; }
+#site-header.scrolled #login-btn       { border-color: #D4AF37; color: #D4AF37; }
+#site-header.scrolled #login-btn:hover { background: #D4AF37; color: #0d1b2a; }
+#site-header.scrolled .mobile-icon     { color: rgba(255,255,255,0.7); }
