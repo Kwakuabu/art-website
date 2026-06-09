@@ -42,6 +42,8 @@ document.addEventListener('DOMContentLoaded',function(){
     {text:'📊 Data Analysis with Python — 8-Week Course · Beginner Friendly',cta:'Enrol Now →',href:'/academy'},
     {text:'🏆 ART Ghana Quality Guarantee — Every Deliverable Passes 3-Layer QC Before You Receive It',cta:null,href:null},
     {text:'📝 Dissertation Support Available — Match with a Domain Specialist Today',cta:'Get Started →',href:'https://web-production-2ebb7.up.railway.app/pages/register-client.html?type=student'},
+    {text:'💻  ART Technology — Custom Web Apps & Research Platforms for Organisations in Ghana',cta:'Learn More →',href:'/technology'},
+    {text:'⚙️  Engineers Wanted — Join ART Ghana\'s Technology Team',cta:'Apply Now →',href:'https://web-production-2ebb7.up.railway.app/engineer/'},
   ];
   var ticker=document.getElementById('art-ticker');
   var track=document.getElementById('ticker-track');
@@ -87,14 +89,14 @@ document.addEventListener('DOMContentLoaded',function(){
       <span id="logo-span" class="font-semibold tracking-wide">ART <span style="color:#D4AF37">Ghana</span></span>
     </a>
     <nav class="hidden md:flex items-center gap-6">
-      <a href="/about"       class="nav-link text-sm transition-colors no-underline">About</a>
       <a href="/services"    class="nav-link text-sm transition-colors no-underline">Services</a>
       <a href="/students"    class="nav-link text-sm transition-colors no-underline">Students</a>
       <a href="/defence"     class="nav-link text-sm transition-colors no-underline">Defence</a>
       <a href="/academy"     class="nav-link text-sm transition-colors no-underline">Academy</a>
       <a href="/consultants" class="nav-link text-sm transition-colors no-underline">Consultants</a>
-      <span class="self-center" style="width:2px;height:16px;background:currentColor;opacity:0.35;display:inline-block;margin:0 4px"></span>
-      <a href="/technology"  class="nav-link text-sm transition-colors no-underline">Technology Services</a>
+      <a href="/technology"  class="nav-link text-sm transition-colors no-underline">Technology</a>
+      <a href="/about"       class="nav-link text-sm transition-colors no-underline">About</a>
+      <a href="/contact"     class="nav-link text-sm transition-colors no-underline">Contact</a>
     </nav>
     <div class="hidden md:flex">
       <a id="login-btn" href="https://web-production-2ebb7.up.railway.app" target="_blank"
@@ -114,14 +116,14 @@ document.addEventListener('DOMContentLoaded',function(){
 <div id="mobileMenu" class="hidden fixed inset-x-0 top-[65px] z-40 border-b border-white/10 shadow-xl"
      style="background:rgba(13,27,42,0.98);backdrop-filter:blur(16px)">
   <div class="flex flex-col px-6 py-5">
-    <a href="/about"       class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">About</a>
     <a href="/services"    class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">Services</a>
     <a href="/students"    class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">Students</a>
     <a href="/defence"     class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">Research Defence</a>
     <a href="/academy"     class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">ART Academy</a>
     <a href="/consultants" class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">Consultants</a>
-    <div class="h-px my-1" style="background:rgba(255,255,255,0.15)"></div>
-    <a href="/technology"  class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">Technology Services</a>
+    <a href="/technology"  class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">Technology</a>
+    <a href="/about"       class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">About</a>
+    <a href="/contact"     class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">Contact</a>
     <div class="flex flex-col gap-3 mt-5">
       <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html?type=organisation" target="_blank"
          class="text-white font-medium px-6 py-3 rounded-lg text-center text-sm no-underline transition-all duration-300"
@@ -340,6 +342,8 @@ document.addEventListener('DOMContentLoaded',function(){
           <li><a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Dashboard</a></li>
           <li><a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank" class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Client Registration</a></li>
           <li><a href="https://web-production-2ebb7.up.railway.app/pages/register-consultant.html" target="_blank" class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Consultant Registration</a></li>
+          <li><a href="https://web-production-2ebb7.up.railway.app/tech/" target="_blank" class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Technology Portal</a></li>
+          <li><a href="https://web-production-2ebb7.up.railway.app/engineer/" target="_blank" class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Engineer Portal</a></li>
         </ul>
       </div>
       <div>
@@ -350,6 +354,7 @@ document.addEventListener('DOMContentLoaded',function(){
           <li><a href="/defence"     class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Research Defence</a></li>
           <li><a href="/academy"     class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">ART Academy</a></li>
           <li><a href="/consultants" class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Consultant Programme</a></li>
+          <li><a href="/technology" class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Technology Services</a></li>
         </ul>
       </div>
       <div>
@@ -379,9 +384,9 @@ document.addEventListener('DOMContentLoaded',function(){
       <span class="text-lg leading-none">&#127891;</span>
       <span class="text-[10px] font-medium tab-label" style="color:rgba(255,255,255,0.5)">Students</span>
     </a>
-    <a href="/about"    class="bottom-tab flex flex-col items-center gap-0.5 px-3 py-1.5 no-underline" data-path="/about">
-      <span class="text-lg leading-none">&#128203;</span>
-      <span class="text-[10px] font-medium tab-label" style="color:rgba(255,255,255,0.5)">About</span>
+    <a href="/technology" class="bottom-tab flex flex-col items-center gap-0.5 px-3 py-1.5 no-underline" data-path="/technology">
+      <span class="text-lg leading-none">💻</span>
+      <span class="text-[10px] font-medium tab-label" style="color:rgba(255,255,255,0.5)">Tech</span>
     </a>
     <a href="https://web-production-2ebb7.up.railway.app" target="_blank"
        class="bottom-tab flex flex-col items-center gap-0.5 px-3 py-1.5 no-underline">

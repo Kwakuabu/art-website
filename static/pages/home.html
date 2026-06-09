@@ -8,7 +8,6 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 <link rel="stylesheet" href="/static/css/main.css"/>
 <script>
   tailwind.config = {
@@ -35,7 +34,6 @@
 </style>
 </head>
 <body class="font-sans bg-surface overflow-x-hidden" style="color:#0d1b2a">
-
 <!-- ─── ANNOUNCEMENT TICKER ──────────────────────────────────────────────────────── -->
 <style>
 @keyframes art-ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
@@ -55,14 +53,15 @@
 </div>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
-  /* ── Edit this array to add or update announcements ── */
   var MESSAGES=[
-    {text:'🎓 Now Enrolling — Research Methods Fundamentals · 4-Week Course · Starting July 2026',cta:'Enrol Now →',href:'/academy'},
-    {text:'📢 We Are Hiring Research Consultants in Accra · Apply as a Consultant Today',cta:'Apply Now →',href:'/consultants'},
-    {text:'🔬 New Service — Research Defence Panels · Get Your Work Certified by Professors',cta:'Learn More →',href:'/defence'},
-    {text:'📊 Data Analysis with Python — 8-Week Course · Beginner Friendly',cta:'Enrol Now →',href:'/academy'},
-    {text:'🏆 ART Ghana Quality Guarantee — Every Deliverable Passes 3-Layer QC Before You Receive It',cta:null,href:null},
-    {text:'📝 Dissertation Support Available — Match with a Domain Specialist Today',cta:'Get Started →',href:'https://web-production-2ebb7.up.railway.app/pages/register-client.html?type=student'},
+    {text:'🎓 Now Enrolling — Research Methods Fundamentals · 4-Week Course · Starting July 2026',cta:'Enrol Now →',href:'/academy'},
+    {text:'📢 We Are Hiring Research Consultants in Accra · Apply as a Consultant Today',cta:'Apply Now →',href:'/consultants'},
+    {text:'🔬 New Service — Research Defence Panels · Get Your Work Certified by Professors',cta:'Learn More →',href:'/defence'},
+    {text:'📊 Data Analysis with Python — 8-Week Course · Beginner Friendly',cta:'Enrol Now →',href:'/academy'},
+    {text:'🏆 ART Ghana Quality Guarantee — Every Deliverable Passes 3-Layer QC Before You Receive It',cta:null,href:null},
+    {text:'📝 Dissertation Support Available — Match with a Domain Specialist Today',cta:'Get Started →',href:'https://web-production-2ebb7.up.railway.app/pages/register-client.html?type=student'},
+    {text:'💻  ART Technology — Custom Web Apps & Research Platforms for Organisations in Ghana',cta:'Learn More →',href:'/technology'},
+    {text:'⚙️  Engineers Wanted — Join ART Ghana\'s Technology Team',cta:'Apply Now →',href:'https://web-production-2ebb7.up.railway.app/engineer/'},
   ];
   var ticker=document.getElementById('art-ticker');
   var track=document.getElementById('ticker-track');
@@ -100,7 +99,6 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 </script>
 <!-- HEADER -->
-
 <header id="site-header" class="fixed top-0 w-full z-50 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
     <a href="/" class="flex items-center gap-2.5 no-underline flex-shrink-0">
@@ -108,14 +106,14 @@ document.addEventListener('DOMContentLoaded',function(){
       <span id="logo-span" class="font-semibold tracking-wide">ART <span class="text-gold">Ghana</span></span>
     </a>
     <nav class="hidden md:flex items-center gap-6">
-      <a href="/about"       class="nav-link text-sm transition-colors no-underline">About</a>
       <a href="/services"    class="nav-link text-sm transition-colors no-underline">Services</a>
       <a href="/students"    class="nav-link text-sm transition-colors no-underline">Students</a>
       <a href="/defence"     class="nav-link text-sm transition-colors no-underline">Defence</a>
       <a href="/academy"     class="nav-link text-sm transition-colors no-underline">Academy</a>
       <a href="/consultants" class="nav-link text-sm transition-colors no-underline">Consultants</a>
-      <span class="self-center" style="width:2px;height:16px;background:currentColor;opacity:0.35;display:inline-block;margin:0 4px"></span>
-      <a href="/technology"  class="nav-link text-sm transition-colors no-underline">Technology Services</a>
+      <a href="/technology"  class="nav-link text-sm transition-colors no-underline">Technology</a>
+      <a href="/about"       class="nav-link text-sm transition-colors no-underline">About</a>
+      <a href="/contact"     class="nav-link text-sm transition-colors no-underline">Contact</a>
     </nav>
     <div class="hidden md:flex">
       <a id="login-btn" href="https://web-production-2ebb7.up.railway.app" target="_blank"
@@ -139,14 +137,14 @@ document.addEventListener('DOMContentLoaded',function(){
 <div id="mobileMenu" class="hidden fixed inset-x-0 top-[65px] z-40 border-b border-white/10 shadow-xl"
      style="background:rgba(13,27,42,0.98);backdrop-filter:blur(16px)">
   <div class="flex flex-col px-6 py-5">
-    <a href="/about"       class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">About</a>
     <a href="/services"    class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">Services</a>
     <a href="/students"    class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">Students</a>
     <a href="/defence"     class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">Research Defence</a>
     <a href="/academy"     class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">ART Academy</a>
     <a href="/consultants" class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">Consultants</a>
-    <div class="h-px my-1" style="background:rgba(255,255,255,0.15)"></div>
-    <a href="/technology"  class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">Technology Services</a>
+    <a href="/technology"  class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">Technology</a>
+    <a href="/about"       class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">About</a>
+    <a href="/contact"     class="text-white/70 hover:text-white py-3.5 border-b border-white/10 text-sm no-underline transition-colors" onclick="closeMobileMenu()">Contact</a>
     <div class="flex flex-col gap-3 mt-5">
       <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html?type=organisation" target="_blank"
          class="text-white font-medium px-6 py-3 rounded-lg text-center text-sm no-underline transition-all duration-300 bg-navy border-2 border-gold">
@@ -163,7 +161,7 @@ document.addEventListener('DOMContentLoaded',function(){
 <main class="page-content">
 
 <!-- ─── HERO ──────────────────────────────────────────────────────────── -->
-<section class="bg-surface pt-[65px] min-h-screen flex items-center overflow-x-hidden">
+<section class="bg-surface pt-[65px] min-h-screen flex items-center">
   <div class="max-w-7xl mx-auto px-6 py-16 md:py-24 grid grid-cols-1 md:grid-cols-[55%_45%] gap-12 md:gap-8 items-center w-full">
 
     <!-- Right: image (first in DOM → shows first on mobile) -->
@@ -175,7 +173,7 @@ document.addEventListener('DOMContentLoaded',function(){
             ✓ 3-Layer QC Verified
           </div>
           <div class="absolute top-4 right-4 z-10 text-white px-3 py-1.5 rounded text-xs shadow-lg font-semibold" style="background:#0d1b2a">
-            50+ Projects
+            500+ Projects
           </div>
         </div>
       </div>
@@ -191,7 +189,7 @@ document.addEventListener('DOMContentLoaded',function(){
         <em style="color:#D4AF37;font-style:italic">Delivered.</em>
       </h1>
       <p class="text-base leading-relaxed mb-10 max-w-lg mx-auto md:mx-0" style="color:rgba(13,27,42,0.65)">
-        ART Ghana connects organisations and students with vetted research consultants, backed by a three-layer quality assurance process.
+        ART Ghana connects organisations and students with vetted research consultants — backed by a three-layer quality assurance process.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
         <a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html?type=organisation" target="_blank"
@@ -210,54 +208,15 @@ document.addEventListener('DOMContentLoaded',function(){
   </div>
 </section>
 
-<!-- ─── RESEARCH DOMAINS ─────────────────────────────────────────────── -->
-<section class="py-14 bg-white border-b border-gray-100">
-  <div class="max-w-7xl mx-auto px-6">
-    <p class="text-center text-xs tracking-widest uppercase mb-10" style="color:#C8973A;font-family:monospace">Research Domains</p>
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-
-      <div class="flex flex-col items-center text-center gap-3">
-        <span class="material-symbols-outlined text-3xl" style="color:#0D1B2A">psychology</span>
-        <span class="text-xs font-medium leading-tight" style="color:#0D1B2A">Artificial Intelligence &amp; Machine Learning</span>
-      </div>
-
-      <div class="flex flex-col items-center text-center gap-3">
-        <span class="material-symbols-outlined text-3xl" style="color:#0D1B2A">monitor_heart</span>
-        <span class="text-xs font-medium leading-tight" style="color:#0D1B2A">Public Health &amp; Biomedical Informatics</span>
-      </div>
-
-      <div class="flex flex-col items-center text-center gap-3">
-        <span class="material-symbols-outlined text-3xl" style="color:#0D1B2A">shield_lock</span>
-        <span class="text-xs font-medium leading-tight" style="color:#0D1B2A">Cybersecurity &amp; Digital Safety</span>
-      </div>
-
-      <div class="flex flex-col items-center text-center gap-3">
-        <span class="material-symbols-outlined text-3xl" style="color:#0D1B2A">eco</span>
-        <span class="text-xs font-medium leading-tight" style="color:#0D1B2A">Climate &amp; Environmental Science</span>
-      </div>
-
-      <div class="flex flex-col items-center text-center gap-3">
-        <span class="material-symbols-outlined text-3xl" style="color:#0D1B2A">agriculture</span>
-        <span class="text-xs font-medium leading-tight" style="color:#0D1B2A">Agricultural Technology &amp; Food Systems</span>
-      </div>
-
-      <div class="flex flex-col items-center text-center gap-3">
-        <span class="material-symbols-outlined text-3xl" style="color:#0D1B2A">school</span>
-        <span class="text-xs font-medium leading-tight" style="color:#0D1B2A">Education &amp; Learning Systems</span>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- ─── SERVICES ───────────────────────────────────────────────────────── -->
 <section class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-14 reveal">
       <h2 class="text-navy mb-3" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700">What We Deliver</h2>
-      <p class="text-sm leading-relaxed max-w-md mx-auto" style="color:rgba(13,27,42,0.6)">Research services for every need, from market studies to dissertations.</p>
+      <p class="text-sm leading-relaxed max-w-md mx-auto" style="color:rgba(13,27,42,0.6)">Research services for every need — from market studies to dissertations.</p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- Top row: 3 cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
 
       <!-- Card 1 -->
       <div class="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 rounded-lg p-6 reveal">
@@ -289,12 +248,27 @@ document.addEventListener('DOMContentLoaded',function(){
         </a>
       </div>
 
+    </div>
+
+    <!-- Bottom row: 2 cards centred -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:max-w-2xl lg:mx-auto">
+
       <!-- Card 4 -->
-      <div class="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 rounded-lg p-6 reveal d3">
+      <div class="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 rounded-lg p-6 reveal">
         <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5 text-2xl" style="background:rgba(212,175,55,0.15)">📚</div>
         <h3 class="font-bold mb-3 text-navy" style="font-family:'Playfair Display',serif;font-size:1.05rem">ART Academy</h3>
         <p class="text-sm leading-relaxed mb-5" style="color:rgba(13,27,42,0.6)">Structured research training courses for students and professionals across Ghana.</p>
         <a href="/academy" class="text-sm font-medium no-underline transition-all duration-200 inline-flex items-center gap-1 hover:translate-x-1" style="color:#D4AF37">
+          Learn More <span>→</span>
+        </a>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 rounded-lg p-6 reveal d1">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5 text-2xl" style="background:rgba(212,175,55,0.15)">💻</div>
+        <h3 class="font-bold mb-3 text-navy" style="font-family:'Playfair Display',serif;font-size:1.05rem">Technology Services</h3>
+        <p class="text-sm leading-relaxed mb-5" style="color:rgba(13,27,42,0.6)">Custom web applications, research platforms, and digital infrastructure for organisations across Ghana.</p>
+        <a href="/technology" class="text-sm font-medium no-underline transition-all duration-200 inline-flex items-center gap-1 hover:translate-x-1" style="color:#D4AF37">
           Learn More <span>→</span>
         </a>
       </div>
@@ -324,7 +298,7 @@ document.addEventListener('DOMContentLoaded',function(){
       <div class="text-center reveal d1">
         <div class="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5 text-2xl" style="background:rgba(212,175,55,0.2);border:1px solid rgba(212,175,55,0.3)">🤖</div>
         <h3 class="text-white font-bold mb-3" style="font-family:'Playfair Display',serif;font-size:1.05rem">AI Content Detection</h3>
-        <p class="text-sm leading-relaxed mb-4 max-w-xs mx-auto" style="color:rgba(255,255,255,0.6)">Every document verified for genuine human expertise using rigorous document analysis.</p>
+        <p class="text-sm leading-relaxed mb-4 max-w-xs mx-auto" style="color:rgba(255,255,255,0.6)">Every document verified for genuine human expertise using advanced AI analysis.</p>
         <span class="text-xs font-semibold tracking-wide" style="color:#D4AF37">Human-First Standard</span>
       </div>
 
@@ -344,101 +318,72 @@ document.addEventListener('DOMContentLoaded',function(){
 <section class="py-24 bg-surface">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center mb-14 reveal">
-      <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color:#D4AF37;letter-spacing:0.2em">Our People</p>
+      <p class="text-xs font-semibold tracking-widest uppercase mb-3" style="color:#D4AF37;font-variant:small-caps;letter-spacing:0.2em">Our People</p>
       <h2 class="text-navy" style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700">The Team Behind ART Ghana</h2>
     </div>
 
-    <!-- Leadership -->
-    <div class="flex flex-col md:flex-row justify-center gap-6 mb-10">
-      <div class="bg-white rounded-xl p-7 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 reveal md:w-80">
-        <div class="flex items-center justify-center mb-4">
-          <div class="rounded-full flex items-center justify-center" style="width:72px;height:72px;background:#0F2447">
-            <span class="font-bold" style="font-family:'Playfair Display',serif;font-size:1rem;color:#D4AF37">SAA</span>
-          </div>
-        </div>
-        <div class="text-center">
-          <h3 class="font-bold text-navy mb-1" style="font-family:'Playfair Display',serif;font-size:1.05rem">Silas Asani Abudu</h3>
-          <p class="text-sm font-semibold mb-2" style="color:#D4AF37">Founder &amp; Chief Executive Officer</p>
-          <p class="text-xs leading-relaxed" style="color:#6B7280"><span class="font-semibold" style="color:#0d1b2a">Research Focus:</span> Privacy-preserving intelligence systems modeling using Differential Privacy and Homomorphic Encryption.</p>
-        </div>
-      </div>
-      <div class="bg-white rounded-xl p-7 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 reveal d1 md:w-80">
-        <div class="flex items-center justify-center mb-4">
-          <div class="rounded-full flex items-center justify-center" style="width:72px;height:72px;background:#0F2447">
-            <span class="font-bold" style="font-family:'Playfair Display',serif;font-size:1rem;color:#D4AF37">DEA</span>
-          </div>
-        </div>
-        <div class="text-center">
-          <h3 class="font-bold text-navy mb-1" style="font-family:'Playfair Display',serif;font-size:1.05rem">David Ebo Anderson</h3>
-          <p class="text-sm font-semibold mb-2" style="color:#D4AF37">Co-Founder &amp; Chief Operating Officer</p>
-          <p class="text-xs leading-relaxed" style="color:#6B7280">Core member of the ART Ghana founding team, driving the strategic and operational direction of the organisation.</p>
-        </div>
-      </div>
-      <div class="bg-white rounded-xl p-7 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 reveal d2 md:w-80">
-        <div class="flex items-center justify-center mb-4">
-          <div class="rounded-full flex items-center justify-center" style="width:72px;height:72px;background:#0F2447">
-            <span class="font-bold" style="font-family:'Playfair Display',serif;font-size:1rem;color:#D4AF37">MAA</span>
-          </div>
-        </div>
-        <div class="text-center">
-          <h3 class="font-bold text-navy mb-1" style="font-family:'Playfair Display',serif;font-size:1.05rem">Ms Maria Asiedua Amoah</h3>
-          <p class="text-sm font-semibold" style="color:#D4AF37">PR &amp; Chief Administrative Coordinator</p>
-        </div>
-      </div>
-    </div>
+    <!-- 6-column grid: top 3 each span 2 cols, bottom 2 centered -->
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-6">
 
-    <!-- Advisory Board Divider -->
-    <div class="reveal mb-10">
-      <hr style="border:none;border-top:1px solid #D4AF37;margin-bottom:1.75rem">
-      <div class="text-center">
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#D4AF37;margin-bottom:0.4rem">Research Advisory Board</h3>
-        <p style="font-size:0.9rem;color:#9CA3AF">Independent academic oversight and research governance</p>
+      <!-- Card 1 -->
+      <div class="md:col-span-2 bg-white rounded-xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 reveal">
+        <div class="w-20 h-20 rounded-full bg-gray-300 flex items-center justify-center mx-auto mb-4" style="position:relative">
+          <span class="font-bold text-sm" style="font-family:'Playfair Display',serif;color:#0d1b2a">SAA</span>
+        </div>
+        <div class="text-center">
+          <h3 class="font-bold text-navy mb-1" style="font-family:'Playfair Display',serif;font-size:1rem">Silas Asani Abudu</h3>
+          <p class="text-sm font-medium mb-1" style="color:#D4AF37">Founder &amp; CEO</p>
+        </div>
       </div>
-    </div>
 
-    <!-- Advisory Board -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 reveal">
-        <div class="flex items-center justify-center mb-4">
-          <div class="rounded-full flex items-center justify-center" style="width:60px;height:60px;background:#0F2447">
-            <span class="font-bold" style="font-family:'Playfair Display',serif;font-size:.85rem;color:#D4AF37">SM</span>
-          </div>
+      <!-- Card 2 -->
+      <div class="md:col-span-2 bg-white rounded-xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 reveal d1">
+        <div class="w-20 h-20 rounded-full bg-gray-300 flex items-center justify-center mx-auto mb-4">
+          <span class="font-bold text-sm" style="font-family:'Playfair Display',serif;color:#0d1b2a">DEA</span>
         </div>
         <div class="text-center">
-          <h3 class="font-bold text-navy mb-1" style="font-family:'Playfair Display',serif;font-size:.95rem">Prof. Solomon Mensah</h3>
-          <p class="text-xs font-semibold mb-1" style="color:#D4AF37">Distinguished Research Fellow</p>
-          <p class="text-xs italic mb-3" style="color:#9CA3AF">University of Ghana &mdash; Dept. of Computer Science</p>
-          <p class="text-xs leading-relaxed" style="color:#6B7280">Provides strategic oversight on research methodology and academic rigour across all ART Ghana project domains.</p>
+          <h3 class="font-bold text-navy mb-1" style="font-family:'Playfair Display',serif;font-size:1rem">David Ebo Anderson</h3>
+          <p class="text-sm font-medium" style="color:#D4AF37">Co-Founder</p>
         </div>
       </div>
-      <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 reveal d1">
-        <div class="flex items-center justify-center mb-4">
-          <div class="rounded-full flex items-center justify-center" style="width:60px;height:60px;background:#0F2447">
-            <span class="font-bold" style="font-family:'Playfair Display',serif;font-size:.85rem;color:#D4AF37">PK</span>
-          </div>
-        </div>
-        <div class="text-center">
-          <h3 class="font-bold text-navy mb-1" style="font-family:'Playfair Display',serif;font-size:.95rem">Dr. Patrick Kudjo</h3>
-          <p class="text-xs font-semibold mb-1" style="color:#D4AF37">Research Fellow</p>
-          <p class="text-xs italic mb-3" style="color:#9CA3AF">Ghana Technology University College (GTUC)</p>
-          <p class="text-xs leading-relaxed" style="color:#6B7280">Strengthens the academic rigour behind ART Ghana's quality assurance and research defence processes.</p>
-        </div>
-      </div>
-      <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 reveal d2">
-        <div class="flex items-center justify-center mb-4">
-          <div class="rounded-full flex items-center justify-center" style="width:60px;height:60px;background:#0F2447">
-            <span class="font-bold" style="font-family:'Playfair Display',serif;font-size:.85rem;color:#D4AF37">EM</span>
-          </div>
-        </div>
-        <div class="text-center">
-          <h3 class="font-bold text-navy mb-1" style="font-family:'Playfair Display',serif;font-size:.95rem">Emmanuel Mensah</h3>
-          <p class="text-xs font-semibold mb-1" style="color:#D4AF37">Senior Advisor, Public Health Research</p>
-          <p class="text-xs italic mb-3" style="color:#9CA3AF">Centers for Disease Control and Prevention (CDC), USA</p>
-          <p class="text-xs leading-relaxed" style="color:#6B7280">Brings rigorous public health research experience to ART Ghana's proposal development and methodology standards.</p>
-        </div>
-      </div>
-    </div>
 
+      <!-- Card 3 -->
+      <div class="md:col-span-2 bg-white rounded-xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 reveal d2">
+        <div class="w-20 h-20 rounded-full bg-gray-300 flex items-center justify-center mx-auto mb-4">
+          <span class="font-bold text-sm" style="font-family:'Playfair Display',serif;color:#0d1b2a">PK</span>
+        </div>
+        <div class="text-center">
+          <h3 class="font-bold text-navy mb-1" style="font-family:'Playfair Display',serif;font-size:1rem">Dr. Patrick Kudjo</h3>
+          <p class="text-sm font-medium mb-1" style="color:#D4AF37">Quality Control Advisor</p>
+          <p class="text-xs italic" style="color:#6B7280">GTUC</p>
+        </div>
+      </div>
+
+      <!-- Card 4 (centered, start at col 2) -->
+      <div class="md:col-start-2 md:col-span-2 bg-white rounded-xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 reveal">
+        <div class="w-20 h-20 rounded-full bg-gray-300 flex items-center justify-center mx-auto mb-4">
+          <span class="font-bold text-sm" style="font-family:'Playfair Display',serif;color:#0d1b2a">EM</span>
+        </div>
+        <div class="text-center">
+          <h3 class="font-bold text-navy mb-1" style="font-family:'Playfair Display',serif;font-size:1rem">Emmanuel Mensah</h3>
+          <p class="text-sm font-medium mb-1" style="color:#D4AF37">Proposal Strategist</p>
+          <p class="text-xs italic" style="color:#6B7280">CDC USA</p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="md:col-span-2 bg-white rounded-xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 reveal d1">
+        <div class="w-20 h-20 rounded-full bg-gray-300 flex items-center justify-center mx-auto mb-4">
+          <span class="font-bold text-sm" style="font-family:'Playfair Display',serif;color:#0d1b2a">SM</span>
+        </div>
+        <div class="text-center">
+          <h3 class="font-bold text-navy mb-1" style="font-family:'Playfair Display',serif;font-size:1rem">Prof. Solomon Mensah</h3>
+          <p class="text-sm font-medium mb-1" style="color:#D4AF37">Chief Research Strategist</p>
+          <p class="text-xs italic" style="color:#6B7280">University of Ghana</p>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -475,6 +420,8 @@ document.addEventListener('DOMContentLoaded',function(){
           <li><a href="https://web-production-2ebb7.up.railway.app" target="_blank" class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Dashboard</a></li>
           <li><a href="https://web-production-2ebb7.up.railway.app/pages/register-client.html" target="_blank" class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Client Registration</a></li>
           <li><a href="https://web-production-2ebb7.up.railway.app/pages/register-consultant.html" target="_blank" class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Consultant Registration</a></li>
+          <li><a href="https://web-production-2ebb7.up.railway.app/tech/" target="_blank" class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Technology Portal</a></li>
+          <li><a href="https://web-production-2ebb7.up.railway.app/engineer/" target="_blank" class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Engineer Portal</a></li>
         </ul>
       </div>
 
@@ -487,6 +434,7 @@ document.addEventListener('DOMContentLoaded',function(){
           <li><a href="/defence"     class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Research Defence</a></li>
           <li><a href="/academy"     class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">ART Academy</a></li>
           <li><a href="/consultants" class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Consultant Programme</a></li>
+          <li><a href="/technology"  class="text-sm no-underline transition-colors duration-200 hover:text-white" style="color:rgba(255,255,255,0.6)">Technology Services</a></li>
         </ul>
       </div>
 
@@ -521,9 +469,9 @@ document.addEventListener('DOMContentLoaded',function(){
       <span class="text-lg leading-none">🎓</span>
       <span class="text-[10px] font-medium tab-label" style="color:rgba(255,255,255,0.5)">Students</span>
     </a>
-    <a href="/about"    class="bottom-tab flex flex-col items-center gap-0.5 px-3 py-1.5 no-underline" data-path="/about">
-      <span class="text-lg leading-none">📋</span>
-      <span class="text-[10px] font-medium tab-label" style="color:rgba(255,255,255,0.5)">About</span>
+    <a href="/technology" class="bottom-tab flex flex-col items-center gap-0.5 px-3 py-1.5 no-underline" data-path="/technology">
+      <span class="text-lg leading-none">💻</span>
+      <span class="text-[10px] font-medium tab-label" style="color:rgba(255,255,255,0.5)">Tech</span>
     </a>
     <a href="https://web-production-2ebb7.up.railway.app" target="_blank"
        class="bottom-tab flex flex-col items-center gap-0.5 px-3 py-1.5 no-underline">
