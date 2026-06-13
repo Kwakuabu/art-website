@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://artghana.up.railway.app/</loc>
+    <loc>https://artghana.org/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://artghana.up.railway.app/services</loc>
+    <loc>https://artghana.org/services</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://artghana.up.railway.app/students</loc>
+    <loc>https://artghana.org/students</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://artghana.up.railway.app/defence</loc>
+    <loc>https://artghana.org/defence</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://artghana.up.railway.app/academy</loc>
+    <loc>https://artghana.org/academy</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://artghana.up.railway.app/consultants</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://artghana.up.railway.app/technology</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://artghana.up.railway.app/about</loc>
+    <loc>https://artghana.org/consultants</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://artghana.up.railway.app/contact</loc>
+    <loc>https://artghana.org/technology</loc>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://artghana.org/about</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://artghana.org/contact</loc>
+    <priority>0.6</priority>
   </url>
 </urlset>

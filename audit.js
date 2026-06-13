@@ -6,21 +6,21 @@ const OUT = path.join(__dirname, 'test-results');
 if (!fs.existsSync(OUT)) fs.mkdirSync(OUT, { recursive: true });
 
 const WEBSITE_PAGES = [
-  { name: 'Home',        url: 'https://art-website-production-d8d8.up.railway.app/' },
-  { name: 'Services',    url: 'https://art-website-production-d8d8.up.railway.app/services' },
-  { name: 'Students',    url: 'https://art-website-production-d8d8.up.railway.app/students' },
-  { name: 'Defence',     url: 'https://art-website-production-d8d8.up.railway.app/defence' },
-  { name: 'Academy',     url: 'https://art-website-production-d8d8.up.railway.app/academy' },
-  { name: 'Consultants', url: 'https://art-website-production-d8d8.up.railway.app/consultants' },
-  { name: 'About',       url: 'https://art-website-production-d8d8.up.railway.app/about' },
-  { name: 'Contact',     url: 'https://art-website-production-d8d8.up.railway.app/contact' },
-  { name: 'Technology',  url: 'https://art-website-production-d8d8.up.railway.app/technology' },
+  { name: 'Home',        url: 'https://artghana.org/' },
+  { name: 'Services',    url: 'https://artghana.org/services' },
+  { name: 'Students',    url: 'https://artghana.org/students' },
+  { name: 'Defence',     url: 'https://artghana.org/defence' },
+  { name: 'Academy',     url: 'https://artghana.org/academy' },
+  { name: 'Consultants', url: 'https://artghana.org/consultants' },
+  { name: 'About',       url: 'https://artghana.org/about' },
+  { name: 'Contact',     url: 'https://artghana.org/contact' },
+  { name: 'Technology',  url: 'https://artghana.org/technology' },
 ];
 
 const PLATFORM_PAGES = [
-  { name: 'Platform-Login',       url: 'https://web-production-2ebb7.up.railway.app/' },
-  { name: 'Platform-ClientReg',   url: 'https://web-production-2ebb7.up.railway.app/pages/register-client.html' },
-  { name: 'Platform-ConsultReg',  url: 'https://web-production-2ebb7.up.railway.app/pages/register-consultant.html' },
+  { name: 'Platform-Login',       url: 'https://app.artghana.org/' },
+  { name: 'Platform-ClientReg',   url: 'https://app.artghana.org/pages/register-client.html' },
+  { name: 'Platform-ConsultReg',  url: 'https://app.artghana.org/pages/register-consultant.html' },
 ];
 
 const VIEWPORTS = [
@@ -211,7 +211,7 @@ async function auditPage(page, pageName, url, browserName, viewportName, isMobil
 
 async function checkCTAs(page, browserName, viewportName) {
   console.log(`\n── CTA check (${browserName} ${viewportName}) ──`);
-  await page.goto('https://art-website-production-d8d8.up.railway.app/', { waitUntil: 'networkidle', timeout: 30000 });
+  await page.goto('https://artghana.org/', { waitUntil: 'networkidle', timeout: 30000 });
   await page.waitForTimeout(1000);
 
   const ctaResults = await page.evaluate(() => {
@@ -226,7 +226,7 @@ async function checkCTAs(page, browserName, viewportName) {
   const expectedCTAs = [
     { label: 'Commission Research', expected: 'register-client.html?type=organisation' },
     { label: 'Get Research Support', expected: 'register-client.html?type=student' },
-    { label: 'Login', expected: 'web-production-2ebb7.up.railway.app' },
+    { label: 'Login', expected: 'app.artghana.org' },
   ];
 
   for (const cta of expectedCTAs) {
